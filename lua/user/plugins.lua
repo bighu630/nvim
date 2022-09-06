@@ -79,8 +79,8 @@ return packer.startup(function(use)
   use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
   use "fatih/vim-go"
   -- makedown文档
-  use "iamcco/mathjax-support-for-mkdp"
-  use "iamcco/markdown-preview.vim"
+  -- use "iamcco/mathjax-support-for-mkdp"
+  -- use "iamcco/markdown-preview.vim"
 
   use "terryma/vim-multiple-cursors"  -- NOTE:vim下的多行编辑插件https://github.com/terryma/vim-multiple-cursors
 

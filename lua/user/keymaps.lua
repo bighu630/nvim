@@ -182,4 +182,3 @@ keymap("n", "=", "<Cmd>lua vim.diagnostic.goto_prev({ border = 'rounded' })<CR>"
 keymap("n", "<space><F9>", "<cmd>FloatermToggle<cr>", opts)
 -- godoc
 keymap("n", "B", "godoc", opts)
-keymap("n", "<space><F10>", "<cmd>MarkdownPreview<CR>", opts)
