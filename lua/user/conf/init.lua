@@ -26,6 +26,7 @@ M.setup = function()
     "nvim-biscuits",
     "nvim_context_vt",
     "filetype",
+    "translator",
   }
 
   local helper_set = {}

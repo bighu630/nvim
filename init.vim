@@ -1,4 +1,18 @@
-vim.cmd [[
+" lua 管理lua脚本
+lua << EOF
+require "user.options"
+require "user.keymaps"
+require "user.plugins"
+require "user.colorscheme"
+require "user.utils"
+
+require "user.conf"
+require "user.lsp"
+require "user.dap"
+EOF
+
+" vim脚本
+let g:translator_default_engines = ['trans']
 let g:rainbow_active = 1
 let g:rbpt_colorpairs = [
                         \ ['brown',       'RoyalBlue3'],
@@ -22,5 +36,4 @@ let g:rbpt_loadcmd_toggle = 0
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-]]
 

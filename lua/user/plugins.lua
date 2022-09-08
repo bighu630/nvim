@@ -77,7 +77,7 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
-  use "fatih/vim-go"
+  -- use "fatih/vim-go"
   -- makedown文档
   -- use "iamcco/mathjax-support-for-mkdp"
   -- use "iamcco/markdown-preview.vim"
@@ -302,7 +302,9 @@ return packer.startup(function(use)
     opt = true,
     cmd = "PreviewMarkdown",
   } -- NOTE:: glow required : https://github.com/charmbracelet/glow
-  use "voldikss/vim-translator"
+  use {
+    "voldikss/vim-translator",
+  }
   use "mtdl9/vim-log-highlighting"
   use "Pocco81/HighStr.nvim"
   -- use "dstein64/vim-startuptime"

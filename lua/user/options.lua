@@ -64,3 +64,33 @@ vim.cmd [[set t_Co=256]]
 -- vim 中的let设置
 vim.g['go_doc_keywordprg_enabled'] = 0
 vim.g['go_doc_keywordprg_enabled'] = 0
+vim.g['translator_default_engines'] = "['trans']"
+
+vim.cmd(
+  [[
+    let g:translator_default_engines = ['trans']
+    let g:rainbow_active = 1
+    let g:rbpt_colorpairs = [
+                            \ ['brown',       'RoyalBlue3'],
+                            \ ['Darkblue',    'SeaGreen3'],
+                            \ ['darkgray',    'DarkOrchid3'],
+                            \ ['darkgreen',   'firebrick3'],
+                            \ ['darkcyan',    'RoyalBlue3'],
+                            \ ['darkred',     'SeaGreen3'],
+                            \ ['darkmagenta', 'DarkOrchid3'],
+                            \ ['brown',       'firebrick3'],
+                            \ ['gray',        'RoyalBlue3'],
+                            \ ['darkmagenta', 'DarkOrchid3'],
+                            \ ['Darkblue',    'firebrick3'],
+                            \ ['darkgreen',   'RoyalBlue3'],
+                            \ ['darkcyan',    'SeaGreen3'],
+                            \ ['darkred',     'DarkOrchid3'],
+                            \ ['red',         'firebrick3'],
+                            \ ]
+    let g:rbpt_max = 16
+    let g:rbpt_loadcmd_toggle = 0
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+]]
+)
