@@ -13,7 +13,7 @@ vim.cmd(
   let g:gen_tags#gtags_bin='/usr/bin/gtags'
   let g:gen_tags#global_bin='/usr/bin/global'
   let g:gen_tags#ctags_opts='-c --verbose'
-  let g:gen_tags#gtags_auto_gen=1
+  let g:gen_tags#gtags_auto_gen=0
   let g:gen_tags#verbose=0
 ]]
 )

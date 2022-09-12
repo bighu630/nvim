@@ -77,6 +77,9 @@ packer.init {
 return packer.startup(function(use)
   -- My plugins here
   use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
+  -- 括号插件
+  use "yaocccc/nvim-hlchunk"
+
   -- use "fatih/vim-go"
   -- makedown文档
   -- use "iamcco/mathjax-support-for-mkdp"
