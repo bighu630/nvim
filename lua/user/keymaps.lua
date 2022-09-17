@@ -137,8 +137,8 @@ keymap('n', '<leader>j', ']c', opts)
 keymap('n', '<leader>k', '[c', opts)
 
 -- unit test
-keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
-keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
+-- keymap("n", "<leader>rr", "<cmd>UltestNearest<cr>", opts)
+-- keymap("n", "<leader>rd", "<cmd>UltestDebugNearest<cr>", opts)
 
 -- comment
 keymap("n", "gcf", "<cmd>Dox<cr>", opts)

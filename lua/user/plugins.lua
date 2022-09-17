@@ -76,9 +76,9 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
+  -- use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
   -- 括号插件
-  use "yaocccc/nvim-hlchunk"
+  -- use "yaocccc/nvim-hlchunk"
 
   -- use "fatih/vim-go"
   -- makedown文档
@@ -127,7 +127,7 @@ return packer.startup(function(use)
   -- Telescope
   use {
     "nvim-telescope/telescope.nvim",
-    tag = "nvim-0.7",
+    --tag = "nvim-0.8",
   }
   use {
     "nvim-telescope/telescope-fzf-native.nvim",
