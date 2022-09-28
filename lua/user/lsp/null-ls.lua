@@ -26,8 +26,8 @@ null_ls.setup({
   -- you can reuse a shared lspconfig on_attach callback here
   on_attach = function(client)
       -- NOTE: 如果想要禁止某种语言在save时format，可以添加判定
-      -- if client.name == "xxx" then
-      --
+      -- if client.name == "gofmt" then
+
       -- end
       -- auto format when save file
     if client.resolved_capabilities.document_formatting then

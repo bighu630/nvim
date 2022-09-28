@@ -1,6 +1,6 @@
 -- cursor color: #61AFEF
 local colorscheme = "catppuccin"
--- local colorscheme = "darkplus"
+-- local colorscheme = "snazzy"
 -- local colorscheme = "github_light"
 -- require "user.conf.github-nvim-theme"
 
