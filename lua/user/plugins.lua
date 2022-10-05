@@ -76,7 +76,9 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- My plugins here
-  use "xiyaowong/nvim-transparent"  -- NOTE: vim: translator
+  use { "xiyaowong/nvim-transparent",
+
+}  -- NOTE: vim: translator
   -- 括号插件
   -- use "yaocccc/nvim-hlchunk"
 

@@ -36,4 +36,3 @@ let g:rbpt_loadcmd_toggle = 0
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
