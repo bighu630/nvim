@@ -10,12 +10,12 @@ local plug_map = {
 	["n|gb"] = map_cr("BufferLinePick"):with_noremap():with_silent(),
 	["n|gn"] = map_cr("BufferLinePickClose"):with_noremap():with_silent(),
 	-- ["n|<Space>cl"] = map_cr("BufferLineCloseLeft"):with_noremap(),
-    ["n|<C-1>"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
-    ["n|<C-2>"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent(),
-    ["n|<C-3>"] = map_cr("BufferLineGoToBuffer 3"):with_noremap():with_silent(),
-    ["n|<C-4>"] = map_cr("BufferLineGoToBuffer 4"):with_noremap():with_silent(),
-    ["n|<C-5>"] = map_cr("BufferLineGoToBuffer 5"):with_noremap():with_silent(),
-    ["n|<C-6>"] = map_cr("BufferLineGoToBuffer 6"):with_noremap():with_silent(),
+	["n|<C-1>"] = map_cr("BufferLineGoToBuffer 1"):with_noremap():with_silent(),
+	["n|<C-2>"] = map_cr("BufferLineGoToBuffer 2"):with_noremap():with_silent(),
+	["n|<C-3>"] = map_cr("BufferLineGoToBuffer 3"):with_noremap():with_silent(),
+	["n|<C-4>"] = map_cr("BufferLineGoToBuffer 4"):with_noremap():with_silent(),
+	["n|<C-5>"] = map_cr("BufferLineGoToBuffer 5"):with_noremap():with_silent(),
+	["n|<C-6>"] = map_cr("BufferLineGoToBuffer 6"):with_noremap():with_silent(),
 	["n|<S-e>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
 	["n|<S-r>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	-- Packer
@@ -93,8 +93,8 @@ local plug_map = {
 	-- ["n|<leader>k"] = map_cu("HopLine"):with_noremap(),
 	-- ["n|<leader>c"] = map_cu("HopChar1"):with_noremap(),
 	-- ["n|<leader>cc"] = map_cu("HopChar2"):with_noremap(),
-    -- Plugin leap
-    ["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
+	-- Plugin leap
+	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
 	["n|<Leader>s"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
 
 	-- Plugin EasyAlign
@@ -113,7 +113,9 @@ local plug_map = {
 	["n|<F5>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
 	["n|<leader>dr"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
 	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
-	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('modules.editor.dap-util').store_breakpoints(true)"):with_noremap():with_silent(),
+	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('modules.editor.dap-util').store_breakpoints(true)")
+		:with_noremap()
+		:with_silent(),
 	["n|<leader>dB"] = map_cr("lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))")
 		:with_noremap()
 		:with_silent(),
@@ -152,10 +154,10 @@ local plug_map = {
 	["n|<F2>"] = map_cr("SymbolsOutline"):with_noremap():with_silent(),
 	["n|<C-t>"] = map_cr("transparentToggle"):with_noremap():with_silent(),
 
-    -- 调整窗口
-    ["n|<C-,"] = map_cu("vertical res -3"):with_noremap(),
-    ["n|<C-."] = map_cu("vertical res +3"):with_noremap(),
-    ["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
+	-- 调整窗口
+	["n|<C-,"] = map_cu("vertical res -3"):with_noremap(),
+	["n|<C-."] = map_cu("vertical res +3"):with_noremap(),
+	["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
 	-- telescope
 }
 

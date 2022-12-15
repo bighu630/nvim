@@ -115,7 +115,7 @@ function config.edge()
 end
 
 -- function config.tokyon()
---    
+--
 -- end
 
 function config.nord()
@@ -523,7 +523,7 @@ function config.lualine()
 		options = {
 			icons_enabled = true,
 			theme = "catppuccin",
-            -- theme = "tokyonight",
+			-- theme = "tokyonight",
 			disabled_filetypes = {},
 			component_separators = "|",
 			section_separators = { left = "", right = "" },
@@ -573,7 +573,7 @@ function config.lualine()
 			"toggleterm",
 			"fugitive",
 			"symbols-outline",
-            "nvim-dap-ui"
+			"nvim-dap-ui",
 		},
 	})
 end
@@ -644,18 +644,18 @@ function config.nvim_tree()
 		create_in_closed_folder = false,
 		respect_buf_cwd = true,
 		auto_reload_on_write = false,
-		disable_netrw = true,
+		disable_netrw = false,
 		hijack_cursor = true,
 		hijack_netrw = true,
 		hijack_unnamed_buffer_when_opening = true,
 		ignore_buffer_on_setup = false,
-		open_on_setup = true,
-		open_on_setup_file = true,
-		open_on_tab = true,
+		open_on_setup = false,
+		open_on_setup_file = false,
+		open_on_tab = false,
 		sort_by = "name",
 		update_cwd = false,
 		view = {
-			adaptive_size = false,
+			adaptive_size = true,
 			centralize_selection = false,
 			width = 30,
 			side = "left",
@@ -807,7 +807,7 @@ function config.nvim_tree()
 			},
 			open_file = {
 				quit_on_open = false,
-				resize_window = false,
+				resize_window = true,
 				window_picker = {
 					enable = true,
 					chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
@@ -870,8 +870,10 @@ end
 function config.nvim_bufferline()
 	local opts = {
 		options = {
-			modified_icon = "✥",
+			-- modified_icon = "✥",
+			modified_icon = "●",
 			buffer_close_icon = "",
+			close_icon = "",
 			left_trunc_marker = "",
 			right_trunc_marker = "",
 			max_name_length = 12,
@@ -893,10 +895,10 @@ function config.nvim_bufferline()
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
 			end,
-            numbers = function(opts)
-                -- return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
-                return string.format('%s', opts.ordinal)
-            end,
+			numbers = function(opts)
+				-- return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+				return string.format("%s", opts.ordinal)
+			end,
 		},
 		-- Change bufferline's highlights here! See `:h bufferline-highlights` for detailed explanation.
 		-- Note: If you use catppuccin then modify the colors below!
@@ -1080,6 +1082,5 @@ end
 -- 		exclude = {}, -- table: groups you don't want to clear
 -- 	})
 -- end
-
 
 return config
