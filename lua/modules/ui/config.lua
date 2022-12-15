@@ -655,7 +655,7 @@ function config.nvim_tree()
 		sort_by = "name",
 		update_cwd = false,
 		view = {
-			adaptive_size = true,
+			adaptive_size = false,
 			centralize_selection = false,
 			width = 30,
 			side = "left",

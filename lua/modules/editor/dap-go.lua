@@ -29,7 +29,7 @@ dap.adapters.go = function(callback, config)
 	-- Wait for delve to start
 	vim.defer_fn(function()
 		callback({ type = "server", host = "127.0.0.1", port = port })
-	end, 300)
+	end, 1000)
 end
 
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
@@ -40,6 +40,20 @@ dap.configurations.go = {
 		request = "launch",
 		cwd = "${workspaceFolder}",
 		program = "${file}",
+		args = function()
+			local input = vim.fn.input("Input args: ")
+			return require("modules.editor.dap-util").str2argtable(input)
+		end,
+	},
+	{
+		type = "go",
+		name = "Debug for Project",
+		request = "launch",
+		cwd = "${workspaceFolder}",
+		program = function()
+			local path = vim.fn.expand("%:h")
+			return "./" .. path
+		end,
 		args = function()
 			local input = vim.fn.input("Input args: ")
 			return require("modules.editor.dap-util").str2argtable(input)

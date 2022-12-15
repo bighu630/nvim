@@ -41,6 +41,12 @@ M.str2argtable = function(str)
 	return arg_list
 end
 
+M.debug_file_path = function(str, str2)
+	local len = string.len(str)
+	local file, nill = string.gsub(str2, str, ".")
+	return file
+end
+
 -- persist breakpoint
 local bp_base_dir = os.getenv("HOME") .. "/.cache/dap-breakpoint/"
 local breakpoints = require("dap.breakpoints")
