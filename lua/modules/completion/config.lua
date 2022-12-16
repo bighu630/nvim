@@ -11,7 +11,7 @@ function config.lspsaga()
 			Error = " ",
 			Warn = " ",
 			Info = " ",
-			Hint = " ",
+			Hint = " ",
 		}
 		for type, icon in pairs(diagnostic_icons) do
 			local hl = "DiagnosticSign" .. type
@@ -42,7 +42,8 @@ function config.lspsaga()
 	local colors = get_palette()
 
 	require("lspsaga").init_lsp_saga({
-		diagnostic_header = { " ", " ", "  ", " " },
+		-- diagnostic_header = { " ", " ", "  ", " " },
+		diagnostic_header = { " ", " ", "  "," "},
 		show_outline = {
 			win_position = "right",
 			--set special filetype win that outline window split.like NvimTree neotree

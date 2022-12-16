@@ -41,7 +41,7 @@ local function load_options()
 		infercase = true,
 		incsearch = true,
 		wrapscan = true,
-        wrap = true,
+		wrap = true,
 		complete = ".,w,b,k",
 		inccommand = "nosplit",
 		grepformat = "%f:%l:%c:%m",
@@ -97,8 +97,11 @@ local function load_options()
 		linebreak = true,
 		number = true,
 		relativenumber = true,
-		foldenable = true,
-        foldmethod = "expr",
+		-- foldenable = true,
+		foldmethod = "manual", -- fold with nvim_treesitter
+		foldexpr = "nvim_treesitter#foldexpr()",
+		foldenable = false, -- no fold to be applied when open a file
+		foldlevel = 99, -- if not set this, fold will be everywhere
 		signcolumn = "yes",
 		conceallevel = 0,
 		concealcursor = "niv",

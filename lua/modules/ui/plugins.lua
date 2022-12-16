@@ -66,9 +66,9 @@ ui["j-hui/fidget.nvim"] = {
 	event = "BufReadPost",
 	config = conf.fidget,
 }
--- ui["xiyaowong/nvim-transparent"] = {
--- 	opt = false,
--- 	config = conf.transparent,
--- }
+ui["xiyaowong/nvim-transparent"] = {
+	opt = false,
+	config = conf.transparent,
+}
 
 return ui

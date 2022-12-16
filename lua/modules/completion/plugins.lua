@@ -24,7 +24,7 @@ completion["williamboman/mason.nvim"] = {
 	},
 }
 completion["glepnir/lspsaga.nvim"] = {
-	opt = true,
+	opt = false,
 	after = "nvim-lspconfig",
 	config = conf.lspsaga,
 }

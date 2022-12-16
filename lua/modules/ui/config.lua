@@ -194,7 +194,7 @@ function config.catppuccin()
 
 	require("catppuccin").setup({
 		dim_inactive = {
-			enabled = false,
+			enabled = true,
 			-- Dim inactive splits/windows/buffers.
 			-- NOT recommended if you use old palette (a.k.a., mocha).
 			shade = "dark",
@@ -426,7 +426,7 @@ function config.notify()
 		icons = {
 			ERROR = "",
 			WARN = "",
-			INFO = "",
+			-- INFO = "",
 			DEBUG = "",
 			TRACE = "✎",
 		},
@@ -826,7 +826,7 @@ function config.nvim_tree()
 			show_on_dirs = false,
 			debounce_delay = 50,
 			icons = {
-				hint = "",
+				-- hint = "",
 				info = "",
 				warning = "",
 				error = "",
@@ -884,7 +884,7 @@ function config.nvim_bufferline()
 			show_tab_indicators = true,
 			diagnostics = "nvim_lsp",
 			always_show_bufferline = true,
-			separator_style = "thin",
+			-- separator_style = "padded_slant",
 			offsets = {
 				{
 					filetype = "NvimTree",
@@ -892,6 +892,12 @@ function config.nvim_bufferline()
 					text_align = "center",
 				},
 			},
+			hover = {
+				enabled = true,
+				delay = 200,
+				reveal = { "close" },
+			},
+
 			diagnostics_indicator = function(count)
 				return "(" .. count .. ")"
 			end,
@@ -1063,24 +1069,24 @@ function config.fidget()
 	})
 end
 
--- function config.transparent()
--- 	require("transparent").setup({
--- 		enable = false, -- boolean: enable transparent
--- 		extra_groups = { -- table/string: additional groups that should be cleared
--- 			-- In particular, when you set it to 'all', that means all available groups
--- 			-- "all",
---
--- 			-- example of akinsho/nvim-bufferline.lua
--- 			"BufferLineTabClose",
--- 			"BufferlineBufferSelected",
--- 			"BufferLineFill",
--- 			"BufferLineBackground",
--- 			"BufferLineSeparator",
--- 			"BufferLineIndicatorSelected",
--- 		},
---
--- 		exclude = {}, -- table: groups you don't want to clear
--- 	})
--- end
+function config.transparent()
+	require("transparent").setup({
+		enable = true, -- boolean: enable transparent
+		extra_groups = { -- table/string: additional groups that should be cleared
+			-- In particular, when you set it to 'all', that means all available groups
+			-- "all",
+
+			-- example of akinsho/nvim-bufferline.lua
+			"BufferLineTabClose",
+			"BufferlineBufferSelected",
+			"BufferLineFill",
+			"BufferLineBackground",
+			"BufferLineSeparator",
+			"BufferLineIndicatorSelected",
+		},
+
+		exclude = {}, -- table: groups you don't want to clear
+	})
+end
 
 return config
