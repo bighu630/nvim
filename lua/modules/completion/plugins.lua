@@ -61,19 +61,19 @@ completion["windwp/nvim-autopairs"] = {
 	after = "nvim-cmp",
 	config = conf.autopairs,
 }
-completion["zbirenbaum/copilot.lua"] = {
-	event = "VimEnter",
-	config = function()
-		vim.defer_fn(function()
-			require("copilot").setup()
-		end, 100)
-	end,
-}
-completion["zbirenbaum/copilot-cmp"] = {
-	after = "copilot.lua",
-	config = function()
-		require("copilot_cmp").setup()
-	end,
-}
+-- completion["zbirenbaum/copilot.lua"] = {
+-- 	event = "VimEnter",
+-- 	config = function()
+-- 		vim.defer_fn(function()
+-- 			require("copilot").setup()
+-- 		end, 100)
+-- 	end,
+-- }
+-- completion["zbirenbaum/copilot-cmp"] = {
+-- 	after = "copilot.lua",
+-- 	config = function()
+-- 		require("copilot_cmp").setup()
+-- 	end,
+-- }
 
 return completion

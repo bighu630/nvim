@@ -83,5 +83,8 @@ tools["folke/todo-comments.nvim"] = {
 	requires = "nvim-lua/plenary.nvim",
 	config = conf.todo,
 }
+tools["lambdalisue/suda.vim"] = {
+	opt = false,
+}
 
 return tools

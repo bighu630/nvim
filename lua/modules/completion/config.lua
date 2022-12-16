@@ -171,8 +171,8 @@ function config.cmp()
 		sorting = {
 			priority_weight = 2,
 			comparators = {
-				require("copilot_cmp.comparators").prioritize,
-				require("copilot_cmp.comparators").score,
+				-- require("copilot_cmp.comparators").prioritize,
+				-- require("copilot_cmp.comparators").score,
 				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
@@ -189,7 +189,7 @@ function config.cmp()
 				mode = "symbol_text",
 				maxwidth = 50,
 				ellipsis_char = "...",
-				symbol_map = { Copilot = "" },
+				-- symbol_map = { Copilot = "" },
 			}),
 		},
 		-- You can set mappings if you want
@@ -237,7 +237,7 @@ function config.cmp()
 			{ name = "orgmode" },
 			{ name = "buffer" },
 			{ name = "latex_symbols" },
-			{ name = "copilot" },
+			-- { name = "copilot" },
 			-- { name = "cmp_tabnine" },
 		},
 	})

@@ -19,10 +19,10 @@ local plug_map = {
 	["n|<S-e>"] = map_cr("BufferLineCyclePrev"):with_noremap():with_silent(),
 	["n|<S-r>"] = map_cr("BufferLineCycleNext"):with_noremap():with_silent(),
 	-- Packer
-	["n|<leader>ps"] = map_cr("PackerSync"):with_silent():with_noremap():with_nowait(),
-	["n|<leader>pu"] = map_cr("PackerUpdate"):with_silent():with_noremap():with_nowait(),
-	["n|<leader>pi"] = map_cr("PackerInstall"):with_silent():with_noremap():with_nowait(),
-	["n|<leader>pc"] = map_cr("PackerClean"):with_silent():with_noremap():with_nowait(),
+	-- ["n|<leader>ps"] = map_cr("PackerSync"):with_silent():with_noremap():with_nowait(),
+	-- ["n|<leader>pu"] = map_cr("PackerUpdate"):with_silent():with_noremap():with_nowait(),
+	-- ["n|<leader>pi"] = map_cr("PackerInstall"):with_silent():with_noremap():with_nowait(),
+	-- ["n|<leader>pc"] = map_cr("PackerClean"):with_silent():with_noremap():with_nowait(),
 	-- Lsp mapp work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
@@ -45,14 +45,14 @@ local plug_map = {
 	["n|<C-\\>"] = map_cr([[execute v:count . "ToggleTerm direction=horizontal"]]):with_noremap():with_silent(),
 	["i|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=horizontal<CR>"):with_noremap():with_silent(),
 	["t|<C-\\>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
-	["n|<C-w>t"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
-	["i|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
-	["t|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
+	-- ["n|<C-w>t"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
+	-- ["i|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
+	-- ["t|<C-w>t"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
 	["n|<F9>"] = map_cr([[execute v:count . "ToggleTerm direction=vertical"]]):with_noremap():with_silent(),
 	["i|<F9>"] = map_cmd("<Esc><Cmd>ToggleTerm direction=vertical<CR>"):with_noremap():with_silent(),
 	["t|<F9>"] = map_cmd("<Esc><Cmd>ToggleTerm<CR>"):with_noremap():with_silent(),
-	["n|<leader>g"] = map_cr("lua toggle_lazygit()"):with_noremap():with_silent(),
-	["t|<leader>g"] = map_cmd("<Esc><Cmd>lua toggle_lazygit()<CR>"):with_noremap():with_silent(),
+	-- ["n|<leader>g"] = map_cr("lua toggle_lazygit()"):with_noremap():with_silent(),
+	-- ["t|<leader>g"] = map_cmd("<Esc><Cmd>lua toggle_lazygit()<CR>"):with_noremap():with_silent(),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
 	-- Plugin trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent(),
@@ -103,15 +103,15 @@ local plug_map = {
 	-- Plugin MarkdownPreview
 	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin auto_session
-	["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent(),
-	["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),
-	["n|<leader>sd"] = map_cu("DeleteSession"):with_noremap():with_silent(),
+	-- ["n|<leader>ss"] = map_cu("SaveSession"):with_noremap():with_silent(),
+	-- ["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),
+	-- ["n|<leader>sd"] = map_cu("DeleteSession"):with_noremap():with_silent(),
 	-- Plugin SnipRun
 	["v|<leader>rf"] = map_cr("SnipRun"):with_noremap():with_silent(),
 	["n|<leader>rf"] = map_cr("%SnipRun"):with_noremap():with_silent(),
 	-- Plugin dap
 	["n|<F5>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
-	["n|<leader>dr"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
+	-- ["n|<leader>dr"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
 	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
 	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('modules.editor.dap-util').store_breakpoints(true)")
 		:with_noremap()
@@ -123,11 +123,11 @@ local plug_map = {
 	["n|<leader>drc"] = map_cr("lua require('dap').run_to_cursor()"):with_noremap():with_silent(),
 	["n|<leader>drl"] = map_cr("lua require('dap').run_last()"):with_noremap():with_silent(),
 	["n|<F6>"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
-	["n|<leader>dv"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
+	-- ["n|<leader>dv"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
 	["n|<F7>"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
-	["n|<leader>di"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
+	-- ["n|<leader>di"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
 	["n|<F8>"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
-	["n|<leader>do"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
+	-- ["n|<leader>do"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
 	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
 	["o|m"] = map_cu([[lua require('tsht').nodes()]]):with_silent(),
 	["c|Q"] = map_cu([[%SnipRun]]):with_silent(),
@@ -155,10 +155,9 @@ local plug_map = {
 	["n|<C-t>"] = map_cr("transparentToggle"):with_noremap():with_silent(),
 
 	-- 调整窗口
-	["n|<C-,"] = map_cu("vertical res -3"):with_noremap(),
-	["n|<C-."] = map_cu("vertical res +3"):with_noremap(),
+	["n|<C-,>"] = map_cu("vertical res -3"):with_noremap(),
+	["n|<C-.>"] = map_cu("vertical res +3"):with_noremap(),
 	["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
-	-- telescope
 }
 
 bind.nvim_load_mapping(plug_map)

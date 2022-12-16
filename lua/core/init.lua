@@ -115,7 +115,8 @@ local load_mysefconf = function()
     autocmd BufEnter *  :silent !fcitx5-remote -c 
     autocmd BufLeave *  :silent !fcitx5-remote -c 
 
-    autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | execute "normal! g'\"" | endif
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
     autocmd VimLeave !pkill gopls
 
     au BufNewFile,BufRead config set filetype=i3config
