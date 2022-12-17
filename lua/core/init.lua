@@ -49,7 +49,12 @@ local leader_map = function()
 end
 
 local neovide_config = function()
-	vim.cmd([[set guifont=JetBrainsMono\ Nerd\ Font:h15]])
+	vim.cmd([[
+    set guifont=JetBrainsMono\ Nerd\ Font:h7.5
+    let g:neovide_floating_blur_amount_x = 2.0
+    let g:neovide_floating_blur_amount_y = 2.0
+    ]])
+	-- vim.cmd([[set guifont=Cascadia\ Code:h7]])
 	vim.g.neovide_refresh_rate = 120
 	vim.g.neovide_cursor_vfx_mode = "railgun"
 	vim.g.neovide_no_idle = true
@@ -60,6 +65,9 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
 	vim.g.neovide_cursor_vfx_particle_speed = 20.0
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
+	vim.g.neovide_transparency = 0.8
+	vim.g.transparency = 0.8
+	-- vim.g.neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
 end
 
 -- local check_conda = function()
