@@ -203,7 +203,7 @@ end
 --     })
 -- end
 function config.lang_java()
-	local c = {
+	local conf = {
 		cmd = {
 			"java",
 			"-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -232,7 +232,7 @@ function config.lang_java()
 			bundles = {},
 		},
 	}
-	require("jdtls").start_or_attach(c)
+	require("jdtls").start_or_attach(conf)
 end
 
 return config
