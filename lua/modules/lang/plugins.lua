@@ -26,13 +26,13 @@ lang["iamcco/markdown-preview.nvim"] = {
 }
 lang["chrisbra/csv.vim"] = { opt = true, ft = "csv" }
 lang["mfussenegger/nvim-jdtls"] = {
-    opt = true,
-    ft = "java",
-    config = conf.lang_java,
+	opt = true,
+	ft = "java",
+	config = conf.lang_java,
 }
 
-lang["HiPhish/gradle.nvim"] = {
-    opt = true
-}
-
+-- lang["HiPhish/gradle.nvim"] = {
+--     opt = true
+-- }
+--
 return lang
