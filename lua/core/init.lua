@@ -40,6 +40,8 @@ local disable_distribution_plugins = function()
 	vim.g.did_load_2html_plugin = 1
 	vim.g.did_load_logiPat = 1
 	vim.g.did_load_rrhelper = 1
+    vim.g.load_perl_provider=0
+    vim.g.load_ruby_provider=0
 end
 
 local leader_map = function()
@@ -65,8 +67,8 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
 	vim.g.neovide_cursor_vfx_particle_speed = 20.0
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
-	vim.g.neovide_transparency = 0.8
-	vim.g.transparency = 0.8
+	vim.g.neovide_transparency = 0.6
+	vim.g.transparency = 0.6
 	-- vim.g.neovide_background_color = '#0f1117'.printf('%x', float2nr(255 * g:transparency))
 end
 

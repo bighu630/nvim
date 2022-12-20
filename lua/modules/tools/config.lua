@@ -860,7 +860,7 @@ function config.symbols_outline()
 			TypeParameter = { icon = "𝙏", hl = "TSParameter" },
 		},
 	}
-	require("symbols-outline").setup()
+	require("symbols-outline").setup(opts)
 end
 
 function config.todo()

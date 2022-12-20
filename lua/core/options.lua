@@ -98,7 +98,7 @@ local function load_options()
 		number = true,
 		relativenumber = true,
 		-- foldenable = true,
-		foldmethod = "manual", -- fold with nvim_treesitter
+		foldmethod = "expr", -- fold with nvim_treesitter
 		foldexpr = "nvim_treesitter#foldexpr()",
 		foldenable = false, -- no fold to be applied when open a file
 		foldlevel = 99, -- if not set this, fold will be everywhere

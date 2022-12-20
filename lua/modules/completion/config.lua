@@ -43,7 +43,7 @@ function config.lspsaga()
 
 	require("lspsaga").init_lsp_saga({
 		-- diagnostic_header = { " ", " ", "  ", " " },
-		diagnostic_header = { " ", " ", "  "," "},
+		diagnostic_header = { " ", " ", "  ", " " },
 		show_outline = {
 			win_position = "right",
 			--set special filetype win that outline window split.like NvimTree neotree
@@ -233,11 +233,11 @@ function config.cmp()
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
-			{ name = "spell" },
-			{ name = "tmux" },
+			-- { name = "spell" },
+			-- { name = "tmux" },
 			{ name = "orgmode" },
 			{ name = "buffer" },
-			{ name = "latex_symbols" },
+			-- { name = "latex_symbols" },
 			-- { name = "copilot" },
 			-- { name = "cmp_tabnine" },
 		},
