@@ -105,6 +105,7 @@ local function load_options()
 		signcolumn = "yes",
 		conceallevel = 0,
 		concealcursor = "niv",
+		foldmethod = "expr", -- fold with nvim_treesitter
 
 		-- add by myself
 	}
