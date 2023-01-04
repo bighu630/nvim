@@ -95,7 +95,7 @@ local plug_map = {
 	-- ["n|<leader>cc"] = map_cu("HopChar2"):with_noremap(),
 	-- Plugin leap
 	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
-	["n|<Leader>s"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
+	["n|<S-s>"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
 
 	-- Plugin EasyAlign
 	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
@@ -145,7 +145,7 @@ local plug_map = {
 	["n|<S-t>"] = map_cr("TranslateW"):with_silent():with_noremap(),
 	["v|<S-t>"] = map_cr("TranslateW"):with_silent():with_noremap(),
 
-	["n|<S-s>"] = map_cr("w"):with_noremap():with_silent(),
+	-- ["n|<S-s>"] = map_cr("w"):with_noremap():with_silent(),
 	["i|<C-j>"] = map_cmd("<down>"):with_noremap():with_silent(),
 	["i|<C-k>"] = map_cmd("<up>"):with_noremap():with_silent(),
 	["i|<C-l>"] = map_cmd("<right>"):with_noremap():with_silent(),

@@ -313,7 +313,7 @@ function config.mason_install()
 		-- if set to true this will check each tool for updates. If updates
 		-- are available the tool will be updated.
 		-- Default: false
-		auto_update = false,
+		auto_update = true,
 
 		-- automatically install / update on startup. If set to false nothing
 		-- will happen on startup. You can use `:MasonToolsUpdate` to install
