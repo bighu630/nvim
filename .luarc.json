@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.diagnostics.disable": [
+        "deprecated",
+        "unused-local",
+        "duplicate-index",
+        "redefined-local",
+        "need-check-nil",
+        "missing-return",
+        "return-type-mismatch",
+        "different-requires"
+    ],
+    "Lua.diagnostics.globals": [
+        "vim",
+        "packer_plugins",
+        "require",
+        "error",
+        "tostring",
+        "new_maker"
+    ]
+}
