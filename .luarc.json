@@ -16,6 +16,10 @@
         "require",
         "error",
         "tostring",
-        "new_maker"
+        "new_maker",
+        "lfs"
+    ],
+    "workspace.library": [
+        "${3rd}/lfs/library"
     ]
 }

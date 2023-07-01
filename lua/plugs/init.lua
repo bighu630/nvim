@@ -20,6 +20,28 @@ return {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+			{
+				-- only needed if you want to use the commands with "_with_window_picker" suffix
+				"s1n7ax/nvim-window-picker",
+				version = "v1.*",
+				config = function()
+					require("window-picker").setup({
+						autoselect_one = true,
+						include_current = false,
+						filter_rules = {
+							-- filter using buffer options
+							bo = {
+								-- if the file type is one of following, the window will be ignored
+								filetype = { "neo-tree", "neo-tree-popup", "notify" },
+
+								-- if the buffer type is one of following, the window will be ignored
+								buftype = { "terminal", "quickfix" },
+							},
+						},
+						other_win_hl_color = "#e35e4f",
+					})
+				end,
+			},
 		},
 		config = require("ui.neotree").neotree,
 	},
@@ -164,7 +186,7 @@ return {
 	{
 		"windwp/nvim-autopairs",
 		lazy = true,
-		after = "nvim-cmp",
+		event = "BufReadPost",
 		config = require("lsp.autopairs").autopairs,
 	},
 	---------------------------------------lsp end-----------------------------
@@ -187,22 +209,22 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		lazy = true,
+		envent = "BufReadPost",
 		after = "nvim-treesitter",
 	},
 	{
 		"p00f/nvim-ts-rainbow",
-		lazy = true,
+		envent = "BufReadPost",
 		after = "nvim-treesitter",
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		lazy = true,
+		envent = "BufReadPost",
 		after = "nvim-treesitter",
 	},
 	{
 		"mfussenegger/nvim-ts-hint-textobject",
-		lazy = true,
+		envent = "BufReadPost",
 		after = "nvim-treesitter",
 	},
 	---------------------------------------lspsaga end-----------------------------
@@ -248,6 +270,7 @@ return {
 		},
 	},
 	-------------------------------------telescope end-------------------------------
+	--
 	-------------------------------------tools --------------------------------------
 	{
 		"folke/which-key.nvim",
@@ -346,15 +369,4 @@ return {
 		config = require("dap.nvimdap").nvimdap,
 	},
 	----------------------------------dap end----------------------------------------------
-	------------------------- GPT --------------------------
-	-- {
-	-- 	"jackMort/ChatGPT.nvim",
-	-- 	event = "VeryLazy",
-	-- 	config = require("tools.gpt").gpt,
-	-- 	dependencies = {
-	-- 		"MunifTanjim/nui.nvim",
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 	},
-	-- },
 }
