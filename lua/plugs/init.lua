@@ -337,6 +337,12 @@ return {
 		event = "BufReadPost",
 		config = require("tools.colorizer").colorizer,
 	},
+	{
+		"ahmedkhalf/project.nvim",
+		config = function()
+			require("project_nvim").setup({})
+		end,
+	},
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
 	{
