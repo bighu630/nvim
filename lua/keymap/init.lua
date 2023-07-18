@@ -26,7 +26,7 @@ local plug_map = {
 	["n|gp"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
-	["n|gh"] = map_cr("Lspsaga lsp_finder"):with_noremap():with_silent(),
+	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- toggleterm
@@ -113,6 +113,17 @@ local plug_map = {
 	["n|<S-w>"] = map_cr("e"):with_noremap():with_silent(),
 	-- 调整窗口
 	["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
+
+	-- tmux 切换窗口,默认切换窗口方式没覆盖
+	-- ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
+	-- ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
+	-- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
+	-- ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
+	-- tmux 快捷键
+	["n|<C-h>"] = map_cr("lua require('tmux').move_left()"):with_silent(),
+	["n|<C-l>"] = map_cr("lua require('tmux').move_right()"):with_silent(),
+	["n|<C-j>"] = map_cr("lua require('tmux').move_bottom()"):with_silent(),
+	["n|<C-k>"] = map_cr("lua require('tmux').move_top()"):with_silent(),
 }
 
 local defalte_map = {
@@ -124,10 +135,7 @@ local defalte_map = {
 	["n|n"] = map_cmd("nzzzv"):with_noremap(),
 	["n|N"] = map_cmd("Nzzzv"):with_noremap(),
 	["n|J"] = map_cmd("mzJ`z"):with_noremap(),
-	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
-	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
-	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
-	["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
+
 	["n|<C-->"] = map_cr("vertical resize -3"):with_silent(),
 	["n|<C-=>"] = map_cr("vertical resize +3"):with_silent(),
 	["n|<A-;>"] = map_cr("resize -2"):with_silent(),

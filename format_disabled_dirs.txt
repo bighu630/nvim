@@ -1,2 +1,2 @@
-/data/dwm
+/data/dotfile/dwm
 /home/bighu/文档/区块链/src/lattice-cross/config

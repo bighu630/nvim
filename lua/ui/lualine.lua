@@ -81,18 +81,43 @@ function config.lualine()
 		end
 		return ""
 	end
+	local mode_map = {
+		["EX"] = "😆",
+		["NORMAL"] = "🙈",
+		["O-PENDING"] = "N?",
+		["INSERT"] = "🙊",
+		["VISUAL"] = "🙉",
+		["V-BLOCK"] = "👁",
+		["V-LINE"] = "🙉",
+		["V-REPLACE"] = "VR",
+		["REPLACE"] = "R",
+		["COMMAND"] = "👻",
+		["SHELL"] = "SH",
+		["TERMINAL"] = "T",
+		["S-BLOCK"] = "SB",
+		["S-LINE"] = "SL",
+		["SELECT"] = "S",
+		["CONFIRM"] = "Y?",
+		["MORE"] = "M",
+	}
 
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
 			theme = "catppuccin",
+			-- theme = "OceanicNext",
 			disabled_filetypes = {},
 			component_separators = "|",
 			-- section_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
 		},
 		sections = {
-			lualine_a = { "mode" },
+			lualine_a = { {
+				"mode",
+				fmt = function(s)
+					return mode_map[s] or s
+				end,
+			} },
 			lualine_b = { { "branch" }, { "diff", source = diff_source } },
 			-- lualine_c = { { "filename" }, { "filetype" } },
 			-- lualine_c = {

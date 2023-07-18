@@ -11,11 +11,11 @@ function config.notify()
 		---@usage timeout for notifications in ms, default 5000
 		timeout = 2000,
 		-- Render function for notifications. See notify-render()
-		render = "default",
+		render = "compact",
 		---@usage highlight behind the window for stages that change opacity
 		background_colour = "Normal",
 		---@usage minimum width for notification windows
-		minimum_width = 50,
+		minimum_width = 30,
 		---@usage notifications with level lower than this would be ignored. [ERROR > WARN > INFO > DEBUG > TRACE]
 		level = "TRACE",
 		---@usage Icons for the different levels

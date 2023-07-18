@@ -7,7 +7,7 @@ function config.lspsaga()
 			force_max_height = false,
 			keys = {
 				jump_to = "p",
-				expand_or_jump = "<CR>",
+				toggle_or_open = "<CR>",
 				vsplit = "s",
 				split = "i",
 				tabe = "t",
