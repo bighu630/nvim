@@ -59,10 +59,9 @@ function config.alpha()
 	local leader = "comma"
 	dashboard.section.buttons.val = {
 		button("space c", " Scheme change", leader, "<cmd>Telescope colorscheme<cr>"),
-		button("space e", " File frecency", leader, "<cmd>Telescope frecency<cr>"),
-		button("space r", " File history", leader, "<cmd>Telescope oldfiles<cr>"),
+		button("space f", " File frecency", leader, "<cmd>Telescope frecency<cr>"),
 		button("space p", " Project find", leader, "<cmd>Telescope project<cr>"),
-		button("space f", " File find", leader, "<cmd>Telescope find_files<cr>"),
+		button("space F", " File find", leader, "<cmd>Telescope find_files<cr>"),
 		button("space n", " File new", leader, "<cmd>enew<cr>"),
 		button("space w", " Word find", leader, "<cmd>Telescope live_grep<cr>"),
 	}
@@ -78,7 +77,7 @@ function config.alpha()
 			.. "."
 			.. vim.version().patch
 			.. "   "
-			.. "63"
+			.. "65"
 			.. " plugins"
 	end
 

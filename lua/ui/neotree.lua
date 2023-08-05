@@ -134,7 +134,7 @@ function config.neotree()
 				--  config = {
 				--    show_path = "none" -- "none", "relative", "absolute"
 				--  }
-				--}
+				-- },
 				["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
 				["q"] = "close_window",
 				["R"] = "refresh",
@@ -148,7 +148,7 @@ function config.neotree()
 			filtered_items = {
 				visible = false, -- when true, they will just be displayed differently than normal items
 				hide_dotfiles = true,
-				hide_gitignored = true,
+				hide_gitignored = false,
 				hide_hidden = true, -- only works on Windows for hidden files/directories
 				hide_by_name = {
 					--"node_modules"

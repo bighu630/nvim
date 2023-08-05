@@ -20,6 +20,8 @@
         "lfs"
     ],
     "workspace.library": [
-        "${3rd}/lfs/library"
+        "${3rd}/lfs/library",
+        "${3rd}/luassert/library",
+        "${3rd}/luv/library"
     ]
 }
