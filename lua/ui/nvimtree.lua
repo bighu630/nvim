@@ -115,7 +115,7 @@ function config.nvimtree()
 					-- relative = "editor",
 					border = "rounded",
 					width = 40,
-					-- height = 30,
+					height = 120,
 					-- row = 1,
 					-- col = 1,
 				},
@@ -232,7 +232,7 @@ function config.nvimtree()
 		},
 		git = {
 			enable = true,
-			ignore = true,
+			ignore = false,
 			show_on_dirs = true,
 			timeout = 400,
 		},
