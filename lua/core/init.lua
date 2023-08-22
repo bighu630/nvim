@@ -82,7 +82,9 @@ local load_core = function()
 
 	neovide_config()
 	-- vim.cmd([[set background=light]])
-	vim.cmd([[colorscheme catppuccin-macchiato]])
+	-- vim.cmd([[colorscheme catppuccin-macchiato]])
+	vim.cmd([[colorscheme catppuccin-mocha]])
+    -- vim.cmd[[colorscheme tokyonight-moon]]
 end
 
 local load_mysefconf = function()

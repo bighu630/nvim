@@ -84,7 +84,7 @@ function config.barbar()
 		semantic_letters = true,
 		sidebar_filetypes = {
 			-- Use the default values: {event = 'BufWinLeave', text = nil}
-			NvimTree = true,
+			-- NvimTree = true,
 			-- Or, specify the text used for the offset:
 			undotree = { text = "undotree" },
 			-- Or, specify the event which the sidebar executes when leaving:

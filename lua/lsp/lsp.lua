@@ -6,14 +6,14 @@ local mason_lsp = require("mason-lspconfig")
 
 mason.setup()
 mason_lsp.setup({
-	ensure_installed = {
-		-- "bash-language-server",
-		"efm",
-		-- "lua-language-server",
-		"clangd",
-		"gopls",
-		-- "pyright",
-	},
+	-- ensure_installed = {
+	-- 	"bash-language-server",
+	-- 	"efm",
+	-- 	"lua-language-server",
+	-- 	"clangd",
+	-- 	"gopls",
+	-- 	"pyright",
+	-- },
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -257,12 +257,11 @@ nvim_lsp.html.setup({
 local efmls = require("efmls-configs")
 
 -- Init `efm-langserver` here.
-
-efmls.init({
-	on_attach = custom_attach,
-	capabilities = capabilities,
-	init_options = { documentFormatting = true, codeAction = true },
-})
+-- efmls.init({
+-- 	on_attach = custom_attach,
+-- 	capabilities = capabilities,
+-- 	init_options = { documentFormatting = true, codeAction = true },
+-- })
 
 -- Require `efmls-configs-nvim`'s config here
 
@@ -293,7 +292,7 @@ flake8 = vim.tbl_extend("force", flake8, {
 
 -- Setup formatter and linter for efmls here
 
-efmls.setup({
+local languages = {
 	vim = { formatter = vint },
 	lua = { formatter = luafmt },
 	c = { formatter = clangfmt },
@@ -310,7 +309,32 @@ efmls.setup({
 	scss = { formatter = prettier },
 	sh = { formatter = shfmt, linter = shellcheck },
 	markdown = { formatter = prettier },
-	-- rust = {formatter = rustfmt},
-})
+}
+
+-- Or use the defaults provided by this plugin
+-- check doc/SUPPORTED_LIST.md for all the defaults provided
+--
+-- local languages = require('efmls-configs.defaults').languages()
+
+local efmls_config = {
+    filetypes = vim.tbl_keys(languages),
+    settings = {
+    rootMarkers = { '.git/' },
+    languages = languages,
+    },
+    init_options = {
+    documentFormatting = true,
+    documentRangeFormatting = true,
+    },
+}
+require('lspconfig').efm.setup(vim.tbl_extend('force', efmls_config, {
+	on_attach = custom_attach,
+	capabilities = capabilities,
+	init_options = { documentFormatting = true, codeAction = true },
+      -- Pass your cutom config below like on_attach and capabilities
+      --
+      -- on_attach = on_attach,
+      -- capabilities = capabilities,
+}))
 
 formatting.configure_format_on_save()

@@ -40,9 +40,9 @@ local plug_map = {
 	["n|<leader>cq"] = map_cr("TroubleToggle quickfix"):with_noremap():with_silent(),
 	["n|<leader>cl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
 	-- Plugin nvim-tree
-	["n|ff"] = map_cr("NeoTreeFocusToggle"):with_noremap():with_silent(),
-	["n|fd"] = map_cr("NeoTreeFloatToggle"):with_noremap():with_silent(),
-	-- ["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
+	-- ["n|ff"] = map_cr("NeoTreeFocusToggle"):with_noremap():with_silent(),
+	-- ["n|fd"] = map_cr("NeoTreeFloatToggle"):with_noremap():with_silent(),
+	["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	-- Plugin Undotree
 	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope

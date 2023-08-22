@@ -104,7 +104,8 @@ function config.lualine()
 	require("lualine").setup({
 		options = {
 			icons_enabled = true,
-			theme = "catppuccin",
+            theme = "tokyonight",
+			-- theme = "catppuccin",
 			-- theme = "OceanicNext",
 			disabled_filetypes = {},
 			component_separators = "|",
