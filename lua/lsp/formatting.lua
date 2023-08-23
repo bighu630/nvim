@@ -71,7 +71,8 @@ function M.enable_format_on_save(is_configured)
         group = "format_on_save",
         pattern = opts.pattern,
         callback = function()
-            require("lsp.formatting").format({ timeout_ms = opts.timeout, filter = M.format_filter })
+            -- require("lsp.formatting").format({ timeout_ms = opts.timeout, filter = M.format_filter })
+            M.format({ timeout_ms = opts.timeout, filter = M.format_filter })
         end,
     })
     if not is_configured then
@@ -149,19 +150,16 @@ function M.format(opts)
     end, clients)
 
     --没有语言支持时报错
-    -- if #clients == 0 then
-    -- 	vim.notify(
-    -- 		"[LSP] Format request failed, no matching language servers.",
-    -- 		vim.log.levels.WARN,
-    -- 		{ title = "Formatting Failed!" }
-    -- 	)
-    -- end
+    if #clients == 0 then
+        vim.notify(
+            "[LSP] Format request failed, no matching language servers.",
+            vim.log.levels.WARN,
+            { title = "Formatting Failed!" }
+        )
+    end
 
     local timeout_ms = opts.timeout_ms
     for _, client in pairs(clients) do
-        if client.name == "lua_ls" then
-            goto continue
-        end
         if block_list[vim.bo.filetype] == true then
             vim.notify(
                 string.format(
@@ -192,7 +190,6 @@ function M.format(opts)
                 { title = "LSP Format Error!" }
             )
         end
-        ::continue::
     end
 end
 
