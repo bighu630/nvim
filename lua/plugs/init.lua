@@ -8,49 +8,11 @@ return {
         opts = require("ui.catppuccin"),
     },
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    {
         "kyazdani42/nvim-tree.lua",
         lazy = false,
         cmd = { "NvimTreeToggle" },
         config = require("ui.nvimtree").nvimtree,
     },
-    -- {
-    -- 	"nvim-neo-tree/neo-tree.nvim",
-    -- 	version = "v2.x",
-    -- 	dependencies = {
-    -- 		"nvim-lua/plenary.nvim",
-    -- 		"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-    -- 		"MunifTanjim/nui.nvim",
-    -- 		{
-    -- 			-- only needed if you want to use the commands with "_with_window_picker" suffix
-    -- 			"s1n7ax/nvim-window-picker",
-    -- 			version = "v1.*",
-    -- 			config = function()
-    -- 				require("window-picker").setup({
-    -- 					autoselect_one = true,
-    -- 					include_current = false,
-    -- 					filter_rules = {
-    -- 						-- filter using buffer options
-    -- 						bo = {
-    -- 							-- if the file type is one of following, the window will be ignored
-    -- 							filetype = { "neo-tree", "neo-tree-popup", "notify" },
-    --
-    -- 							-- if the buffer type is one of following, the window will be ignored
-    -- 							buftype = { "terminal", "quickfix" },
-    -- 						},
-    -- 					},
-    -- 					other_win_hl_color = "#e35e4f",
-    -- 				})
-    -- 			end,
-    -- 		},
-    -- 	},
-    -- 	config = require("ui.neotree").neotree,
-    -- },
     -- accelerated-jk
     {
         "rainbowhxch/accelerated-jk.nvim",
@@ -126,12 +88,6 @@ return {
     ---------------------------------------lsp-----------------------------
     -- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
     {
-        "neovim/nvim-lspconfig",
-        lazy = true,
-        event = "BufReadPre",
-        config = require("lsp.lspconf").lspconfig,
-    },
-    {
         "creativenull/efmls-configs-nvim",
         dependencies = {
             "neovim/nvim-lspconfig",
@@ -157,21 +113,6 @@ return {
             },
         },
     },
-    -- {
-    --     "jay-babu/mason-null-ls.nvim",
-    --     event = { "BufReadPre", "BufNewFile" },
-    --     dependencies = {
-    --         "williamboman/mason.nvim",
-    --         "jose-elias-alvarez/null-ls.nvim",
-    --     },
-    --     config = function()
-    --     end,
-    -- },
-    -- {
-    -- 	"ray-x/lsp_signature.nvim",
-    -- 	lazy = true,
-    -- 	after = "nvim_lspconfig",
-    -- },
     {
         "hrsh7th/nvim-cmp",
         lazy = true,
