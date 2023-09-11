@@ -83,6 +83,12 @@ return {
         event = "BufReadPost",
         config = require("ui.illuminate").illuminate,
     },
+    {
+        "dstein64/nvim-scrollview",
+        lazy = true,
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        config = require("ui.scrollview").scrollview
+    },
     ---------------------------------------主题end-----------------------------
 
     ---------------------------------------lsp-----------------------------
