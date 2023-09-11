@@ -265,6 +265,7 @@ return {
     {
         "voldikss/vim-translator",
         lazy = false,
+        config = require("tools.translator").translator
     },
     {
         "tpope/vim-surround",
