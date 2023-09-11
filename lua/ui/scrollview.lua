@@ -4,6 +4,7 @@ function config.scrollview()
     local icons = { diagnostics = require("ui.icons").get("diagnostics", true) }
 
     require("scrollview").setup({
+        scrollview_mode = "virtual",
         excluded_filetypes = { "NvimTree", "terminal", "nofile", "Outline" },
         winblend = 0,
         signs_on_startup = { "diagnostics", "folds", "marks", "search", "spell" },
