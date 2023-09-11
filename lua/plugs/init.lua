@@ -88,6 +88,12 @@ return {
     ---------------------------------------lsp-----------------------------
     -- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
     {
+        "neovim/nvim-lspconfig",
+        lazy = true,
+        event = "BufReadPre",
+        config = require("lsp.lspconf").lspconfig,
+    },
+    {
         "creativenull/efmls-configs-nvim",
         dependencies = {
             "neovim/nvim-lspconfig",
@@ -150,7 +156,7 @@ return {
     ---------------------------------------lspsaga-----------------------------
     -- lspsaga
     {
-        "glepnir/lspsaga.nvim",
+        "nvimdev/lspsaga.nvim",
         envent = { "BufReadPost", "BufNewFile" },
         config = require("lsp.lspsaga").lspsaga,
         dependencies = {
@@ -191,6 +197,7 @@ return {
         "fatih/vim-go",
         ft = "go",
         run = ":GoInstallBinaries",
+        after = "rcarriga/nvim-notify",
         config = function()
             vim.g.go_doc_keywordprg_enabled = 0
             vim.g.go_def_mapping_enabled = 0
