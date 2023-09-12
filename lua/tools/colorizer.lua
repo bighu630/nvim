@@ -1,5 +1,6 @@
 local config = {}
 function config.colorizer()
-	require("colorizer").setup()
+    require("colorizer").setup()
 end
+
 return config
