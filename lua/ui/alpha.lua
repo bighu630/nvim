@@ -77,7 +77,7 @@ function config.alpha()
             .. "."
             .. vim.version().patch
             .. "   "
-            .. "65"
+            .. "66"
             .. " plugins"
     end
 

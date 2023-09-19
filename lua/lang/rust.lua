@@ -168,7 +168,7 @@ function config.lang_rust()
         dap = {
             adapter = {
                 type = "executable",
-                command = "lldb-vscode",
+                command = "codelldb",
                 name = "rt_lldb",
             },
         },
