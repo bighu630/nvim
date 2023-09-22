@@ -82,7 +82,7 @@ local function load_options()
         laststatus = 2,
         display = "lastline",
         showbreak = "↳  ",
-        listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+        -- listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
         -- pumblend = 10,
         -- winblend = 10,
         autoread = true,
@@ -104,8 +104,8 @@ local function load_options()
         -- foldenable = true,
         foldmethod = "expr", -- fold with nvim_treesitter
         foldexpr = "nvim_treesitter#foldexpr()",
-        foldenable = false, -- no fold to be applied when open a file
-        foldlevel = 99, -- if not set this, fold will be everywhere
+        foldenable = false,  -- no fold to be applied when open a file
+        foldlevel = 99,      -- if not set this, fold will be everywhere
         signcolumn = "yes",
         conceallevel = 0,
         concealcursor = "niv",
