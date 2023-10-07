@@ -83,6 +83,7 @@ local function load_options()
         display = "lastline",
         showbreak = "↳  ",
         -- listchars = "tab:»·,nbsp:+,trail:·,extends:→,precedes:←",
+        listchars = "tab:│·,nbsp:+,trail:·,extends:→,precedes:←",
         -- pumblend = 10,
         -- winblend = 10,
         autoread = true,
