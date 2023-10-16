@@ -9,7 +9,7 @@ function config.telescope()
             entry_prefix = " ",
             scroll_strategy = "limit",
             results_title = false,
-            -- borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+            borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
             layout_strategy = "horizontal",
             -- layout_strategy = "cursor",
             -- layout_strategy = "vertical",
@@ -75,8 +75,6 @@ function config.telescope()
     require("telescope").load_extension("project")
     require("telescope").load_extension("frecency")
     require("telescope").load_extension("dap")
-    -- require("telescope").load_extension("persisted")
-    -- require("telescope").load_extension("ui-select")
 end
 
 return config

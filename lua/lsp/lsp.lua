@@ -21,22 +21,22 @@ capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 local function custom_attach(client, bufnr)
     require("lsp_signature").on_attach({
-        debug = false,                                              -- set to true to enable debug logging
+        debug = false,                                        -- set to true to enable debug logging
         log_path = vim.fn.stdpath("cache") .. "/lsp_signature.log", -- log dir when debug is on
         -- default is  ~/.cache/nvim/lsp_signature.log
-        verbose = false,                                            -- show debug line number
-        bind = false,                                               -- This is mandatory, otherwise border config won't get registered.
+        verbose = false,                                      -- show debug line number
+        bind = false,                                         -- This is mandatory, otherwise border config won't get registered.
         -- If you want to hook lspsaga or other signature handler, pls set to false
-        doc_lines = 10,                                             -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
+        doc_lines = 10,                                       -- will show two lines of comment/doc(if there are more than two lines in doc, will be truncated);
         -- set to 0 if you DO NOT want any API comments be shown
         -- This setting only take effect in insert mode, it does not affect signature help in normal
         -- mode, 10 by default
 
-        max_height = 12,                       -- max height of signature floating_window
-        max_width = 80,                        -- max_width of signature floating_window
-        noice = false,                         -- set to true if you using noice to render markdow
-        wrap = false,                          -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
-        floating_window = true,                -- show hint in a floating window, set to false for virtual text only mode
+        max_height = 12,                 -- max height of signature floating_window
+        max_width = 80,                  -- max_width of signature floating_window
+        noice = false,                   -- set to true if you using noice to render markdow
+        wrap = false,                    -- allow doc/signature text wrap inside floating_window, useful if your lsp return doc/sig is too long
+        floating_window = true,          -- show hint in a floating window, set to false for virtual text only mode
         floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
         -- will set to true when fully tested, set to false will use whichever side has more space
         -- this setting will be helpful if you do not want the PUM and floating win overlap
@@ -263,52 +263,52 @@ nvim_lsp.html.setup({
 
 -- Require `efmls-configs-nvim`'s config here
 
-local vint = require("efmls-configs.linters.vint")
-local eslint = require("efmls-configs.linters.eslint")
-local flake8 = require("efmls-configs.linters.flake8")
-local shellcheck = require("efmls-configs.linters.shellcheck")
-
-local black = require("efmls-configs.formatters.black")
-local luafmt = require("efmls-configs.formatters.stylua")
-local prettier = require("efmls-configs.formatters.prettier")
-local shfmt = require("efmls-configs.formatters.shfmt")
-
--- Add your own config for formatter and linter here
-
--- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
-local clangfmt = require("formatters.clangfmt")
-
--- Override default config here
-
-flake8 = vim.tbl_extend("force", flake8, {
-    prefix = "flake8: max-line-length=160, ignore F403 and F405",
-    lintStdin = true,
-    lintIgnoreExitCode = true,
-    lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
-    lintCommand =
-    "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
-})
-
--- Setup formatter and linter for efmls here
-
-local languages = {
-    vim = { formatter = vint },
-    lua = { formatter = luafmt },
-    c = { formatter = clangfmt },
-    cpp = { formatter = clangfmt },
-    python = { formatter = black },
-    vue = { formatter = prettier },
-    typescript = { formatter = prettier, linter = eslint },
-    javascript = { formatter = prettier, linter = eslint },
-    typescriptreact = { formatter = prettier, linter = eslint },
-    javascriptreact = { formatter = prettier, linter = eslint },
-    yaml = { formatter = prettier },
-    html = { formatter = prettier },
-    css = { formatter = prettier },
-    scss = { formatter = prettier },
-    sh = { formatter = shfmt, linter = shellcheck },
-    markdown = { formatter = prettier },
-}
+-- local vint = require("efmls-configs.linters.vint")
+-- local eslint = require("efmls-configs.linters.eslint")
+-- local flake8 = require("efmls-configs.linters.flake8")
+-- local shellcheck = require("efmls-configs.linters.shellcheck")
+--
+-- local black = require("efmls-configs.formatters.black")
+-- local luafmt = require("efmls-configs.formatters.stylua")
+-- local prettier = require("efmls-configs.formatters.prettier")
+-- local shfmt = require("efmls-configs.formatters.shfmt")
+--
+-- -- Add your own config for formatter and linter here
+--
+-- -- local rustfmt = require("modules.completion.efm.formatters.rustfmt")
+-- local clangfmt = require("formatters.clangfmt")
+--
+-- -- Override default config here
+--
+-- flake8 = vim.tbl_extend("force", flake8, {
+--     prefix = "flake8: max-line-length=160, ignore F403 and F405",
+--     lintStdin = true,
+--     lintIgnoreExitCode = true,
+--     lintFormats = { "%f:%l:%c: %t%n%n%n %m" },
+--     lintCommand =
+--     "flake8 --max-line-length 160 --extend-ignore F403,F405 --format '%(path)s:%(row)d:%(col)d: %(code)s %(code)s %(text)s' --stdin-display-name ${INPUT} -",
+-- })
+--
+-- -- Setup formatter and linter for efmls here
+--
+-- local languages = {
+--     vim = { formatter = vint },
+--     lua = { formatter = luafmt },
+--     c = { formatter = clangfmt },
+--     cpp = { formatter = clangfmt },
+--     python = { formatter = black },
+--     vue = { formatter = prettier },
+--     typescript = { formatter = prettier, linter = eslint },
+--     javascript = { formatter = prettier, linter = eslint },
+--     typescriptreact = { formatter = prettier, linter = eslint },
+--     javascriptreact = { formatter = prettier, linter = eslint },
+--     yaml = { formatter = prettier },
+--     html = { formatter = prettier },
+--     css = { formatter = prettier },
+--     scss = { formatter = prettier },
+--     sh = { formatter = shfmt, linter = shellcheck },
+--     markdown = { formatter = prettier },
+-- }
 
 -- Or use the defaults provided by this plugin
 -- check doc/SUPPORTED_LIST.md for all the defaults provided
@@ -316,9 +316,8 @@ local languages = {
 -- local languages = require('efmls-configs.defaults').languages()
 
 local efmls_config = {
-    filetypes = vim.tbl_keys(languages),
     settings = {
-        rootMarkers = { '.git/' },
+        rootMarkers = { ".git/" },
         languages = languages,
     },
     init_options = {
@@ -326,7 +325,7 @@ local efmls_config = {
         documentRangeFormatting = true,
     },
 }
-require('lspconfig').efm.setup(vim.tbl_extend('force', efmls_config, {
+require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
     on_attach = custom_attach,
     capabilities = capabilities,
     init_options = { documentFormatting = true, codeAction = true },
