@@ -35,48 +35,43 @@ return {
         "hoob3rt/lualine.nvim",
         config = require("ui.lualine").lualine,
     },
-    -- {
-    --     "goolord/alpha-nvim",
-    --     event = "BufWinEnter",
-    --     config = require("ui.alpha").alpha,
-    -- },
     {
-        'glepnir/dashboard-nvim',
-        event = 'VimEnter',
+        "glepnir/dashboard-nvim",
+        event = "VimEnter",
         config = function()
-            require('dashboard').setup {
-                theme = 'hyper',
+            require("dashboard").setup({
+                theme = "hyper",
                 config = {
                     week_header = {
                         enable = true,
                     },
                     shortcut = {
-                        { desc = '󰊳 Update', group = '@property', action = 'Lazy update', key = 'u' },
+                        { desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
                         {
-                            icon = ' ',
-                            icon_hl = '@variable',
-                            desc = 'Files',
-                            group = 'Label',
-                            action = 'Telescope find_files',
-                            key = 'f',
+                            icon = " ",
+                            icon_hl = "@variable",
+                            desc = "Files",
+                            group = "Label",
+                            action = "Telescope find_files",
+                            key = "f",
                         },
                         {
-                            desc = ' Apps',
-                            group = 'DiagnosticHint',
-                            action = 'Telescope app',
-                            key = 'a',
+                            desc = " OldFile",
+                            group = "DiagnosticHint",
+                            action = "Telescope oldfiles",
+                            key = "a",
                         },
                         {
-                            desc = ' dotfiles',
-                            group = 'Number',
-                            action = 'Telescope dotfiles',
-                            key = 'd',
+                            desc = " dotfiles",
+                            group = "Number",
+                            action = "Telescope dotfiles",
+                            key = "d",
                         },
                     },
                 },
-            }
+            })
         end,
-        dependencies = { { 'nvim-tree/nvim-web-devicons' } }
+        dependencies = { { "nvim-tree/nvim-web-devicons" } },
     },
     {
         "lewis6991/gitsigns.nvim",
@@ -96,12 +91,12 @@ return {
         lazy = true,
         cmd = "UndotreeToggle",
     },
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        main = "ibl",
-        opts = {},
-        config = require("ui.blankline").blankline,
-    },
+    -- {
+    --     "lukas-reineke/indent-blankline.nvim",
+    --     main = "ibl",
+    --     opts = {},
+    --     config = require("ui.blankline").blankline,
+    -- },
     {
         "xiyaowong/transparent.nvim",
         lazy = false,
@@ -121,12 +116,12 @@ return {
         event = "BufReadPost",
         config = require("ui.illuminate").illuminate,
     },
-    -- {
-    --     'petertriho/nvim-scrollbar',
-    --     lazy = true,
-    --     event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    --     config = require("ui.scrollview").scrollview
-    -- },
+    {
+        "petertriho/nvim-scrollbar",
+        lazy = true,
+        event = { "BufReadPost", "BufAdd", "BufNewFile" },
+        config = require("ui.scrollview").scrollview,
+    },
     ---------------------------------------主题end-----------------------------
 
     ---------------------------------------lsp-----------------------------
@@ -162,6 +157,10 @@ return {
                 end,
             },
         },
+    },
+    {
+        "mhartington/formatter.nvim",
+        config = require("lsp.formatter").formatter,
     },
     {
         "hrsh7th/nvim-cmp",
@@ -303,7 +302,7 @@ return {
     {
         "voldikss/vim-translator",
         lazy = false,
-        config = require("tools.translator").translator
+        config = require("tools.translator").translator,
     },
     {
         "tpope/vim-surround",

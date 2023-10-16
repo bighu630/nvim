@@ -131,6 +131,11 @@ local vim_config = function()
         autocmd FileType c,cpp,go,python,lua,java :lua require('dap.dap-util').load_breakpoints()
     augroup end
 
+    augroup FormatAutogroup
+        autocmd!
+        autocmd BufWritePost * FormatWrite
+    augroup END
+
     ]])
 end
 
