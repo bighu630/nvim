@@ -1,19 +1,10 @@
-local formatting = require("lsp.formatting")
-
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
 mason.setup()
 mason_lsp.setup({
-	ensure_installed = {
-		-- "bash-language-server",
-		-- "efm",
-		-- "lua-language-server",
-		-- "clangd",
-		-- "gopls",
-		-- "pyright",
-	},
+	ensure_installed = {},
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -272,5 +263,3 @@ require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
 	-- on_attach = on_attach,
 	-- capabilities = capabilities,
 }))
-
--- formatting.configure_format_on_save()
