@@ -56,7 +56,6 @@ local function custom_attach(client, bufnr)
 		select_signature_key = nil, -- cycle to next signature, e.g. '<M-n>' function overloading
 		move_cursor_key = nil, -- imap, use nvim_set_current_win to move cursor between current win and floating
 	})
-	-- require("nvim-navic").attach(client, bufnr)
 end
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)
