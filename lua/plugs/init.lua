@@ -59,12 +59,12 @@ return {
 		lazy = true,
 		cmd = "UndotreeToggle",
 	},
-	{
-	    "lukas-reineke/indent-blankline.nvim",
-	    main = "ibl",
-	    opts = {},
-	    config = require("ui.blankline").blankline,
-	},
+	-- {
+	-- 	"lukas-reineke/indent-blankline.nvim",
+	-- 	main = "ibl",
+	-- 	opts = {},
+	-- 	config = require("ui.blankline").blankline,
+	-- },
 	{
 		"xiyaowong/transparent.nvim",
 		lazy = false,
