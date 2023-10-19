@@ -262,6 +262,7 @@ return {
 		keys = "<Space>",
 		config = require("tools.whichkey").whichkey,
 	},
+	{ "nvim-pack/nvim-spectre" },
 	{
 		"folke/trouble.nvim",
 		cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
