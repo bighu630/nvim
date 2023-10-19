@@ -224,6 +224,9 @@ return {
 	{
 		"simrat39/rust-tools.nvim",
 		ft = "rust",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
 		config = require("lang.rust").lang_rust,
 	},
 	---------------------------------------lspsaga end-----------------------------
