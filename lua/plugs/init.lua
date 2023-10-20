@@ -31,9 +31,16 @@ return {
 		},
 		config = require("ui.noice").noice,
 	},
+	-- {
+	-- 	"hoob3rt/lualine.nvim",
+	-- 	config = require("ui.lualine").lualine,
+	-- },
 	{
-		"hoob3rt/lualine.nvim",
-		config = require("ui.lualine").lualine,
+		"glepnir/galaxyline.nvim",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		config = require("ui.galaxyline").galaxy,
 	},
 	{
 		"glepnir/dashboard-nvim",
