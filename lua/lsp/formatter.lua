@@ -3,6 +3,8 @@ local config = {}
 function config.formatter()
 	-- Utilities for creating configurations
 	local util = require("formatter.util")
+	local shiftwidth = vim.opt.shiftwidth:get()
+	local expandtab = vim.opt.expandtab:get()
 
 	-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 	require("formatter").setup({
@@ -78,11 +80,7 @@ function config.formatter()
 					-- files
 					return {
 						exe = "shfmt",
-						args = {
-							"-l",
-							"-w",
-							"-",
-						},
+						args = { "-i", shiftwidth },
 						stdin = true,
 					}
 				end,

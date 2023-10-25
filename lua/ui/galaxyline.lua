@@ -217,7 +217,40 @@ function M.galaxy()
 				highlight = { colors.cyan, colors.bg },
 			},
 		},
-
+		{
+			LspStatus = {
+				provider = lsp_status,
+				highlight = { colors.grey3, colors.bg },
+			},
+		},
+		{
+			DiagnosticError = {
+				provider = "DiagnosticError",
+				icon = " ",
+				highlight = { colors.red, colors.bg },
+			},
+		},
+		{
+			DiagnosticWarn = {
+				provider = "DiagnosticWarn",
+				icon = " ",
+				highlight = { colors.yellow, colors.bg },
+			},
+		},
+		{
+			DiagnosticInfo = {
+				provider = "DiagnosticInfo",
+				icon = " ",
+				highlight = { colors.green, colors.bg },
+			},
+		},
+		{
+			DiagnosticHint = {
+				provider = "DiagnosticHint",
+				icon = " ",
+				highlight = { colors.cyan, colors.bg },
+			},
+		},
 		{
 			CustomGitBranch = {
 				provider = function()
@@ -259,40 +292,6 @@ function M.galaxy()
 	}
 
 	gls.right = {
-		{
-			LspStatus = {
-				provider = lsp_status,
-				highlight = { colors.grey3, colors.bg },
-			},
-		},
-		{
-			DiagnosticError = {
-				provider = "DiagnosticError",
-				icon = " ",
-				highlight = { colors.red, colors.bg },
-			},
-		},
-		{
-			DiagnosticWarn = {
-				provider = "DiagnosticWarn",
-				icon = " ",
-				highlight = { colors.yellow, colors.bg },
-			},
-		},
-		{
-			DiagnosticInfo = {
-				provider = "DiagnosticInfo",
-				icon = " ",
-				highlight = { colors.green, colors.bg },
-			},
-		},
-		{
-			DiagnosticHint = {
-				provider = "DiagnosticHint",
-				icon = " ",
-				highlight = { colors.cyan, colors.bg },
-			},
-		},
 		{
 			LineInfo = {
 				provider = "LineColumn",

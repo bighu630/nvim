@@ -2,7 +2,7 @@ local config = {}
 function config.barbar()
 	require("bufferline").setup({
 		-- Enable/disable animations
-		animation = false,
+		animation = true,
 		-- Enable/disable auto-hiding the tab bar when there is a single buffer
 		auto_hide = false,
 		-- Enable/disable current/total tabpages indicator (top right corner)
@@ -17,7 +17,7 @@ function config.barbar()
 		exclude_ft = { "javascript" },
 		exclude_name = { "package.json" },
 		-- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
-		hide = { extensions = false, inactive = true },
+		hide = { extensions = false, inactive = false },
 		-- Disable highlighting alternate buffers
 		highlight_alternate = false,
 		-- Disable highlighting file icons in inactive buffers
@@ -98,7 +98,7 @@ function config.barbar()
 		letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
 		-- Sets the name of unnamed buffers. By default format is "[Buffer X]"
 		-- where X is the buffer number. But only a static string is accepted here.
-		no_name_title = nil,
+		no_name_title = "someFile",
 	})
 end
 
