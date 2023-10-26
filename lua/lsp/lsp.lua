@@ -2,7 +2,16 @@ local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 
-mason.setup()
+mason.setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
+		},
+	},
+})
+
 mason_lsp.setup({
 	ensure_installed = {},
 })
