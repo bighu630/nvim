@@ -60,17 +60,37 @@ function config.daptext()
 	})
 end
 
+local function setDapKey()
+	vim.keymap.set("n", "4", "<Cmd>lua require('dap').terminate() require('dapui').close()<CR>")
+	vim.keymap.set("n", "5", "<Cmd>lua require('dap').continue()<CR>")
+	vim.keymap.set("n", "6", "<Cmd>lua require('dap').step_over()<CR>")
+	vim.keymap.set("n", "7", "<Cmd>lua require('dap').step_into()<CR>")
+	vim.keymap.set("n", "8", "<Cmd>lua require('dap').step_out()<CR>")
+	vim.keymap.set("n", "J", "<Cmd>lua require('dapui').eval()<CR>")
+end
+
+local function unmapKey()
+	vim.keymap.del("n", "4")
+	vim.keymap.del("n", "5")
+	vim.keymap.del("n", "6")
+	vim.keymap.del("n", "7")
+	vim.keymap.del("n", "8")
+	vim.keymap.del("n", "J")
+end
+
 function config.nvimdap()
 	local dap = require("dap")
 	local dapui = require("dapui")
 
 	dap.listeners.after.event_initialized["dapui_config"] = function()
+		setDapKey()
 		dapui.open()
 	end
 	dap.listeners.after.event_terminated["dapui_config"] = function()
 		dapui.close()
 	end
 	dap.listeners.after.event_exited["dapui_config"] = function()
+		unmapKey()
 		dapui.close()
 	end
 

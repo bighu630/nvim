@@ -137,13 +137,9 @@ local defalte_map = {
 	["n|N"] = map_cmd("Nzzzv"):with_noremap(),
 	["n|J"] = map_cmd("mzJ`z"):with_noremap(),
 
-	["n|<C-->"] = map_cr("vertical resize -3"):with_silent(),
-	["n|<C-=>"] = map_cr("vertical resize +3"):with_silent(),
-	["n|<A-;>"] = map_cr("resize -2"):with_silent(),
-	["n|<A-'>"] = map_cr("resize +2"):with_silent(),
-	["n|<C-q>"] = map_cmd(":wq<CR>"),
-	["n|<A-q>"] = map_cmd(":Bwipeout<CR>"),
-	["n|<A-S-q>"] = map_cmd(":q!<CR>"),
+	["n|<C-q>"] = map_cmd("wq<CR>"),
+	["n|<A-q>"] = map_cmd("Bwipeout<CR>"),
+	["n|<A-S-q>"] = map_cmd("q!<CR>"),
 	-- ["n|<C-o>"] = map_cr("setlocal spell! spelllang=en_us"),
 	-- Insert
 	["i|<C-u>"] = map_cmd("<C-G>u<C-U>"):with_noremap(),
