@@ -137,6 +137,8 @@ local defalte_map = {
 	["n|N"] = map_cmd("Nzzzv"):with_noremap(),
 	["n|J"] = map_cmd("mzJ`z"):with_noremap(),
 
+	["n|<C-left>"] = map_cmd("<Cmd>vertical resize -3<CR>"),
+	["n|<C-right>"] = map_cmd("<Cmd>vertical resize +3<CR>"),
 	["n|<C-q>"] = map_cmd("wq<CR>"),
 	["n|<A-q>"] = map_cmd("Bwipeout<CR>"),
 	["n|<A-S-q>"] = map_cmd("q!<CR>"),
