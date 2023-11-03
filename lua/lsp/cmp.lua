@@ -95,7 +95,7 @@ function config.cmp()
 				mode = "symbol_text",
 				maxwidth = 50,
 				ellipsis_char = "...",
-				-- symbol_map = { Copilot = "" },
+				symbol_map = { Codeium = "" },
 			}),
 		},
 		-- You can set mappings if you want
@@ -135,6 +135,7 @@ function config.cmp()
 		-- You should specify your *installed* sources.
 		sources = {
 			{ name = "nvim_lsp" },
+			{ name = "codeium" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
