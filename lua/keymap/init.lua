@@ -5,16 +5,15 @@ local map_cmd = bind.map_cmd
 require("keymap.config")
 vim.g.mapleader = ";"
 
-local plug_map = {
+local buffer_map = {
 	-- Bufferline
 	["n|R"] = map_cr("BufferNext"):with_noremap():with_silent(),
 	["n|E"] = map_cr("BufferPrevious"):with_noremap():with_silent(),
 	["n|B"] = map_cr("BufferPick"):with_noremap():with_silent(),
 	["n|x"] = map_cr("BufferClose"):with_noremap():with_silent(),
-	-- Packer
-	-- Lsp mapp work when insertenter and lsp start
-	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+}
+
+local lspsaga_map = {
 	["n|<F2>"] = map_cr("Lspsaga outline"):with_noremap():with_silent(),
 	["n|="] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
 	["n|-"] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
@@ -28,11 +27,17 @@ local plug_map = {
 	["n|gd"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
+}
+
+local git_map = {
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- toggleterm
 	["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
+}
+
+local trouble_map = {
 	-- Plugin trouble
 	["n|gt"] = map_cr("TroubleToggle"):with_noremap():with_silent(),
 	["n|<Space>u"] = map_cr("TroubleToggle lsp_references"):with_noremap():with_silent(),
@@ -40,13 +45,16 @@ local plug_map = {
 	["n|<leader>cw"] = map_cr("TroubleToggle workspace_diagnostics"):with_noremap():with_silent(),
 	["n|<leader>cq"] = map_cr("TroubleToggle quickfix"):with_noremap():with_silent(),
 	["n|<leader>cl"] = map_cr("TroubleToggle loclist"):with_noremap():with_silent(),
-	-- Plugin nvim-tree
-	-- ["n|ff"] = map_cr("NeoTreeFocusToggle"):with_noremap():with_silent(),
-	-- ["n|fd"] = map_cr("NeoTreeFloatToggle"):with_noremap():with_silent(),
+}
+
+local tree_map = {
+	-- 打开文件树
 	["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	-- Plugin Undotree
 	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
-	-- Plugin Telescope
+}
+
+local telescope_map = {
 	["n|<Space>p"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
 	["n|<Space>r"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Space>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
@@ -56,6 +64,36 @@ local plug_map = {
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	["n|<Space>hk"] = map_cu("Telescope keymaps"):with_noremap():with_silent(),
+}
+
+local dap_map = {
+	-- Plugin dap
+	["n|<F5>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
+	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
+	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
+		:with_noremap()
+		:with_silent(),
+	["n|<leader>dB"] = map_cr("lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))")
+		:with_noremap()
+		:with_silent(),
+	["n|<leader>dbl"] = map_cr("lua require('dap').list_breakpoints()"):with_noremap():with_silent(),
+	["n|<leader>drc"] = map_cr("lua require('dap').run_to_cursor()"):with_noremap():with_silent(),
+	["n|<leader>drl"] = map_cr("lua require('dap').run_last()"):with_noremap():with_silent(),
+	["n|<F6>"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
+	["n|<F7>"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
+	["n|<F8>"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
+	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
+	["n|J"] = map_cr("lua require('dapui').eval()"):with_silent(),
+}
+
+local plug_map = {
+	-- Lsp mapp work when insertenter and lsp start
+	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
+	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	-- Plugin nvim-tree
+	-- ["n|ff"] = map_cr("NeoTreeFocusToggle"):with_noremap():with_silent(),
+	-- ["n|fd"] = map_cr("NeoTreeFloatToggle"):with_noremap():with_silent(),
+	-- Plugin Telescope
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
@@ -78,23 +116,6 @@ local plug_map = {
 	-- Plugin SnipRun
 	["v|<leader>rf"] = map_cr("SnipRun"):with_noremap():with_silent(),
 	["n|<leader>rf"] = map_cr("%SnipRun"):with_noremap():with_silent(),
-	-- Plugin dap
-	["n|<F5>"] = map_cr("lua require('dap').continue()"):with_noremap():with_silent(),
-	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
-	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
-		:with_noremap()
-		:with_silent(),
-	["n|<leader>dB"] = map_cr("lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))")
-		:with_noremap()
-		:with_silent(),
-	["n|<leader>dbl"] = map_cr("lua require('dap').list_breakpoints()"):with_noremap():with_silent(),
-	["n|<leader>drc"] = map_cr("lua require('dap').run_to_cursor()"):with_noremap():with_silent(),
-	["n|<leader>drl"] = map_cr("lua require('dap').run_last()"):with_noremap():with_silent(),
-	["n|<F6>"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
-	["n|<F7>"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
-	["n|<F8>"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
-	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
-	["n|J"] = map_cr("lua require('dapui').eval()"):with_silent(),
 	-- SnipRun
 	["o|m"] = map_cu([[lua require('tsht').nodes()]]):with_silent(),
 	["c|Q"] = map_cu([[%SnipRun]]):with_silent(),
@@ -163,5 +184,16 @@ local defalte_map = {
 	["v|>"] = map_cmd(">gv"),
 }
 
-bind.nvim_load_mapping(plug_map)
-bind.nvim_load_mapping(defalte_map)
+local load_keymap = function()
+	bind.nvim_load_mapping(plug_map)
+	bind.nvim_load_mapping(defalte_map)
+	bind.nvim_load_mapping(buffer_map)
+	bind.nvim_load_mapping(lspsaga_map)
+	bind.nvim_load_mapping(git_map)
+	bind.nvim_load_mapping(trouble_map)
+	bind.nvim_load_mapping(tree_map)
+	bind.nvim_load_mapping(telescope_map)
+	bind.nvim_load_mapping(dap_map)
+end
+
+load_keymap()
