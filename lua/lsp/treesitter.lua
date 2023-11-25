@@ -13,7 +13,20 @@ function config.treesitter()
 			additional_vim_regex_highlighting = false,
 		},
 		indent = { enable = false, disable = { "yaml" } },
-		context_commentstring = {
+		-- context_commentstring = {
+		-- 	enable = true,
+		-- 	config = {
+		-- 		-- Languages that have a single comment style
+		-- 		typescript = "// %s",
+		-- 		css = "/* %s */",
+		-- 		scss = "/* %s */",
+		-- 		html = "<!-- %s -->",
+		-- 		svelte = "<!-- %s -->",
+		-- 		vue = "<!-- %s -->",
+		-- 		json = "",
+		-- 	},
+		-- },
+		require("ts_context_commentstring").setup({
 			enable = true,
 			config = {
 				-- Languages that have a single comment style
@@ -25,7 +38,7 @@ function config.treesitter()
 				vue = "<!-- %s -->",
 				json = "",
 			},
-		},
+		}),
 		-- textobjects extension settings
 		-- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		textobjects = {

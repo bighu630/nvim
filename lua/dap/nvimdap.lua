@@ -41,6 +41,11 @@ function config.dapui()
 	})
 end
 
+function config.startDap()
+	require("dap.ext.vscode").load_launchjs()
+	require("dap").continue()
+end
+
 function config.daptext()
 	require("nvim-dap-virtual-text").setup({
 		enabled = true, -- enable this plugin (the default)
@@ -78,9 +83,20 @@ local function unmapKey()
 	vim.keymap.del("n", "J")
 end
 
+local function get_arguments()
+	return coroutine.create(function(dap_run_co)
+		local args = {}
+		vim.ui.input({ prompt = "Args: " }, function(input)
+			args = vim.split(input or "", " ")
+			coroutine.resume(dap_run_co, args)
+		end)
+	end)
+end
+
 function config.nvimdap()
 	local dap = require("dap")
 	local dapui = require("dapui")
+	require("dap.dap-adapter")
 
 	dap.listeners.after.event_initialized["dapui_config"] = function()
 		setDapKey()
@@ -104,11 +120,7 @@ function config.nvimdap()
 	vim.fn.sign_define("DapLogPoint", { text = "", texthl = "DapLogPoint", linehl = "", numhl = "" })
 	vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "", numhl = "" })
 
-	dap.adapters.lldb = {
-		type = "executable",
-		command = vim.fn.stdpath("data") .. "/mason/packages/codelldb/codelldb",
-		name = "lldb",
-	}
+	dap.configurations = {}
 	dap.configurations.cpp = {
 		{
 			name = "Launch",
@@ -132,13 +144,49 @@ function config.nvimdap()
 
 	dap.configurations.c = dap.configurations.cpp
 	dap.configurations.rust = dap.configurations.cpp
-	require("dap.dap-go")
 
-	dap.adapters.python = {
-		type = "executable",
-		command = "/usr/bin/python",
-		args = { "-m", "debugpy.adapter" },
+	dap.configurations.go = {
+		{
+			type = "go",
+			name = "Debug",
+			request = "launch",
+			program = "${file}",
+		},
+		{
+			type = "go",
+			name = "Debug (Arguments)",
+			request = "launch",
+			program = "${file}",
+			args = get_arguments,
+		},
+		{
+			type = "go",
+			name = "Debug Package",
+			request = "launch",
+			program = "${fileDirname}",
+		},
+		{
+			type = "go",
+			name = "Attach",
+			mode = "local",
+			request = "attach",
+		},
+		{
+			type = "go",
+			name = "Debug test",
+			request = "launch",
+			mode = "test",
+			program = "${file}",
+		},
+		{
+			type = "go",
+			name = "Debug test (go.mod)",
+			request = "launch",
+			mode = "test",
+			program = "./${relativeFileDirname}",
+		},
 	}
+
 	dap.configurations.python = {
 		{
 			type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
@@ -160,11 +208,6 @@ function config.nvimdap()
 		},
 	}
 
-	dap.adapters.bashdb = {
-		type = "executable",
-		command = vim.fn.stdpath("data") .. "/mason/packages/bash-debug-adapter/bash-debug-adapter",
-		name = "bashdb",
-	}
 	dap.configurations.sh = {
 		{
 			type = "bashdb",
