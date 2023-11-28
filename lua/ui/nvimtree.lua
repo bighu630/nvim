@@ -36,8 +36,9 @@ local function on_attach(bufnr)
 	vim.keymap.set("n", "e", api.fs.rename_basename, opts("Rename: Basename"))
 	vim.keymap.set("n", "]e", api.node.navigate.diagnostics.next, opts("Next Diagnostic"))
 	vim.keymap.set("n", "[e", api.node.navigate.diagnostics.prev, opts("Prev Diagnostic"))
-	vim.keymap.set("n", "F", api.live_filter.clear, opts("Clean Filter"))
-	vim.keymap.set("n", "f", api.live_filter.start, opts("Filter"))
+	vim.keymap.set("n", "F", api.live_filter.start, opts("Filter"))
+	-- vim.keymap.set("n", "F", api.live_filter.clear, opts("Clean Filter"))
+	-- vim.keymap.set("n", "f", api.live_filter.start, opts("Filter"))
 	vim.keymap.set("n", "g?", api.tree.toggle_help, opts("Help"))
 	vim.keymap.set("n", "gy", api.fs.copy.absolute_path, opts("Copy Absolute Path"))
 	vim.keymap.set("n", "H", api.tree.toggle_hidden_filter, opts("Toggle Dotfiles"))
@@ -151,29 +152,29 @@ function config.nvimtree()
 				padding = " ",
 				symlink_arrow = "  ",
 				glyphs = {
-					default = "", --
-					symlink = "",
-					bookmark = "",
+					default = " ", --
+					symlink = " ",
+					bookmark = " ",
 					git = {
-						unstaged = "",
-						staged = "", --
-						unmerged = "שׂ",
-						renamed = "", --
-						untracked = "ﲉ",
-						deleted = "",
-						ignored = "", --◌
+						unstaged = " ",
+						staged = " ", --
+						unmerged = "שׂ ",
+						renamed = " ", --
+						untracked = "ﲉ ",
+						deleted = " ",
+						ignored = " ", --◌
 					},
 					folder = {
-						arrow_open = "",
-						arrow_closed = "",
+						arrow_open = " ",
+						arrow_closed = " ",
 						arrow_open = "",
 						arrow_closed = "",
-						default = "",
-						open = "",
-						empty = "",
-						empty_open = "",
-						symlink = "",
-						symlink_open = "",
+						default = " ",
+						open = " ",
+						empty = " ",
+						empty_open = " ",
+						symlink = " ",
+						symlink_open = " ",
 					},
 				},
 			},

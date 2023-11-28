@@ -72,6 +72,9 @@ local dap_map = {
 		:with_noremap()
 		:with_silent(),
 	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
+	["n|<F2>"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
+		:with_noremap()
+		:with_silent(),
 	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
 		:with_noremap()
 		:with_silent(),
