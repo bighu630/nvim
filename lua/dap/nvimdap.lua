@@ -26,11 +26,21 @@ function config.dapui()
 				size = 40,
 				position = "left",
 			},
-			{ elements = { "repl", "console" }, size = 10, position = "bottom" },
+			{
+				elements = {
+					{
+						id = "repl",
+						size = 0.75,
+					},
+					"console",
+				},
+				size = 10,
+				position = "bottom",
+			},
 		},
 		floating = {
 			-- max_height = nil,
-			-- max_width = nil,
+			max_width = 100,
 			border = "rounded", -- Border style. Can be "single", "double" or "rounded"
 			mappings = { close = { "q", "<Esc>" } },
 		},

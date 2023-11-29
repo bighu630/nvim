@@ -51,7 +51,7 @@ function config.telescope()
 		},
 		pickers = {
 			find_files = {
-				theme = "cursor",
+				theme = "dropdown",
 				previewer = false,
 				-- find_command = { "find", "-type", "f" },
 				find_command = { "fd" },

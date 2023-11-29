@@ -113,7 +113,7 @@ local plug_map = {
 	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
 	-- Plugin MarkdownPreview
-	["n|<F12>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
+	["n|<F11>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
 	-- Plugin auto_session
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
 	-- ["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),
