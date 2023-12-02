@@ -149,10 +149,11 @@ return {
 	},
 	{
 		"L3MON4D3/LuaSnip",
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		build = "make install_jsregexp",
 		lazy = true,
 		after = "nvim-cmp",
 		-- install jsregexp (optional!).
-		build = "make install_jsregexp",
 		config = require("lsp.snip").luasnip,
 		dependencies = {
 			"rafamadriz/friendly-snippets",

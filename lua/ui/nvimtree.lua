@@ -111,10 +111,11 @@ function config.nvimtree()
 		select_prompts = false,
 		view = {
 			float = {
-				enable = false,
+				enable = true,
 				open_win_config = {
 					-- relative = "editor",
-					border = "rounded",
+					-- border = "rounded",
+					border = "single",
 					width = 40,
 					height = 120,
 					-- row = 1,
