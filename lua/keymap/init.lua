@@ -84,11 +84,7 @@ local dap_map = {
 	["n|<leader>dbl"] = map_cr("lua require('dap').list_breakpoints()"):with_noremap():with_silent(),
 	["n|<leader>drc"] = map_cr("lua require('dap').run_to_cursor()"):with_noremap():with_silent(),
 	["n|<leader>drl"] = map_cr("lua require('dap').run_last()"):with_noremap():with_silent(),
-	["n|<F6>"] = map_cr("lua require('dap').step_over()"):with_noremap():with_silent(),
-	["n|<F7>"] = map_cr("lua require('dap').step_into()"):with_noremap():with_silent(),
-	["n|<F8>"] = map_cr("lua require('dap').step_out()"):with_noremap():with_silent(),
 	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
-	["n|J"] = map_cr("lua require('dapui').eval()"):with_silent(),
 }
 
 local plug_map = {
@@ -102,10 +98,6 @@ local plug_map = {
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
-	-- Plugin vim-eft
-	-- ["n|f"] = map_cmd("v:lua.enhance_ft_move('f')"):with_expr(),
-	-- ["n|F"] = map_cmd("v:lua.enhance_ft_move('F')"):with_expr(),
-	-- ["n|t"] = map_cmd("v:lua.enhance_ft_move('t')"):with_expr(),
 	-- Plugin leap
 	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
 	["n|<S-s>"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),

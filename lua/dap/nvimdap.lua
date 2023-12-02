@@ -32,7 +32,7 @@ function config.dapui()
 						id = "repl",
 						size = 0.75,
 					},
-					"console",
+					{ id = "console", size = 0.25 },
 				},
 				size = 10,
 				position = "bottom",
@@ -40,7 +40,7 @@ function config.dapui()
 		},
 		floating = {
 			-- max_height = nil,
-			max_width = 100,
+			max_width = 150,
 			border = "rounded", -- Border style. Can be "single", "double" or "rounded"
 			mappings = { close = { "q", "<Esc>" } },
 		},
