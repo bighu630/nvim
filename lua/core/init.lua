@@ -86,7 +86,7 @@ local load_core = function()
 end
 
 local vim_config = function()
-	vim.cmd("source lua/core/vimscript.vim")
+	vim.cmd("source ~/.config/nvim/lua/core/vimscript.vim")
 end
 
 load_core()

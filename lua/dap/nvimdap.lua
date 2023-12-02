@@ -30,9 +30,9 @@ function config.dapui()
 				elements = {
 					{
 						id = "repl",
-						size = 0.75,
+						size = 0.65,
 					},
-					{ id = "console", size = 0.25 },
+					{ id = "console", size = 0.35 },
 				},
 				size = 10,
 				position = "bottom",

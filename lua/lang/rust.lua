@@ -5,6 +5,9 @@ function config.lang_rust()
 	local codelldb_path = extension_path .. "adapter/codelldb"
 	local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
 
+	local opt = { noremap = true, silent = true }
+	vim.api.nvim_set_keymap("n", "<F5>", ":RustDebuggables<cr>", opt)
+
 	local opts = {
 		tools = { -- rust-tools options
 
