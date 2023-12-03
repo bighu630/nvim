@@ -14,7 +14,6 @@ local buffer_map = {
 }
 
 local lspsaga_map = {
-	["n|<F2>"] = map_cr("Lspsaga outline"):with_noremap():with_silent(),
 	["n|="] = map_cr("Lspsaga diagnostic_jump_next"):with_noremap():with_silent(),
 	["n|-"] = map_cr("Lspsaga diagnostic_jump_prev"):with_noremap():with_silent(),
 	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
@@ -81,7 +80,7 @@ local dap_map = {
 	["n|<leader>dB"] = map_cr("lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))")
 		:with_noremap()
 		:with_silent(),
-	["n|<leader>dbl"] = map_cr("lua require('dap').list_breakpoints()"):with_noremap():with_silent(),
+	-- ["n|<leader>dbl"] = map_cr("lua require('dap').list_breakpoints()"):with_noremap():with_silent(),
 	["n|<leader>drc"] = map_cr("lua require('dap').run_to_cursor()"):with_noremap():with_silent(),
 	["n|<leader>drl"] = map_cr("lua require('dap').run_last()"):with_noremap():with_silent(),
 	["n|<leader>dl"] = map_cr("lua require('dap').repl.open()"):with_noremap():with_silent(),
@@ -102,10 +101,10 @@ local plug_map = {
 	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
 	["n|<S-s>"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
 	-- Plugin EasyAlign
-	["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
-	["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
+	-- ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
+	-- ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
 	-- Plugin MarkdownPreview
-	["n|<F11>"] = map_cr("MarkdownPreviewToggle"):with_noremap():with_silent(),
+	["n|<F11>"] = map_cr("MarkdownPreview"):with_noremap():with_silent(),
 	-- Plugin auto_session
 	["n|<leader>ss"] = map_cu("SessionSave"):with_noremap():with_silent(),
 	-- ["n|<leader>sr"] = map_cu("RestoreSession"):with_noremap():with_silent(),
@@ -117,8 +116,8 @@ local plug_map = {
 	["o|m"] = map_cu([[lua require('tsht').nodes()]]):with_silent(),
 	["c|Q"] = map_cu([[%SnipRun]]):with_silent(),
 	-- Plugin Tabout
-	["i|<C-j>"] = map_cmd([[<Plug>(TaboutMulti)]]):with_silent(),
-	["i|<C-k>"] = map_cmd([[<Plug>(TaboutBackMulti)]]):with_silent(),
+	-- ["i|<C-j>"] = map_cmd([[<Plug>(TaboutMulti)]]):with_silent(),
+	-- ["i|<C-k>"] = map_cmd([[<Plug>(TaboutBackMulti)]]):with_silent(),
 	-- My keymap
 	["n|<S-q>"] = map_cr("q"):with_silent():with_noremap(),
 	["n|<->"] = map_cr("lua vim.diagnostic.goto_next({})"),
