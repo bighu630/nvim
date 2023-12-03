@@ -2,6 +2,13 @@
 
 使用 lazy 管理插件的 nvim 编辑环境
 
+## 使用效果
+
+|                                                                                                                                         |                                                                                                                               |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| ![首页](https://i.imgur.com/pnHSTS4.png "起始页")<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">起始页</center> | ![lazy](https://i.imgur.com/CCknKtM.png) <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">lazy</center> |
+| ![mason](https://i.imgur.com/1pjAmcl.png "mason")<center style="font-size:14px;color:#C0C0C0;text-decoration:underline">mason</center>  | ![dap](https://i.imgur.com/yiol6Od.png) <center style="font-size:14px;color:#C0C0C0;text-decoration:underline">dap</center>   |
+
 ## 配置结构
 
 ```sh
