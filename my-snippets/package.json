@@ -14,6 +14,10 @@
         "path": "./snippets/c.json"
       },
       {
+          "language": ["markdown","md"],
+          "path": "./snippets/global.json"
+      },
+      {
         "language": "cpp",
         "path": "./snippets/cpp.json"
       },

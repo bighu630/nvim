@@ -237,6 +237,23 @@ dap.configurations.go = {
 
 改动3： 去掉这里的`,` 如果有的话
 
+修改后
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "go",
+      "name": "launch",
+      "request": "launch",
+      "program": "${workspaceFolder}",
+      "args": []
+    }
+  ]
+}
+```
+
 ## end
 
 如果有什么改进的建议，欢迎提issues，up会抽时间处理

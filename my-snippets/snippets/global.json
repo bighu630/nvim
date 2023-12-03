@@ -1,0 +1,9 @@
+{
+    "img with title":{
+        "prefix": "imgw"
+        "body": [
+            "![$1]($2)<center style=\"font-size:13px;color:#C0C0C0;text-decoration:underline\">$3</center>"
+        ],
+        "description": "Insert an image with a title"
+    }
+}
