@@ -239,4 +239,4 @@ dap.configurations.go = {
 
 ## end
 
-如果有什么改进的建议，欢迎提issos，up会抽时间处理
+如果有什么改进的建议，欢迎提issues，up会抽时间处理
