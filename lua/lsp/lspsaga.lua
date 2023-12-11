@@ -25,7 +25,7 @@ function config.lspsaga()
 			auto_refresh = true,
 			auto_close = true,
 			custom_sort = nil,
-			layout = "float",
+			-- layout = "float",
 			keys = {
 				toggle_or_jump = "<CR>",
 				quit = "q",

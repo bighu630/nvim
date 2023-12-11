@@ -66,4 +66,4 @@ augroup END
 
 " 设置颜色
 colorscheme catppuccin-mocha
-set colorcolumn=80
+set colorcolumn=88
