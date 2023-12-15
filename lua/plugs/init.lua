@@ -144,6 +144,7 @@ return {
 			{ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
 			{ "hrsh7th/cmp-path", after = "cmp-cmdline" },
 			{ "hrsh7th/cmp-buffer", after = "cmp-path" },
+			{ "f3fora/cmp-spell", after = "cmp-path" },
 		},
 		config = require("lsp.cmp").cmp,
 	},
@@ -330,9 +331,6 @@ return {
 		config = function()
 			require("project_nvim").setup({})
 		end,
-	},
-	{
-		"ryu-ichiroh/vim-cspell",
 	},
 	{
 		"Exafunction/codeium.nvim",
