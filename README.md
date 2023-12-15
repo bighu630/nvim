@@ -45,7 +45,7 @@
 - tmux 可以有
 ```
 
-> 这些在archlinux上都可以直接装
+> 这些在arch Linux上都可以直接装
 
 ## 配置说明
 
@@ -53,24 +53,24 @@
 
 - 文件相关
 
-| 模式 | key        | 功能              |
-| ---- | ---------- | ----------------- |
-| n    | ;          | leader,vim 控制键 |
-| n    | E          | 前一buffer        |
-| n    | R          | 后一buffer        |
-| n    | B          | 切换到指定buffer  |
-| n    | x          | 保存并退出buffer  |
-| n    | Q          | 退出buffer        |
-| n    | ff         | 打开/关闭文件树   |
-| n    | \<leager>u | 打开/关闭undotree |
-| n    | \<Ctrl-s>  | 保存              |
+| 模式 | key        | 功能               |
+| ---- | ---------- | ------------------ |
+| n    | ;          | leader,vim 控制键  |
+| n    | E          | 前一buffer         |
+| n    | R          | 后一buffer         |
+| n    | B          | 切换到指定buffer   |
+| n    | x          | 保存并退出buffer   |
+| n    | Q          | 退出buffer         |
+| n    | ff         | 打开/关闭文件树    |
+| n    | \<leader>u | 打开/关闭undo tree |
+| n    | \<Ctrl-s>  | 保存               |
 
 - 窗口相关
 
 | 模式 | key            | 功能                 |
 | ---- | -------------- | -------------------- |
-| n    | \<leager>left  | 横向窗口减小         |
-| n    | \<leager>right | 横向窗口增大         |
+| n    | \<leader>left  | 横向窗口减小         |
+| n    | \<leader>right | 横向窗口增大         |
 | n    | \<Ctrl-w> =    | 窗口大小复原         |
 | n    | \<Ctrl-h>      | 切换到左边窗口或tmux |
 | n    | \<Ctrl-l>      | 切换到右边窗口或tmux |
@@ -104,7 +104,7 @@
 | n    | \<space>hk  | 查看快捷键列表   |
 | n    | \<space>w   | 查看关键字       |
 | n    | \<space>fg  | 查看git file     |
-| n    | \<leager>sc | 切换主题         |
+| n    | \<leader>sc | 切换主题         |
 | n    | \<space>p   | 打开项目         |
 
 > 在打开项目的界面按 \<esc> 后,按 c 保存项目(自动识别项目根目录)
