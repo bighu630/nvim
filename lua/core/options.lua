@@ -99,8 +99,8 @@ local function load_options()
 		breakindentopt = "shift:2,min:20",
 		wrap = false,
 		linebreak = true,
-		number = false,
-		relativenumber = false,
+		number = true,
+		relativenumber = true,
 		-- foldenable = true,
 		foldmethod = "expr", -- fold with nvim_treesitter
 		foldexpr = "nvim_treesitter#foldexpr()",
