@@ -66,13 +66,14 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
 	vim.g.neovide_cursor_vfx_particle_speed = 21.0
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
-	vim.g.neovide_transparency = 0.8
+	vim.g.neovide_transparency = 0.7
 	if vim.fn.exists("g:neovide") == 1 then
 		vim.cmd([[
             set guifont=Liga\ SFMono\ Nerd\ Font:h9
             let g:neovide_floating_blur_amount_x = 2.0
             let g:neovide_floating_blur_amount_y = 2.0
             set nocursorcolumn
+            colorscheme catppuccin-mocha
         ]])
 	end
 end

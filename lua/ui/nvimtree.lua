@@ -117,7 +117,7 @@ function config.nvimtree()
 					-- border = "rounded",
 					border = "single",
 					width = 40,
-					height = 120,
+					height = 50,
 					-- row = 1,
 					-- col = 1,
 				},

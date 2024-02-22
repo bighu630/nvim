@@ -1,6 +1,5 @@
 local config = {}
 function config.cmp()
-	-- vim.cmd([[packadd cmp-tabnine]])
 	local t = function(str)
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
@@ -77,9 +76,6 @@ function config.cmp()
 		sorting = {
 			priority_weight = 2,
 			comparators = {
-				-- require("copilot_cmp.comparators").prioritize,
-				-- require("copilot_cmp.comparators").score,
-				-- require("cmp_tabnine.compare"),
 				compare.offset,
 				compare.exact,
 				compare.score,
@@ -136,6 +132,7 @@ function config.cmp()
 		sources = {
 			{ name = "nvim_lsp" },
 			{ name = "codeium" },
+			{ name = "copilot" },
 			{ name = "nvim_lua" },
 			{ name = "luasnip" },
 			{ name = "path" },
