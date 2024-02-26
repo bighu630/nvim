@@ -206,18 +206,10 @@ return {
 	-- },
 	---------------------------------------lspsaga end-----------------------------
 	---------------------------------------langguage -----------------------------
-	-- vim-go
 	{
-		"ray-x/go.nvim",
-		dependencies = { -- optional packages
-			"ray-x/guihua.lua",
-			"neovim/nvim-lspconfig",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		config = require("lang.go").lang_go,
-		event = { "CmdlineEnter" },
-		ft = { "go", "gomod" },
-		build = ':lua require("go.install").update_all_sync()', -- if you need to install/update all binaries
+		"fatih/vim-go",
+		lazy = true,
+		ft = "go",
 	},
 	{
 		"mfussenegger/nvim-jdtls",
@@ -332,19 +324,36 @@ return {
 			require("project_nvim").setup({})
 		end,
 	},
-	{
-		"github/copilot.vim",
-	},
 	-- {
-	-- 	"Exafunction/codeium.nvim",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"hrsh7th/nvim-cmp",
-	-- 	},
+	-- 	"github/copilot.vim",
 	-- 	config = function()
-	-- 		require("codeium").setup({})
+	-- 		require("copilot").setup()
 	-- 	end,
 	-- },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		config = function()
+			require("copilot").setup({})
+		end,
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+	{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({})
+		end,
+	},
 	{
 		"michaelb/sniprun",
 		run = "sh ./install.sh",

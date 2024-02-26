@@ -91,7 +91,7 @@ function config.cmp()
 				mode = "symbol_text",
 				maxwidth = 50,
 				ellipsis_char = "...",
-				symbol_map = { Codeium = "" },
+				symbol_map = { Codeium = "", Copilot = "" },
 			}),
 		},
 		-- You can set mappings if you want
