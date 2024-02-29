@@ -148,13 +148,32 @@ return {
 		},
 		config = require("lsp.cmp").cmp,
 	},
+	-- {
+	-- 	"ms-jpq/coq_nvim",
+	-- 	lazy = true,
+	-- 	event = "BufReadPost",
+	-- 	branch = "coq",
+	-- 	config = require("lsp.coq").coq,
+	-- },
+	-- {
+	-- 	"ms-jpq/coq.artifacts",
+	-- 	dependencies = {
+	-- 		"ms-jpq/coq_nvim",
+	-- 	},
+	-- },
+	-- {
+	-- 	"ms-jpq/coq.thirdparty",
+	-- 	version = "3q",
+	-- 	dependencies = {
+	-- 		"ms-jpq/coq_nvim",
+	-- 	},
+	-- },
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
 		build = "make install_jsregexp",
 		lazy = true,
 		after = "nvim-cmp",
-		-- install jsregexp (optional!).
 		config = require("lsp.snip").luasnip,
 		dependencies = {
 			"rafamadriz/friendly-snippets",
@@ -210,6 +229,7 @@ return {
 		"fatih/vim-go",
 		lazy = true,
 		ft = "go",
+		config = require("lang.go").vim_go,
 	},
 	{
 		"mfussenegger/nvim-jdtls",
@@ -251,6 +271,16 @@ return {
 	-------------------------------------telescope end-------------------------------
 	--
 	-------------------------------------tools --------------------------------------
+	{
+		"kawre/leetcode.nvim",
+		build = ":TSUpdate html",
+		dependencies = {
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim", -- required by telescope
+			"MunifTanjim/nui.nvim",
+		},
+		opts = require("tools.leetcode"),
+	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -336,12 +366,6 @@ return {
 		event = "InsertEnter",
 		config = function()
 			require("copilot").setup({})
-		end,
-	},
-	{
-		"zbirenbaum/copilot-cmp",
-		config = function()
-			require("copilot_cmp").setup()
 		end,
 	},
 	{

@@ -88,7 +88,7 @@ function config.cmp()
 		},
 		formatting = {
 			format = lspkind.cmp_format({
-				mode = "symbol_text",
+				mode = "symbol",
 				maxwidth = 50,
 				ellipsis_char = "...",
 				symbol_map = { Codeium = "", Copilot = "" },

@@ -1,6 +1,7 @@
 local nvim_lsp = require("lspconfig")
 local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
+-- local coq = require("coq")
 
 mason.setup({
 	ui = {
@@ -18,6 +19,7 @@ mason_lsp.setup({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- capabilities = coq.lsp_ensure_capabilities(capabilities)
 
 local function custom_attach(client, bufnr)
 	require("lsp_signature").on_attach({
@@ -266,6 +268,7 @@ require("lspconfig").efm.setup(vim.tbl_extend("force", efmls_config, {
 	on_attach = custom_attach,
 	capabilities = capabilities,
 	init_options = { documentFormatting = true, codeAction = true },
+
 	-- Pass your cutom config below like on_attach and capabilities
 	--
 	-- on_attach = on_attach,
