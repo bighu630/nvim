@@ -90,9 +90,6 @@ local plug_map = {
 	-- Lsp mapp work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
 	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
-	-- Plugin nvim-tree
-	-- ["n|ff"] = map_cr("NeoTreeFocusToggle"):with_noremap():with_silent(),
-	-- ["n|fd"] = map_cr("NeoTreeFloatToggle"):with_noremap():with_silent(),
 	-- Plugin Telescope
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),

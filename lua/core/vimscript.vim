@@ -1,4 +1,5 @@
 let g:input_toggle = 1
+
 function! Fcitx2en()
     let s:input_status = system("fcitx5-remote")
     if s:input_status == 2
@@ -28,7 +29,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 autocmd VimLeave !pkill gopls
 
 " filetype
-au BufNewFile,BufRead config set filetype=i3config
+" au BufNewFile,BufRead config set filetype=i3config
 au BufNewFile,BufRead .conkyrc set filetype=conkyrc
 
 augroup jdtls_lsp

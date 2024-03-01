@@ -123,7 +123,7 @@ function config.treesitter()
 		},
 		-- autopairs plugin
 		autopairs = {
-			enable = false,
+			enable = true,
 		},
 	})
 end

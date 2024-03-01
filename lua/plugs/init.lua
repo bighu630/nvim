@@ -1,5 +1,5 @@
 return {
-	---------------------------------------主题/外观-----------------------------
+	---------------------------------------主题/外观------------------------------------
 	-- catppuccin , neo-tree ,accelerated-jk,noice
 	{
 		"catppuccin/nvim",
@@ -31,10 +31,6 @@ return {
 		},
 		config = require("ui.noice").noice,
 	},
-	-- {
-	-- 	"hoob3rt/lualine.nvim",
-	-- 	config = require("ui.lualine").lualine,
-	-- },
 	{
 		"glepnir/galaxyline.nvim",
 		dependencies = {
@@ -91,9 +87,8 @@ return {
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = require("ui.scrollview").scrollview,
 	},
-	---------------------------------------主题end-----------------------------
-
-	---------------------------------------lsp-----------------------------
+	---------------------------------------主题end--------------------------------------
+	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
 	{
 		"neovim/nvim-lspconfig",
@@ -148,29 +143,9 @@ return {
 		},
 		config = require("lsp.cmp").cmp,
 	},
-	-- {
-	-- 	"ms-jpq/coq_nvim",
-	-- 	lazy = true,
-	-- 	event = "BufReadPost",
-	-- 	branch = "coq",
-	-- 	config = require("lsp.coq").coq,
-	-- },
-	-- {
-	-- 	"ms-jpq/coq.artifacts",
-	-- 	dependencies = {
-	-- 		"ms-jpq/coq_nvim",
-	-- 	},
-	-- },
-	-- {
-	-- 	"ms-jpq/coq.thirdparty",
-	-- 	version = "3q",
-	-- 	dependencies = {
-	-- 		"ms-jpq/coq_nvim",
-	-- 	},
-	-- },
 	{
 		"L3MON4D3/LuaSnip",
-		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		version = "v2.*",
 		build = "make install_jsregexp",
 		lazy = true,
 		after = "nvim-cmp",
@@ -185,8 +160,8 @@ return {
 		event = "BufReadPost",
 		config = require("lsp.autopairs").autopairs,
 	},
-	---------------------------------------lsp end-----------------------------
-	---------------------------------------lspsaga-----------------------------
+	---------------------------------------lsp end--------------------------------------
+	---------------------------------------lspsaga--------------------------------------
 	-- lspsaga
 	{
 		"nvimdev/lspsaga.nvim",
@@ -223,8 +198,8 @@ return {
 	-- 	envent = "BufReadPost",
 	-- 	after = "nvim-treesitter",
 	-- },
-	---------------------------------------lspsaga end-----------------------------
-	---------------------------------------langguage -----------------------------
+	---------------------------------------lspsaga end----------------------------------
+	---------------------------------------langguage -----------------------------------
 	{
 		"fatih/vim-go",
 		lazy = true,
@@ -245,8 +220,8 @@ return {
 		},
 		config = require("lang.rust").lang_rust,
 	},
-	---------------------------------------lspsaga end-----------------------------
-	-------------------------------------telescope -------------------------------
+	---------------------------------------lspsaga end----------------------------------
+	-------------------------------------telescope -------------------------------------
 	{
 		"nvim-telescope/telescope.nvim",
 		lazy = true,
@@ -268,9 +243,9 @@ return {
 			},
 		},
 	},
-	-------------------------------------telescope end-------------------------------
-	--
-	-------------------------------------tools --------------------------------------
+	-------------------------------------telescope end----------------------------------
+
+	-------------------------------------tools -----------------------------------------
 	{
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
@@ -356,18 +331,15 @@ return {
 	},
 	-- {
 	-- 	"github/copilot.vim",
+	-- },
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
 	-- 	config = function()
-	-- 		require("copilot").setup()
+	-- 		require("copilot").setup({})
 	-- 	end,
 	-- },
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		config = function()
-			require("copilot").setup({})
-		end,
-	},
 	{
 		"Exafunction/codeium.nvim",
 		dependencies = {
@@ -413,5 +385,5 @@ return {
 		},
 		config = require("dap.nvimdap").nvimdap,
 	},
-	----------------------------------dap end----------------------------------------------
+	----------------------------------dap end-------------------------------------------
 }
