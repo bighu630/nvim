@@ -14,7 +14,7 @@ function config.barbar()
 		--  - middle-click: delete buffer
 		clickable = true,
 		-- Excludes buffers from the tabline
-		exclude_ft = { "javascript" },
+		-- exclude_ft = { "javascript" },
 		exclude_name = { "package.json" },
 		-- Hide inactive buffers and file extensions. Other options are `alternate`, `current`, and `visible`.
 		hide = { extensions = false, inactive = false },

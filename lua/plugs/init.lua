@@ -143,6 +143,19 @@ return {
 		},
 		config = require("lsp.cmp").cmp,
 	},
+	-- {
+	-- 	"ms-jpq/coq_nvim",
+	-- 	branch = "coq",
+	-- 	event = "InsertEnter",
+	-- 	run = ":COQdeps",
+	-- 	config = function()
+	-- 		require("lsp.coq").coq()
+	-- 	end,
+	-- 	dependencies = {
+	-- 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+	-- 		{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+	-- 	},
+	-- },
 	{
 		"L3MON4D3/LuaSnip",
 		version = "v2.*",
@@ -254,8 +267,18 @@ return {
 			"nvim-lua/plenary.nvim", -- required by telescope
 			"MunifTanjim/nui.nvim",
 		},
+
 		opts = require("tools.leetcode"),
 	},
+	-- {
+	-- 	"tonyfettes/fcitx5.nvim",
+	-- 	config = function()
+	-- 		-- Load `fcitx5.nvim`
+	-- 		require("fcitx5").setup()
+	-- 		-- Map <M-Tab> to toggle between most recent two input methods.
+	-- 	end,
+	-- 	rocks = { "lgi", "dbus_proxy" },
+	-- },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",

@@ -14,8 +14,8 @@ function config.coq()
 			pre_select = true,
 		},
 	}
-	local coq = require("coq")
-	coq.Now() -- Start coq
+	-- local coq = require("coq")
+	-- coq.Now() -- Start coq
 
 	-- 3party sources
 	require("coq_3p")({
@@ -23,6 +23,8 @@ function config.coq()
 		{ src = "bc", short_name = "MATH", precision = 6 }, -- Calculator
 		{ src = "cow", trigger = "!cow" }, -- cow command
 		{ src = "figlet", trigger = "!big" }, -- figlet command
+		{ src = "codeium", short_name = "COD" },
+		{ src = "copilot", short_name = "COP", accept_key = "<c-f>" },
 		{
 			src = "repl",
 			sh = "zsh",
