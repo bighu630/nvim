@@ -239,6 +239,16 @@ function config.nvimdap()
 			terminalKind = "integrated",
 		},
 	}
+
+	dap.configurations.javascript = {
+		{
+			type = "pwa_node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+	}
 end
 
 return config

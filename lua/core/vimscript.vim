@@ -66,5 +66,9 @@ augroup END
 
 
 " 设置颜色
-colorscheme catppuccin-mocha
+" colorscheme catppuccin-mocha
+colorscheme tokyonight-moon
+" import ~/.cache/wal/colors-wal.vim
 set colorcolumn=88
+
+inoremap jk <ESC>

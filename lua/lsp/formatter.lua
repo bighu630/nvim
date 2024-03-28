@@ -68,23 +68,6 @@ function config.formatter()
 					}
 				end,
 			},
-			sh = {
-				-- You can also define your own configuration
-				function()
-					-- Supports conditional formatting
-					if util.get_current_buffer_file_name() == "special.sh" then
-						return nil
-					end
-
-					-- Full specification of configurations is down below and in Vim help
-					-- files
-					return {
-						exe = "shfmt",
-						args = { "-i", shiftwidth },
-						stdin = true,
-					}
-				end,
-			},
 			markdown = {
 				function()
 					if util.get_current_buffer_file_name() == "special.py" then

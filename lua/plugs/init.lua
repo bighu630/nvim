@@ -8,6 +8,10 @@ return {
 		opts = require("ui.catppuccin"),
 	},
 	{
+		"navarasu/onedark.nvim",
+		"folke/tokyonight.nvim",
+	},
+	{
 		"kyazdani42/nvim-tree.lua",
 		lazy = false,
 		cmd = { "NvimTreeToggle" },
@@ -197,7 +201,7 @@ return {
 		after = "nvim-treesitter",
 	},
 	{
-		"p00f/nvim-ts-rainbow",
+		"HiPhish/nvim-ts-rainbow2",
 		envent = "BufReadPost",
 		after = "nvim-treesitter",
 	},
@@ -270,6 +274,13 @@ return {
 
 		opts = require("tools.leetcode"),
 	},
+	{
+		"chipsenkbeil/distant.nvim",
+		branch = "v0.3",
+		config = function()
+			require("distant"):setup()
+		end,
+	},
 	-- {
 	-- 	"tonyfettes/fcitx5.nvim",
 	-- 	config = function()
@@ -279,6 +290,10 @@ return {
 	-- 	end,
 	-- 	rocks = { "lgi", "dbus_proxy" },
 	-- },
+	{
+		"yaocccc/nvim-hlchunk",
+		event = "BufReadPre",
+	},
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -395,6 +410,9 @@ return {
 		},
 		module = "dap",
 		dependencies = {
+			{
+				"nvim-neotest/nvim-nio",
+			},
 			{
 				"rcarriga/nvim-dap-ui",
 				lzay = true,
