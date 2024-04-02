@@ -10,6 +10,7 @@ function config.coc()
 	-- Always show the signcolumn, otherwise it would shift the text each time
 	-- diagnostics appeared/became resolved
 	vim.opt.signcolumn = "yes"
+	vim.g.coc_markdown_disable_languages = { "go" }
 
 	local keyset = vim.keymap.set
 	-- Autocomplete
