@@ -94,71 +94,63 @@ return {
 	---------------------------------------主题end--------------------------------------
 	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
+	-- {
+	-- 	"neovim/nvim-lspconfig",
+	-- 	lazy = true,
+	-- 	event = "BufReadPre",
+	-- 	config = require("lsp.lspconf").lspconfig,
+	-- },
+	-- {
+	-- 	"creativenull/efmls-configs-nvim",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 	},
+	-- 	lazy = false,
+	-- },
+	-- {
+	-- 	"williamboman/mason.nvim",
+	-- 	lazy = false,
+	-- 	dependencies = {
+	-- 		{
+	-- 			"williamboman/mason-lspconfig.nvim",
+	-- 		},
+	-- 		{
+	-- 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- 			config = function()
+	-- 				require("mason-tool-installer").setup({
+	-- 					ensure_installed = {},
+	-- 					auto_update = true,
+	-- 					run_on_start = true,
+	-- 				})
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 	{
-		"neovim/nvim-lspconfig",
-		lazy = true,
-		event = "BufReadPre",
-		config = require("lsp.lspconf").lspconfig,
-	},
-	{
-		"creativenull/efmls-configs-nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-		},
-		lazy = false,
-	},
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		dependencies = {
-			{
-				"williamboman/mason-lspconfig.nvim",
-			},
-			{
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				config = function()
-					require("mason-tool-installer").setup({
-						ensure_installed = {},
-						auto_update = true,
-						run_on_start = true,
-					})
-				end,
-			},
-		},
+		"neoclide/coc.nvim",
+		branch = "release",
+		config = require("lsp.coc").coc,
 	},
 	{
 		"mhartington/formatter.nvim",
 		config = require("lsp.formatter").formatter,
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		lazy = true,
-		event = "BufReadPost",
-		dependencies = {
-			{ "onsails/lspkind.nvim" },
-			{ "lukas-reineke/cmp-under-comparator" },
-			{ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
-			{ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
-			{ "hrsh7th/cmp-path", after = "cmp-cmdline" },
-			{ "hrsh7th/cmp-buffer", after = "cmp-path" },
-			{ "f3fora/cmp-spell", after = "cmp-path" },
-		},
-		config = require("lsp.cmp").cmp,
-	},
 	-- {
-	-- 	"ms-jpq/coq_nvim",
-	-- 	branch = "coq",
-	-- 	event = "InsertEnter",
-	-- 	run = ":COQdeps",
-	-- 	config = function()
-	-- 		require("lsp.coq").coq()
-	-- 	end,
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	lazy = true,
+	-- 	event = "BufReadPost",
 	-- 	dependencies = {
-	-- 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-	-- 		{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
+	-- 		{ "onsails/lspkind.nvim" },
+	-- { "lukas-reineke/cmp-under-comparator" },
+	-- { "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
+	-- { "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
+	-- { "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
+	-- { "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
+	-- { "hrsh7th/cmp-path", after = "cmp-cmdline" },
+	-- { "hrsh7th/cmp-buffer", after = "cmp-path" },
+	-- { "f3fora/cmp-spell", after = "cmp-path" },
 	-- 	},
+	-- 	config = require("lsp.cmp").cmp,
 	-- },
 	{
 		"L3MON4D3/LuaSnip",
@@ -367,17 +359,7 @@ return {
 			require("project_nvim").setup({})
 		end,
 	},
-	-- {
-	-- 	"github/copilot.vim",
-	-- },
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({})
-	-- 	end,
-	-- },
+	-- ai
 	{
 		"Exafunction/codeium.nvim",
 		dependencies = {
@@ -388,9 +370,17 @@ return {
 			require("codeium").setup({})
 		end,
 	},
+	-- 快速执行
 	{
 		"michaelb/sniprun",
 		run = "sh ./install.sh",
+	},
+	-- log文件高亮
+	{
+		"fei6409/log-highlight.nvim",
+		config = function()
+			require("log-highlight").setup({})
+		end,
 	},
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
