@@ -376,12 +376,12 @@ return {
 		run = "sh ./install.sh",
 	},
 	-- log文件高亮
-	{
-		"fei6409/log-highlight.nvim",
-		config = function()
-			require("log-highlight").setup({})
-		end,
-	},
+	-- {
+	-- 	"fei6409/log-highlight.nvim",
+	-- 	config = function()
+	-- 		require("log-highlight").setup({})
+	-- 	end,
+	-- },
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
 	{
