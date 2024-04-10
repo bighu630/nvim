@@ -14,7 +14,10 @@ mason.setup({
 })
 
 mason_lsp.setup({
-	ensure_installed = {},
+	ensure_installed = {
+		"gopls",
+		"efm",
+	},
 })
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()

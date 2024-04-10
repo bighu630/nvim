@@ -26,13 +26,13 @@ local lspsaga_map = {
 	["n|gd"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
+	["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
 }
 
 local git_map = {
 	["n|gps"] = map_cr("G push"):with_noremap():with_silent(),
 	["n|gpl"] = map_cr("G pull"):with_noremap():with_silent(),
 	-- toggleterm
-	["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
 	["n|<leader>G"] = map_cu("Git"):with_noremap():with_silent(),
 }
 
@@ -63,6 +63,7 @@ local telescope_map = {
 	["n|<Leader>fg"] = map_cu("Telescope git_files"):with_noremap():with_silent(),
 	["n|<Leader>fz"] = map_cu("Telescope zoxide list"):with_noremap():with_silent(),
 	["n|<Space>hk"] = map_cu("Telescope keymaps"):with_noremap():with_silent(),
+	["n|<Space>hn"] = map_cu("Telescope notify"):with_noremap():with_silent(),
 }
 
 local dap_map = {
