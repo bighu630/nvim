@@ -69,7 +69,7 @@ local neovide_config = function()
 	vim.g.neovide_transparency = 1
 	if vim.fn.exists("g:neovide") == 1 then
 		vim.cmd([[
-            set guifont=CodeNewRoman\ Nerd\ Font:h10
+            set guifont=CodeNewRoman\ Nerd\ Font:h9.5
             let g:neovide_floating_blur_amount_x = 2.0
             let g:neovide_floating_blur_amount_y = 2.0
             set nocursorcolumn
