@@ -72,3 +72,5 @@ colorscheme tokyonight-moon
 set colorcolumn=88
 
 inoremap jk <ESC>
+
+hi comment ctermfg=6

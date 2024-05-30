@@ -201,9 +201,10 @@ return {
 		after = "nvim-treesitter",
 	},
 	{
-		"HiPhish/nvim-ts-rainbow2",
+		"HiPhish/rainbow-delimiters.nvim",
 		envent = "BufReadPost",
 		after = "nvim-treesitter",
+		config = require("lsp.rainbow").rainbow,
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",

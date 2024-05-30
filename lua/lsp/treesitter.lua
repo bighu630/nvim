@@ -119,11 +119,11 @@ function config.treesitter()
 				show_help = "?",
 			},
 		},
-		rainbow = {
-			enable = true,
-			extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
-			max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
-		},
+		-- rainbow = {
+		-- 	enable = true,
+		-- 	extended_mode = true, -- Highlight also non-parentheses delimiters, boolean or table: lang -> boolean
+		-- 	max_file_lines = 1000, -- Do not enable for files with more than 1000 lines, int
+		-- },
 		autotag = { enable = false },
 		-- matchup plugin
 		-- https://github.com/andymass/vim-matchup
