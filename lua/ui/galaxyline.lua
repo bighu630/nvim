@@ -11,6 +11,7 @@ function M.galaxy()
 		"dapui_stacks",
 		"dapui_watches",
 		"dapui_breakpoints",
+		"dapui_console",
 		"LuaTree",
 		"dbui",
 		"term",
@@ -112,12 +113,19 @@ function M.galaxy()
 		return false
 	end
 
+	local function is_dap_repl(buf)
+		local bufname = vim.api.nvim_buf_get_name(0)
+		local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+		return string.match(bufname, "DAP REPL") or filetype == "dap-repl"
+	end
 	local function file_icon(buf)
+		if is_dap_repl(buf) then
+			return
+		end
 		local file = vim.api.nvim_buf_get_name(buf or 0)
 		local f_name, f_extension = vim.fn.fnamemodify(file, ":t"), vim.fn.expand(file, ":e")
 		return devicons.get_icon(f_name, f_extension)
 	end
-
 	local function file_icon_color(buf)
 		local icon, iconhl = file_icon(buf)
 		if icon ~= nil then
@@ -194,11 +202,9 @@ function M.galaxy()
 			FileIcon = {
 				provider = file_icon,
 				condition = buffer_not_empty,
-				-- separator = " ",
 				highlight = { file_icon_color, colors.bg },
 			},
 		},
-
 		{
 			LongFileName = {
 				provider = filename,

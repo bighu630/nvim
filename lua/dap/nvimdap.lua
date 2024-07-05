@@ -52,7 +52,7 @@ function config.dapui()
 end
 
 function config.startDap()
-	require("dap.ext.vscode").load_launchjs()
+	-- require("dap.ext.vscode").load_launchjs()
 	require("dap").continue()
 end
 
