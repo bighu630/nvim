@@ -3,7 +3,7 @@ local config = {
 	arg = "leetcode.nvim",
 
 	---@type lc.lang
-	lang = "python3",
+	lang = "golang",
 
 	cn = { -- leetcode.cn
 		enabled = true, ---@type boolean
