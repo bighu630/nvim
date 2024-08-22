@@ -70,7 +70,7 @@ function config.cmp()
 				winhighlight = "Normal:CmpPmenu,CursorLine:PmenuSel,Search:None",
 			},
 			documentation = {
-				border = border("CmpDocBorder"),
+				-- border = border("CmpDocBorder"),
 			},
 		},
 		sorting = {
