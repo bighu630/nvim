@@ -22,43 +22,22 @@ function config.whichkey()
 				g = false, -- bindings for prefixed with g
 			},
 		},
-		-- add operators that will trigger motion and text object completion
-		-- to enable all native operators, set the preset / operators plugin above
-		-- operators = { gc = "Comments" },
 		icons = {
 			breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
 			separator = "➜", -- symbol used between a key and it's label
 			group = "+", -- symbol prepended to a group
 		},
-		-- popup_mappings = {
-		-- 	scroll_down = "<c-d>", -- binding to scroll down inside the popup
-		-- 	scroll_up = "<c-u>", -- binding to scroll up inside the popup
-		-- },
-		-- window = {
-		-- 	border = "rounded", -- none, single, double, shadow
-		-- 	position = "bottom", -- bottom, top
-		-- 	margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-		-- 	padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-		-- 	winblend = 0,
-		-- },
 		layout = {
 			height = { min = 4, max = 25 }, -- min and max height of the columns
 			width = { min = 20, max = 50 }, -- min and max width of the columns
 			spacing = 3, -- spacing between columns
 			align = "left", -- align columns left, center or right
 		},
-		-- ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-		-- hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
 		show_help = true, -- show help message on the command line when the popup is visible
-		triggers = "auto", -- automatically setup triggers
-		-- triggers = {"<leader>"} -- or specify a list manually
-		-- triggers_blacklist = {
-		-- 	-- list of mode / prefixes that should never be hooked by WhichKey
-		-- 	-- this is mostly relevant for key maps that start with a native binding
-		-- 	-- most people should not need to change this
-		-- 	i = { "j", "k" },
-		-- 	v = { "j", "k" },
-		-- },
+		triggers = {
+			{ "<auto>", mode = "nixsotc" },
+			{ "a", mode = { "n", "v" } },
+		},
 	}
 
 	local opts = {
@@ -71,13 +50,6 @@ function config.whichkey()
 	}
 
 	which_key.add({
-		{
-			"<Space>F",
-			"<cmd>lua require('telescope.builtin').find_files()<cr>",
-			desc = "Find files",
-			nowait = true,
-			remap = false,
-		},
 		{ "<Space>R", group = "Replace", nowait = true, remap = false },
 		{
 			"<Space>Rf",
@@ -100,7 +72,6 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		{ "<Space>S", "<cmd>SessionSave<cr>", desc = "Save session", nowait = true, remap = false },
 		{ "<Space>T", group = "Trouble", nowait = true, remap = false },
 		{
 			"<Space>Td",
@@ -121,16 +92,18 @@ function config.whichkey()
 			remap = false,
 		},
 		{ "<Space>a", "<cmd>Dashboard<cr>", desc = "Welcome", nowait = true, remap = false },
-		{ "<Space>c", group = "CMake", nowait = true, remap = false },
-		{ "<Space>cT", "<cmd>CMake select_build_type<CR>", desc = "SelectBuildType", nowait = true, remap = false },
-		{ "<Space>ca", "<cmd>CMake build_all<CR>", desc = "BuildAll", nowait = true, remap = false },
-		{ "<Space>cb", "<cmd>CMake build<CR>", desc = "BuildTarget", nowait = true, remap = false },
-		{ "<Space>cc", "<cmd>CMake cancel<CR>", desc = "Cancel", nowait = true, remap = false },
-		{ "<Space>cd", "<cmd>CMake build_and_debug<CR>", desc = "DebugTarget", nowait = true, remap = false },
-		{ "<Space>cg", "<cmd>CMake configure<CR>", desc = "Configure", nowait = true, remap = false },
-		{ "<Space>cr", "<cmd>CMake build_and_run<CR>", desc = "Run", nowait = true, remap = false },
-		{ "<Space>cs", "<cmd>CMake set_target_args<CR>", desc = "SetArg", nowait = true, remap = false },
-		{ "<Space>ct", "<cmd>CMake select_target<CR>", desc = "SelectTarget", nowait = true, remap = false },
+		-- { "<Space>c", group = "CMake", nowait = true, remap = false },
+		-- { "<Space>cT", "<cmd>CMake select_build_type<CR>", desc = "SelectBuildType", nowait = true, remap = false },
+		-- { "<Space>ca", "<cmd>CMake build_all<CR>", desc = "BuildAll", nowait = true, remap = false },
+		-- { "<Space>cb", "<cmd>CMake build<CR>", desc = "BuildTarget", nowait = true, remap = false },
+		-- { "<Space>cc", "<cmd>CMake cancel<CR>", desc = "Cancel", nowait = true, remap = false },
+		-- { "<Space>cd", "<cmd>CMake build_and_debug<CR>", desc = "DebugTarget", nowait = true, remap = false },
+		-- { "<Space>cg", "<cmd>CMake configure<CR>", desc = "Configure", nowait = true, remap = false },
+		-- { "<Space>cr", "<cmd>CMake build_and_run<CR>", desc = "Run", nowait = true, remap = false },
+		-- { "<Space>cs", "<cmd>CMake set_target_args<CR>", desc = "SetArg", nowait = true, remap = false },
+		-- { "<Space>ct", "<cmd>CMake select_target<CR>", desc = "SelectTarget", nowait = true, remap = false },
+
+		-- debug
 		{ "<Space>d", group = "Debug", nowait = true, remap = false },
 		{
 			"<Space>dE",
