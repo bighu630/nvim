@@ -67,7 +67,7 @@ augroup END
 
 " 设置颜色
 " colorscheme catppuccin-mocha
-colorscheme tokyonight-moon
+colorscheme tokyonight-storm
 " import ~/.cache/wal/colors-wal.vim
 set colorcolumn=88
 
