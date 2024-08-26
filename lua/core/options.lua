@@ -143,6 +143,12 @@ local function set_sidebar_icons()
 		local hl = "DiagnosticSign" .. type
 		vim.fn.sign_define(hl, { text = icon, texthl = hl })
 	end
+
+	vim.diagnostic.config({
+		signs = true,
+		underline = true,
+		virtual_text = { spacing = 4, prefix = "●", source = "if_many" },
+	})
 end
 
 set_sidebar_icons()
