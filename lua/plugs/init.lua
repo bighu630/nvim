@@ -277,6 +277,7 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		cmd = "Leet",
+		opts = require("tools.leetcode"),
 	},
 	{
 		"chipsenkbeil/distant.nvim",
