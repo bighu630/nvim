@@ -263,6 +263,7 @@ return {
 					{ "kkharji/sqlite.lua", lazy = false },
 				},
 			},
+			{ "HUAHUAI23/telescope-session.nvim", after = "telescope.nvim" },
 		},
 	},
 	-------------------------------------telescope end----------------------------------
