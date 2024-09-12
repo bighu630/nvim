@@ -50,6 +50,21 @@ function config.whichkey()
 	}
 
 	which_key.add({
+		{ "<Space>s", group = "Session", nowait = true, remap = false },
+		{
+			"<Space>sl",
+			"<cmd>SessionManager load_session<CR>",
+			desc = "Load Session",
+			nowait = true,
+			remap = false,
+		},
+		{
+			"<Space>sd",
+			"<cmd>SessionManager delete_session<CR>",
+			desc = "Delete Session",
+			nowait = true,
+			remap = false,
+		},
 		{ "<Space>R", group = "Replace", nowait = true, remap = false },
 		{
 			"<Space>Rf",

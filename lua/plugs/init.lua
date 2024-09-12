@@ -263,7 +263,7 @@ return {
 					{ "kkharji/sqlite.lua", lazy = false },
 				},
 			},
-			{ "HUAHUAI23/telescope-session.nvim", after = "telescope.nvim" },
+			{ "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
 		},
 	},
 	-------------------------------------telescope end----------------------------------
@@ -393,6 +393,10 @@ return {
 	{
 		"michaelb/sniprun",
 		run = "sh ./install.sh",
+	},
+	{
+		"Shatur/neovim-session-manager",
+		config = require("tools.sessionManager").config,
 	},
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
