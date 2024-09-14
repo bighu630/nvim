@@ -26,7 +26,7 @@ function config.dashboard()
 				{
 					desc = " Session",
 					group = "Session",
-					action = "SessionManager load_session",
+					action = "SessionSearch",
 					key = "s",
 				},
 			},

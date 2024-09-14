@@ -287,15 +287,6 @@ return {
 			require("distant"):setup()
 		end,
 	},
-	-- {
-	-- 	"tonyfettes/fcitx5.nvim",
-	-- 	config = function()
-	-- 		-- Load `fcitx5.nvim`
-	-- 		require("fcitx5").setup()
-	-- 		-- Map <M-Tab> to toggle between most recent two input methods.
-	-- 	end,
-	-- 	rocks = { "lgi", "dbus_proxy" },
-	-- },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -317,10 +308,10 @@ return {
 		lazy = false,
 		config = require("tools.translator").translator,
 	},
-	{
-		"tpope/vim-surround",
-		lazy = false,
-	},
+	-- {
+	-- 	"tpope/vim-surround",
+	-- 	lazy = false,
+	-- },
 	{
 		"folke/todo-comments.nvim",
 		lazy = false,
@@ -395,8 +386,19 @@ return {
 		run = "sh ./install.sh",
 	},
 	{
-		"Shatur/neovim-session-manager",
-		config = require("tools.sessionManager").config,
+		"rmagatti/auto-session",
+		lazy = false,
+		dependencies = {
+			"nvim-telescope/telescope.nvim", -- Only needed if you want to use session lens
+		},
+
+		---enables autocomplete for opts
+		---@module "auto-session"
+		---@type AutoSession.Config
+		opts = {
+			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+			-- log_level = 'debug',
+		},
 	},
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
