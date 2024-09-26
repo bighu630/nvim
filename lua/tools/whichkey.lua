@@ -67,7 +67,7 @@ function config.whichkey()
 		},
 		{
 			"<Space>ss",
-			"<cmd>SessionSava<CR>",
+			"<cmd>SessionSeva<CR>",
 			desc = "Save Current Session",
 			nowait = true,
 			remap = false,
