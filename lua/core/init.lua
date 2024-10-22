@@ -74,7 +74,7 @@ local neovide_config = function()
 		os.execute("export PATH=$PATH:$GOROOT/bin")
 		os.execute("export PATH=$PATH:$GOPATH/bin")
 		vim.cmd([[
-            set guifont=SFMono\ Nerd\ Font:h11.5:b
+            set guifont=SFMono\ Nerd\ Font:h10.5
             let g:neovide_floating_blur_amount_x = 2.0
             let g:neovide_floating_blur_amount_y = 2.0
             set nocursorcolumn
