@@ -66,7 +66,7 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_lifetime = 1.2
 	vim.g.neovide_cursor_vfx_particle_speed = 21.0
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
-	vim.g.neovide_transparency = 1
+	vim.g.neovide_transparency = 0.8
 	if vim.fn.exists("g:neovide") == 1 then
 		os.execute("export GOROOT=/home/ivhu/.go")
 		os.execute("export GOPATH=/data/code/Go")
