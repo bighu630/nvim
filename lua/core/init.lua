@@ -68,13 +68,8 @@ local neovide_config = function()
 	vim.g.neovide_cursor_vfx_particle_density = 5.0
 	vim.g.neovide_transparency = 0.8
 	if vim.fn.exists("g:neovide") == 1 then
-		os.execute("export GOROOT=/home/ivhu/.go")
-		os.execute("export GOPATH=/data/code/Go")
-		os.execute("export GOBIN=$GOPATH/bin")
-		os.execute("export PATH=$PATH:$GOROOT/bin")
-		os.execute("export PATH=$PATH:$GOPATH/bin")
 		vim.cmd([[
-            set guifont=SFMono\ Nerd\ Font:h10.5
+            set guifont=SFMono\ Nerd\ Font:h11
             let g:neovide_floating_blur_amount_x = 2.0
             let g:neovide_floating_blur_amount_y = 2.0
             set nocursorcolumn
