@@ -26,7 +26,8 @@ function config.notify()
 			DEBUG = "",
 			TRACE = "✎",
 		},
-		background_colour = "#89DCEB",
+		-- background_colour = "#89DCEB",
+		background_colour = "none",
 		top_down = false,
 	})
 
