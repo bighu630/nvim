@@ -96,10 +96,10 @@ return {
 		config = require("ui.illuminate").illuminate,
 	},
 	{
-		"petertriho/nvim-scrollbar",
-		lazy = true,
-		event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		config = require("ui.scrollview").scrollview,
+		-- "petertriho/nvim-scrollbar",
+		-- lazy = true,
+		-- event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		-- config = require("ui.scrollview").scrollview,
 	},
 	{
 		"yaocccc/nvim-hlchunk",
