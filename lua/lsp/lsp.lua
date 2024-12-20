@@ -3,6 +3,8 @@ local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 -- local coq = require("coq")
 
+vim.lsp.util.make_text_document_params(0,"utf-8")
+
 mason.setup({
 	ui = {
 		icons = {
