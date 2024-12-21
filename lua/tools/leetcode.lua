@@ -48,7 +48,7 @@ local config = {
 	},
 
 	description = {
-		position = "left", ---@type lc.position
+		position = "right", ---@type lc.position
 
 		width = "40%", ---@type lc.size
 
