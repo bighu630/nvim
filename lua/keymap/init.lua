@@ -71,8 +71,12 @@ local dap_map = {
 	-- Plugin dap
 	-- ["n|<F5>"] = map_cr('lua require("dap.ext.vscode").load_launchjs();require("dap").continue()')
 	["n|<F5>"] = map_cr('lua require("dap").continue()'):with_noremap():with_silent(),
+	["n|<C-5>"] = map_cr('lua require("dap").continue()'):with_noremap():with_silent(),
 	["n|<F4>"] = map_cr("lua require('dap').terminate() require('dapui').close()"):with_noremap():with_silent(),
 	["n|<F2>"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
+		:with_noremap()
+		:with_silent(),
+	["n|<C-2>"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
 		:with_noremap()
 		:with_silent(),
 	["n|<leader>db"] = map_cr("lua require('dap').toggle_breakpoint();require('dap.dap-util').store_breakpoints(true)")
