@@ -24,6 +24,10 @@ return {
 		config = require("ui.accelerated").accelerated,
 	},
 	{
+		"3rd/image.nvim",
+		config = require("tools.image").image,
+	},
+	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = {

@@ -74,6 +74,6 @@ local config = {
 	},
 
 	---@type boolean
-	image_support = false,
+	image_support = true,
 }
 return config

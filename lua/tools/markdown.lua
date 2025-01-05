@@ -4,3 +4,5 @@ function config.markdown()
 		autowrite = 1,
 	})
 end
+
+return config
