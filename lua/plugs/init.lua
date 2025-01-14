@@ -386,6 +386,11 @@ return {
 	-- 	end,
 	-- },
 	{
+		"Wansmer/symbol-usage.nvim",
+		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
+		config = require("tools.symbol-usage").symbol_usage,
+	},
+	{
 		"Exafunction/codeium.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
