@@ -102,7 +102,7 @@ function config.lspsaga()
 			dely = 300,
 		},
 		implement = {
-			enable = true,
+			enable = false,
 			sign = true,
 			lang = {},
 			virtual_text = true,

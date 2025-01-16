@@ -93,7 +93,7 @@ function config.symbol_usage()
 		text_format = text_format,
 		references = { enabled = true, include_declaration = false },
 		definition = { enabled = false },
-		implementation = { enabled = false },
+		implementation = { enabled = true },
 		---@type { lsp?: string[], filetypes?: string[], cond?: function[] } Disables `symbol-usage.nvim' for specific LSPs, filetypes, or on custom conditions.
 		---The function in the `cond` list takes an argument `bufnr` and returns a boolean. If it returns true, `symbol-usage` will not run in that buffer.
 		disable = { lsp = {}, filetypes = {}, cond = {} },
