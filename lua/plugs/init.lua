@@ -374,6 +374,33 @@ return {
 			require("project_nvim").setup({})
 		end,
 	},
+	{
+		-- amongst your other plugins
+		"akinsho/toggleterm.nvim",
+		version = "*",
+		config = true,
+		opts = {--[[ things you want to change go here]]
+		},
+	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
+		},
+		config = function()
+			local neotest_golang_opts = {} -- Specify custom configuration
+			require("neotest").setup({
+				adapters = {
+					require("neotest-golang")(neotest_golang_opts), -- Registration
+					--	require("lsp.neotest-golang").testgo(), -- Registration
+				},
+			})
+		end,
+	},
 	-- {
 	-- 	"github/copilot.vim",
 	-- },
