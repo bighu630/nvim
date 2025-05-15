@@ -5,8 +5,19 @@ local config = {
 	---@type snacks.Config
 	opts = {
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
-		explorer = { enabled = true },
+		---@class snacks.dashboard.Config
+		dashboard = {
+			enabled = true,
+			autokeys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
+			sections = {
+				{ section = "header" },
+				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
+				{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
+				{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
+				{ section = "startup" },
+			},
+		},
+		explorer = { enabled = false},
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {
@@ -29,15 +40,6 @@ local config = {
 		lazygit = { enabled = true },
 		notify = { enabled = true },
 		toggle = { enabled = true },
-		terminal = {
-			type = "float", -- 设置终端类型为浮动窗口
-			float_opts = {
-				border = "rounded", -- 边框样式，可选项：single, double, shadow, curved, rounded, etc.
-				width = 100,
-				height = 30,
-				winblend = 10, -- 窗口透明度
-			},
-		},
 	},
 	init = function()
 		vim.api.nvim_create_autocmd("User", {
