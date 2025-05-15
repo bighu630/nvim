@@ -3,7 +3,7 @@ local mason = require("mason")
 local mason_lsp = require("mason-lspconfig")
 -- local coq = require("coq")
 
-vim.lsp.util.make_text_document_params(0,"utf-8")
+vim.lsp.util.make_text_document_params(0, "utf-8")
 
 mason.setup({
 	ui = {
@@ -17,7 +17,7 @@ mason.setup({
 
 mason_lsp.setup({
 	ensure_installed = {
-		"gopls",
+		-- "gopls", // 安装了vim-go
 		"efm",
 	},
 })
@@ -53,24 +53,24 @@ end
 -- Override server settings here
 
 for _, server in ipairs(mason_lsp.get_installed_servers()) do
-	if server == "gopls" then
-		nvim_lsp.gopls.setup({
-			flags = { debounce_text_changes = 500 },
-			capabilities = capabilities,
-			cmd = { "gopls", "-remote=auto" },
-			settings = {
-				gopls = {
-					usePlaceholders = true,
-					analyses = {
-						nilness = true,
-						shadow = true,
-						unusedparams = true,
-						unusewrites = true,
-					},
-				},
-			},
-		})
-	elseif server == "sumneko_lua" then
+	-- if server == "gopls" then
+	-- 	nvim_lsp.gopls.setup({
+	-- 		flags = { debounce_text_changes = 500 },
+	-- 		capabilities = capabilities,
+	-- 		cmd = { "gopls", "-remote=auto" },
+	-- 		settings = {
+	-- 			gopls = {
+	-- 				usePlaceholders = true,
+	-- 				analyses = {
+	-- 					nilness = true,
+	-- 					shadow = true,
+	-- 					unusedparams = true,
+	-- 					unusewrites = true,
+	-- 				},
+	-- 			},
+	-- 		},
+	-- 	})
+	if server == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,
 			settings = {

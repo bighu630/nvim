@@ -23,19 +23,16 @@ return {
 		event = "BufWinEnter",
 		config = require("ui.accelerated").accelerated,
 	},
-	{
-		"3rd/image.nvim",
-		config = require("tools.image").image,
-	},
+	require("tools.snacks"),
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			{
-				"rcarriga/nvim-notify",
-				config = require("ui.notify").notify,
-			},
+			-- {
+			-- 	"rcarriga/nvim-notify",
+			-- 	config = require("ui.notify").notify,
+			-- },
 		},
 		config = require("ui.noice").noice,
 	},
@@ -46,12 +43,12 @@ return {
 		},
 		config = require("ui.galaxyline").galaxy,
 	},
-	{
-		"glepnir/dashboard-nvim",
-		event = "VimEnter",
-		config = require("ui.dashboard").dashboard,
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	},
+	-- {
+	-- 	"glepnir/dashboard-nvim",
+	-- 	event = "VimEnter",
+	-- 	config = require("ui.dashboard").dashboard,
+	-- 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		lazy = true,
@@ -75,24 +72,7 @@ return {
 		lazy = false,
 		config = require("ui.transparent"),
 	},
-	{
-		"iamcco/markdown-preview.nvim",
-		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		ft = { "markdown" },
-		build = function(plugin)
-			if vim.fn.executable("npx") then
-				vim.cmd("!cd " .. plugin.dir .. " && cd app && npx --yes yarn install")
-			else
-				vim.cmd([[Lazy load markdown-preview.nvim]])
-				vim.fn["mkdp#util#install"]()
-			end
-		end,
-		init = function()
-			if vim.fn.executable("npx") then
-				vim.g.mkdp_filetypes = { "markdown" }
-			end
-		end,
-	},
+	require("tools.markdown"),
 	{
 		"RRethy/vim-illuminate",
 		lazy = true,
@@ -105,10 +85,10 @@ return {
 		-- event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		-- config = require("ui.scrollview").scrollview,
 	},
-	{
-		"yaocccc/nvim-hlchunk",
-		event = "BufReadPre",
-	},
+	-- {
+	-- 	"yaocccc/nvim-hlchunk",
+	-- 	event = "BufReadPre",
+	-- },
 	---------------------------------------主题end--------------------------------------
 	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
@@ -204,7 +184,6 @@ return {
 		config = require("lsp.lspsaga").lspsaga,
 		dependencies = {
 			{ "nvim-tree/nvim-web-devicons" },
-			--Please make sure you install markdown and markdown_inline parser
 			{
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
@@ -242,65 +221,65 @@ return {
 		ft = "go",
 		config = require("lang.go").vim_go,
 	},
-	{
-		"mfussenegger/nvim-jdtls",
-		lazy = true,
-		ft = "java",
-		config = require("lang.jdt").lang_java,
-	},
-	{
-		"simrat39/rust-tools.nvim",
-		ft = "rust",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-		config = require("lang.rust").lang_rust,
-	},
+	-- {
+	-- 	"mfussenegger/nvim-jdtls",
+	-- 	lazy = true,
+	-- 	ft = "java",
+	-- 	config = require("lang.jdt").lang_java,
+	-- },
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	ft = "rust",
+	-- 	dependencies = {
+	-- 		"mfussenegger/nvim-dap",
+	-- 	},
+	-- 	config = require("lang.rust").lang_rust,
+	-- },
 	---------------------------------------lspsaga end----------------------------------
-	-------------------------------------telescope -------------------------------------
-	{
-		"nvim-telescope/telescope.nvim",
-		lazy = true,
-		event = "BufReadPost",
-		module = "telescope",
-		cmd = "Telescope",
-		config = require("lsp.telescope").telescope,
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" },
-			{ "nvim-telescope/telescope-project.nvim", after = "telescope.nvim" },
-			{ "nvim-telescope/telescope-dap.nvim", after = "telescope.nvim" },
-			{
-				"nvim-telescope/telescope-frecency.nvim",
-				after = "telescope.nvim",
-				dependencies = {
-					{ "kkharji/sqlite.lua", lazy = false },
-				},
-			},
-			{ "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
-		},
-	},
+	-- -------------------------------------telescope -------------------------------------
+	-- {
+	-- 	"nvim-telescope/telescope.nvim",
+	-- 	lazy = true,
+	-- 	event = "BufReadPost",
+	-- 	module = "telescope",
+	-- 	cmd = "Telescope",
+	-- 	config = require("lsp.telescope").telescope,
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		{ "nvim-telescope/telescope-fzf-native.nvim", run = "make", after = "telescope.nvim" },
+	-- 		{ "nvim-telescope/telescope-project.nvim", after = "telescope.nvim" },
+	-- 		{ "nvim-telescope/telescope-dap.nvim", after = "telescope.nvim" },
+	-- 		{
+	-- 			"nvim-telescope/telescope-frecency.nvim",
+	-- 			after = "telescope.nvim",
+	-- 			dependencies = {
+	-- 				{ "kkharji/sqlite.lua", lazy = false },
+	-- 			},
+	-- 		},
+	-- 		{ "nvim-telescope/telescope-ui-select.nvim", after = "telescope.nvim" },
+	-- 	},
+	-- },
 	-------------------------------------telescope end----------------------------------
 
 	-------------------------------------tools -----------------------------------------
-	{
-		"kawre/leetcode.nvim",
-		build = ":TSUpdate html",
-		dependencies = {
-			"nvim-telescope/telescope.nvim",
-			"nvim-lua/plenary.nvim", -- required by telescope
-			"MunifTanjim/nui.nvim",
-		},
-		cmd = "Leet",
-		opts = require("tools.leetcode"),
-	},
-	{
-		"chipsenkbeil/distant.nvim",
-		branch = "v0.3",
-		config = function()
-			require("distant"):setup()
-		end,
-	},
+	-- {
+	-- 	"kawre/leetcode.nvim",
+	-- 	build = ":TSUpdate html",
+	-- 	dependencies = {
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"nvim-lua/plenary.nvim", -- required by telescope
+	-- 		"MunifTanjim/nui.nvim",
+	-- 	},
+	-- 	cmd = "Leet",
+	-- 	opts = require("tools.leetcode"),
+	-- },
+	-- {
+	-- 	"chipsenkbeil/distant.nvim",
+	-- 	branch = "v0.3",
+	-- 	config = function()
+	-- 		require("distant").setup()
+	-- 	end,
+	-- },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
@@ -374,33 +353,15 @@ return {
 			require("project_nvim").setup({})
 		end,
 	},
-	{
-		-- amongst your other plugins
-		"akinsho/toggleterm.nvim",
-		version = "*",
-		config = true,
-		opts = {--[[ things you want to change go here]]
-		},
-	},
-	{
-		"nvim-neotest/neotest",
-		dependencies = {
-			"nvim-neotest/nvim-nio",
-			"nvim-lua/plenary.nvim",
-			"antoinemadec/FixCursorHold.nvim",
-			"nvim-treesitter/nvim-treesitter",
-			{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
-		},
-		config = function()
-			local neotest_golang_opts = {} -- Specify custom configuration
-			require("neotest").setup({
-				adapters = {
-					require("neotest-golang")(neotest_golang_opts), -- Registration
-					--	require("lsp.neotest-golang").testgo(), -- Registration
-				},
-			})
-		end,
-	},
+	-- {
+	-- 	-- amongst your other plugins
+	-- 	"akinsho/toggleterm.nvim",
+	-- 	version = "*",
+	-- 	config = true,
+	-- 	opts = {--[[ things you want to change go here]]
+	-- 	},
+	-- },
+	require("tools.neotest"),
 	-- {
 	-- 	"github/copilot.vim",
 	-- },
@@ -431,21 +392,21 @@ return {
 		"michaelb/sniprun",
 		run = "sh ./install.sh",
 	},
-	{
-		"rmagatti/auto-session",
-		lazy = false,
-		dependencies = {
-			"nvim-telescope/telescope.nvim", -- Only needed if you want to use session lens
-		},
-
-		---enables autocomplete for opts
-		---@module "auto-session"
-		---@type AutoSession.Config
-		opts = {
-			suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-			-- log_level = 'debug',
-		},
-	},
+	-- {
+	-- 	"rmagatti/auto-session",
+	-- 	lazy = false,
+	-- 	dependencies = {
+	-- 		"nvim-telescope/telescope.nvim", -- Only needed if you want to use session lens
+	-- 	},
+	--
+	-- 	---enables autocomplete for opts
+	-- 	---@module "auto-session"
+	-- 	---@type AutoSession.Config
+	-- 	opts = {
+	-- 		suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
+	-- 		-- log_level = 'debug',
+	-- 	},
+	-- },
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
 	{

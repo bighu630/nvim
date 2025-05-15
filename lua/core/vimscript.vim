@@ -72,5 +72,7 @@ colorscheme tokyonight-storm
 set colorcolumn=88
 
 inoremap jk <ESC>
+inoremap jj <ESC>
+inoremap kk <ESC>
 
 hi comment ctermfg=6

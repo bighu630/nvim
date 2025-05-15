@@ -190,7 +190,7 @@ local load_keymap = function()
 	bind.nvim_load_mapping(git_map)
 	bind.nvim_load_mapping(trouble_map)
 	bind.nvim_load_mapping(tree_map)
-	bind.nvim_load_mapping(telescope_map)
+	-- bind.nvim_load_mapping(telescope_map)
 	bind.nvim_load_mapping(dap_map)
 end
 
