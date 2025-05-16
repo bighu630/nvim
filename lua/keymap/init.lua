@@ -19,14 +19,14 @@ local lspsaga_map = {
 	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
-	-- ["n|J"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
+	["n|J"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["n|<Space>ll"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gp"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
-	["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
+	-- ["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
 }
 
 local git_map = {
