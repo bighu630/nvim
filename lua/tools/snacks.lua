@@ -1,6 +1,16 @@
 local config = {
 	"folke/snacks.nvim",
 	priority = 1000,
+	dependencies = {
+		{
+			"folke/persistence.nvim",
+			event = "BufReadPre",
+			opts = {
+				need = 0,
+				branch = true,
+			},
+		},
+	},
 	lazy = false,
 	---@type snacks.Config
 	opts = {
@@ -9,15 +19,26 @@ local config = {
 		dashboard = {
 			enabled = true,
 			autokeys = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ", -- autokey sequence
+			formats = {
+				key = function(item)
+					return { { "[", hl = "special" }, { item.key, hl = "key" }, { "]", hl = "special" } }
+				end,
+			},
 			sections = {
-				{ section = "header" },
-				{ icon = " ", title = "Keymaps", section = "keys", indent = 2, padding = 1 },
-				{ icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1 },
-				{ icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
-				{ section = "startup" },
+				{ section = "terminal", cmd = "fortune -s | cowsay", hl = "header", padding = 1, indent = 8 },
+				{ title = "Bookmarks", padding = 1 },
+				{ section = "keys" },
+				{ title = "\nProjects", padding = 1 },
+				{ section = "projects", padding = 1 },
+				-- pane 2
+				{ section = "header", height = 50, pane = 2 },
+				{ title = "MRU", padding = 1, pane = 2 },
+				{ section = "recent_files", limit = 8, padding = 1, pane = 2 },
+				{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1, pane = 2 },
+				{ section = "recent_files", cwd = true, limit = 8, padding = 1, pane = 2 },
 			},
 		},
-		explorer = { enabled = false},
+		explorer = { enabled = false },
 		indent = { enabled = true },
 		input = { enabled = true },
 		notifier = {

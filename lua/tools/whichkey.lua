@@ -50,25 +50,62 @@ function config.whichkey()
 	}
 
 	which_key.add({
-		{ "<Space>s", group = "Session", nowait = true, remap = false },
+		-- { "<Space>s", group = "Session", nowait = true, remap = false },
+		-- {
+		-- 	"<Space>sl",
+		-- 	"<cmd>SessionSearch<CR>",
+		-- 	desc = "Load Session",
+		-- 	nowait = true,
+		-- 	remap = false,
+		-- },
+		-- {
+		-- 	"<Space>sd",
+		-- 	"<cmd>SessionDelete<CR>",
+		-- 	desc = "Delete Session",
+		-- 	nowait = true,
+		-- 	remap = false,
+		-- },
+		-- {
+		-- 	"<Space>ss",
+		-- 	"<cmd>SessionSeva<CR>",
+		-- 	desc = "Save Current Session",
+		-- 	nowait = true,
+		-- 	remap = false,
+		-- },
+		{ "<Space>s", group = "Session", nowait = true, remap = false }, -- 分组
+		{
+			"<Space>ss",
+			function()
+				require("persistence").load()
+			end,
+			desc = "Load current session",
+			nowait = true,
+			remap = false,
+		},
+		{
+			"<Space>sS",
+			function()
+				require("persistence").select()
+			end,
+			desc = "Select session",
+			nowait = true,
+			remap = false,
+		},
 		{
 			"<Space>sl",
-			"<cmd>SessionSearch<CR>",
-			desc = "Load Session",
+			function()
+				require("persistence").load({ last = true })
+			end,
+			desc = "Load last session",
 			nowait = true,
 			remap = false,
 		},
 		{
 			"<Space>sd",
-			"<cmd>SessionDelete<CR>",
-			desc = "Delete Session",
-			nowait = true,
-			remap = false,
-		},
-		{
-			"<Space>ss",
-			"<cmd>SessionSeva<CR>",
-			desc = "Save Current Session",
+			function()
+				require("persistence").stop()
+			end,
+			desc = "Don't save session",
 			nowait = true,
 			remap = false,
 		},
@@ -113,7 +150,15 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		{ "<Space>a", "<cmd>Dashboard<cr>", desc = "Welcome", nowait = true, remap = false },
+		{
+			"<Space>a",
+			function()
+				Snacks.dashboard.open()
+			end,
+			desc = "Welcome",
+			nowait = true,
+			remap = false,
+		},
 		-- { "<Space>c", group = "CMake", nowait = true, remap = false },
 		-- { "<Space>cT", "<cmd>CMake select_build_type<CR>", desc = "SelectBuildType", nowait = true, remap = false },
 		-- { "<Space>ca", "<cmd>CMake build_all<CR>", desc = "BuildAll", nowait = true, remap = false },
@@ -158,7 +203,7 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		{ "<Space>f", "<cmd>Telescope frecency<cr>", desc = "Find Text", nowait = true, remap = false },
+		-- { "<Space>f", "<cmd>Telescope frecency<cr>", desc = "Find Text", nowait = true, remap = false },
 		{ "<Space>g", group = "Git", nowait = true, remap = false },
 		{
 			"<Space>gN",
