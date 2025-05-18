@@ -54,24 +54,24 @@ end
 -- Override server settings here
 
 for _, server in ipairs(mason_lsp.get_installed_servers()) do
-	-- if server == "gopls" then
-	-- 	nvim_lsp.gopls.setup({
-	-- 		flags = { debounce_text_changes = 500 },
-	-- 		capabilities = capabilities,
-	-- 		cmd = { "gopls", "-remote=auto" },
-	-- 		settings = {
-	-- 			gopls = {
-	-- 				usePlaceholders = true,
-	-- 				analyses = {
-	-- 					nilness = true,
-	-- 					shadow = true,
-	-- 					unusedparams = true,
-	-- 					unusewrites = true,
-	-- 				},
-	-- 			},
-	-- 		},
-	-- 	})
-	if server == "sumneko_lua" then
+	if server == "gopls" then
+		nvim_lsp.gopls.setup({
+			flags = { debounce_text_changes = 500 },
+			capabilities = capabilities,
+			cmd = { "gopls", "-remote=auto" },
+			settings = {
+				gopls = {
+					usePlaceholders = true,
+					analyses = {
+						nilness = true,
+						shadow = true,
+						unusedparams = true,
+						unusewrites = true,
+					},
+				},
+			},
+		})
+	elseif server == "sumneko_lua" then
 		nvim_lsp.sumneko_lua.setup({
 			capabilities = capabilities,
 			settings = {
@@ -194,6 +194,23 @@ for _, server in ipairs(mason_lsp.get_installed_servers()) do
 end
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
+
+nvim_lsp.gopls.setup({
+	flags = { debounce_text_changes = 500 },
+	capabilities = capabilities,
+	cmd = { "gopls", "-remote=auto" },
+	settings = {
+		gopls = {
+			usePlaceholders = true,
+			analyses = {
+				nilness = true,
+				shadow = true,
+				unusedparams = true,
+				unusewrites = true,
+			},
+		},
+	},
+})
 
 nvim_lsp.html.setup({
 	cmd = { "html-languageserver", "--stdio" },

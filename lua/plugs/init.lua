@@ -122,48 +122,6 @@ return {
 		config = require("lsp.formatter").formatter,
 	},
 	require("lsp.blinkcmp"),
-	-- {
-	-- 	"hrsh7th/nvim-cmp",
-	-- 	lazy = true,
-	-- 	event = "BufReadPost",
-	-- 	dependencies = {
-	-- 		{ "onsails/lspkind.nvim" },
-	-- 		{ "lukas-reineke/cmp-under-comparator" },
-	-- 		{ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
-	-- 		{ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
-	-- 		{ "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
-	-- 		{ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
-	-- 		{ "hrsh7th/cmp-path", after = "cmp-cmdline" },
-	-- 		{ "hrsh7th/cmp-buffer", after = "cmp-path" },
-	-- 		{ "f3fora/cmp-spell", after = "cmp-path" },
-	-- 	},
-	-- 	config = require("lsp.cmp").cmp,
-	-- },
-	-- {
-	-- 	"ms-jpq/coq_nvim",
-	-- 	branch = "coq",
-	-- 	event = "InsertEnter",
-	-- 	run = ":COQdeps",
-	-- 	config = function()
-	-- 		require("lsp.coq").coq()
-	-- 	end,
-	-- 	dependencies = {
-	-- 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-	-- 		{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
-	-- 	},
-	-- },
-
-	-- {
-	-- 	"L3MON4D3/LuaSnip",
-	-- 	version = "v2.*",
-	-- 	build = "make install_jsregexp",
-	-- 	lazy = true,
-	-- 	after = "nvim-cmp",
-	-- 	config = require("lsp.snip").luasnip,
-	-- 	dependencies = {
-	-- 		"rafamadriz/friendly-snippets",
-	-- 	},
-	-- },
 	{
 		"windwp/nvim-autopairs",
 		lazy = true,
@@ -251,6 +209,7 @@ return {
 	-- 		require("distant").setup()
 	-- 	end,
 	-- },
+	require("tools.avante"),
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",

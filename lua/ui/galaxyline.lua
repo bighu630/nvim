@@ -19,6 +19,9 @@ function M.galaxy()
 		"fugitiveblame",
 		"NvimTree",
 		"UltestSummary",
+		"Avante",
+		"AvanteSelectedFiles",
+		"AvanteInput",
 	}
 
 	local colors = {
