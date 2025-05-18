@@ -24,7 +24,8 @@ mason_lsp.setup({
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 -- local capabilities = coq.lsp_ensure_capabilities()
-capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+capabilities = require("blink.cmp").get_lsp_capabilities()
 
 local function switch_source_header_splitcmd(bufnr, splitcmd)
 	bufnr = nvim_lsp.util.validate_bufnr(bufnr)

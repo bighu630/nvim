@@ -4,7 +4,6 @@ local config = {
 	dependencies = {
 		{
 			"folke/persistence.nvim",
-			event = "BufReadPre",
 			opts = {
 				need = 0,
 				branch = true,
@@ -34,12 +33,22 @@ local config = {
 				{ section = "header", height = 50, pane = 2 },
 				{ title = "MRU", padding = 1, pane = 2 },
 				{ section = "recent_files", limit = 8, padding = 1, pane = 2 },
+				-- { title = "Session", padding = 1, pane = 2 },
+				-- { section = "session", limit = 8, padding = 1, pane = 2 },
 				{ title = "MRU ", file = vim.fn.fnamemodify(".", ":~"), padding = 1, pane = 2 },
 				{ section = "recent_files", cwd = true, limit = 8, padding = 1, pane = 2 },
 			},
 		},
 		explorer = { enabled = false },
-		indent = { enabled = true },
+		indent = {
+			priority = 1,
+			enabled = true, -- enable indent guides
+			char = "│",
+			only_scope = false, -- only show indent guides of the scope
+			only_current = false, -- only show indent guides in the current window
+			-- hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+			-- can be a list of hl groups to cycle through
+		},
 		input = { enabled = true },
 		notifier = {
 			enabled = true,

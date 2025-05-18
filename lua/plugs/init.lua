@@ -1,14 +1,14 @@
 return {
 	---------------------------------------主题/外观------------------------------------
 	-- catppuccin , neo-tree ,accelerated-jk,noice
+	-- {
+	-- 	"catppuccin/nvim",
+	-- 	lazy = false,
+	-- 	name = "catppuccin",
+	-- 	opts = require("ui.catppuccin"),
+	-- },
 	{
-		"catppuccin/nvim",
-		lazy = false,
-		name = "catppuccin",
-		opts = require("ui.catppuccin"),
-	},
-	{
-		"navarasu/onedark.nvim",
+		-- "navarasu/onedark.nvim",
 		"folke/tokyonight.nvim",
 	},
 	{
@@ -29,10 +29,6 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
-			-- {
-			-- 	"rcarriga/nvim-notify",
-			-- 	config = require("ui.notify").notify,
-			-- },
 		},
 		config = require("ui.noice").noice,
 	},
@@ -80,10 +76,10 @@ return {
 		config = require("ui.illuminate").illuminate,
 	},
 	{
-		-- "petertriho/nvim-scrollbar",
-		-- lazy = true,
-		-- event = { "BufReadPost", "BufAdd", "BufNewFile" },
-		-- config = require("ui.scrollview").scrollview,
+		"petertriho/nvim-scrollbar",
+		lazy = true,
+		event = { "BufReadPost", "BufAdd", "BufNewFile" },
+		config = require("ui.scrollview").scrollview,
 	},
 	-- {
 	-- 	"yaocccc/nvim-hlchunk",
@@ -93,15 +89,12 @@ return {
 	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
 	{
-		"neovim/nvim-lspconfig",
-		lazy = true,
-		event = "BufReadPre",
-		config = require("lsp.lspconf").lspconfig,
-	},
-	{
 		"creativenull/efmls-configs-nvim",
 		dependencies = {
 			"neovim/nvim-lspconfig",
+			lazy = true,
+			event = "BufReadPre",
+			config = require("lsp.lspconf").lspconfig,
 		},
 		lazy = false,
 	},
@@ -128,23 +121,24 @@ return {
 		"mhartington/formatter.nvim",
 		config = require("lsp.formatter").formatter,
 	},
-	{
-		"hrsh7th/nvim-cmp",
-		lazy = true,
-		event = "BufReadPost",
-		dependencies = {
-			{ "onsails/lspkind.nvim" },
-			{ "lukas-reineke/cmp-under-comparator" },
-			{ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
-			{ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
-			{ "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
-			{ "hrsh7th/cmp-path", after = "cmp-cmdline" },
-			{ "hrsh7th/cmp-buffer", after = "cmp-path" },
-			{ "f3fora/cmp-spell", after = "cmp-path" },
-		},
-		config = require("lsp.cmp").cmp,
-	},
+	require("lsp.blinkcmp"),
+	-- {
+	-- 	"hrsh7th/nvim-cmp",
+	-- 	lazy = true,
+	-- 	event = "BufReadPost",
+	-- 	dependencies = {
+	-- 		{ "onsails/lspkind.nvim" },
+	-- 		{ "lukas-reineke/cmp-under-comparator" },
+	-- 		{ "saadparwaiz1/cmp_luasnip", after = "LuaSnip" },
+	-- 		{ "hrsh7th/cmp-nvim-lsp", after = "cmp_luasnip" },
+	-- 		{ "hrsh7th/cmp-nvim-lua", after = "cmp-nvim-lsp" },
+	-- 		{ "hrsh7th/cmp-cmdline", after = "cmp-nvim-lua" },
+	-- 		{ "hrsh7th/cmp-path", after = "cmp-cmdline" },
+	-- 		{ "hrsh7th/cmp-buffer", after = "cmp-path" },
+	-- 		{ "f3fora/cmp-spell", after = "cmp-path" },
+	-- 	},
+	-- 	config = require("lsp.cmp").cmp,
+	-- },
 	-- {
 	-- 	"ms-jpq/coq_nvim",
 	-- 	branch = "coq",
@@ -158,17 +152,18 @@ return {
 	-- 		{ "ms-jpq/coq.thirdparty", branch = "3p", module = "coq_3p" },
 	-- 	},
 	-- },
-	{
-		"L3MON4D3/LuaSnip",
-		version = "v2.*",
-		build = "make install_jsregexp",
-		lazy = true,
-		after = "nvim-cmp",
-		config = require("lsp.snip").luasnip,
-		dependencies = {
-			"rafamadriz/friendly-snippets",
-		},
-	},
+
+	-- {
+	-- 	"L3MON4D3/LuaSnip",
+	-- 	version = "v2.*",
+	-- 	build = "make install_jsregexp",
+	-- 	lazy = true,
+	-- 	after = "nvim-cmp",
+	-- 	config = require("lsp.snip").luasnip,
+	-- 	dependencies = {
+	-- 		"rafamadriz/friendly-snippets",
+	-- 	},
+	-- },
 	{
 		"windwp/nvim-autopairs",
 		lazy = true,
@@ -323,12 +318,12 @@ return {
 		event = "BufReadPost",
 		config = require("tools.colorizer").colorizer,
 	},
-	{
-		"ahmedkhalf/project.nvim",
-		config = function()
-			require("project_nvim").setup({})
-		end,
-	},
+	-- {
+	-- 	"ahmedkhalf/project.nvim",
+	-- 	config = function()
+	-- 		require("project_nvim").setup({})
+	-- 	end,
+	-- },
 	-- {
 	-- 	-- amongst your other plugins
 	-- 	"akinsho/toggleterm.nvim",
@@ -354,16 +349,16 @@ return {
 		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
 		config = require("tools.symbol-usage").symbol_usage,
 	},
-	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			require("codeium").setup({})
-		end,
-	},
+	-- {
+	-- 	"Exafunction/codeium.nvim",
+	-- 	dependencies = {
+	-- 		"nvim-lua/plenary.nvim",
+	-- 		"hrsh7th/nvim-cmp",
+	-- 	},
+	-- 	config = function()
+	-- 		require("codeium").setup({})
+	-- 	end,
+	-- },
 	{
 		"michaelb/sniprun",
 		run = "sh ./install.sh",
