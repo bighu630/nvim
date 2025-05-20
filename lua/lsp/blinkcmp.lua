@@ -111,9 +111,10 @@ return {
 			ghost_text = {
 				enabled = false,
 			},
-			menu = { border = "rounded" },
+			menu = {
+				border = "rounded",
+			},
 			cmdline = { border = "rounded" },
-			documentation = { window = { border = "single" } },
 		},
 		signature = { window = { border = "single" } },
 		trigger = {
