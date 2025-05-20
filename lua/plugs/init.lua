@@ -241,11 +241,11 @@ return {
 		lazy = false,
 		config = require("tools.tmux").tmux,
 	},
-	{
-		"terrortylor/nvim-comment",
-		lazy = false,
-		config = require("tools.comment").comment,
-	},
+	-- {
+	-- 	"terrortylor/nvim-comment",
+	-- 	lazy = false,
+	-- 	config = require("tools.comment").comment,
+	-- },
 	{
 		"ggandor/leap.nvim",
 		lzay = true,
