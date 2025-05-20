@@ -68,7 +68,7 @@ return {
 		lazy = false,
 		config = require("ui.transparent"),
 	},
-	require("tools.markdown"),
+	-- require("tools.markdown"), // avante 中已经支持
 	{
 		"RRethy/vim-illuminate",
 		lazy = true,
