@@ -7,7 +7,7 @@ return {
 			"Exafunction/codeium.nvim",
 			cmd = "Codeium",
 			build = ":Codeium Auth",
-			opts = { virtual_text = { enabled = true } },
+			opts = { virtual_text = { enabled = false } },
 		},
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 	},
@@ -57,7 +57,7 @@ return {
 					module = "blink.compat.source",
 
 					-- all blink.cmp source config options work as normal:
-					--score_offset = -3,
+					score_offset = -3,
 
 					opts = {
 						-- options passed to the completion source
@@ -96,11 +96,11 @@ return {
 						ignored_filetypes = {},
 					},
 				},
-				-- buffer = {
-				-- 	name = "Buffer",
-				-- 	module = "blink.cmp.sources.buffer",
-				-- 	fallback = { "lsp" },
-				-- },
+				buffer = {
+					name = "Buffer",
+					module = "blink.cmp.sources.buffer",
+					fallback = { "lsp" },
+				},
 			},
 		},
 		completion = {
@@ -112,6 +112,7 @@ return {
 				enabled = false,
 			},
 			menu = { border = "rounded" },
+			cmdline = { border = "rounded" },
 			documentation = { window = { border = "single" } },
 		},
 		signature = { window = { border = "single" } },
