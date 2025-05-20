@@ -89,34 +89,30 @@ return {
 	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
 	{
-		"creativenull/efmls-configs-nvim",
-		dependencies = {
-			"neovim/nvim-lspconfig",
-			lazy = true,
-			event = "BufReadPre",
-			config = require("lsp.lspconf").lspconfig,
-		},
-		lazy = false,
+		"neovim/nvim-lspconfig",
+		lazy = true,
+		event = "BufReadPre",
+		config = require("lsp.lspconf").lspconfig,
 	},
-	{
-		"williamboman/mason.nvim",
-		lazy = false,
-		dependencies = {
-			{
-				"williamboman/mason-lspconfig.nvim",
-			},
-			{
-				"WhoIsSethDaniel/mason-tool-installer.nvim",
-				config = function()
-					require("mason-tool-installer").setup({
-						ensure_installed = {},
-						auto_update = true,
-						run_on_start = true,
-					})
-				end,
-			},
-		},
-	},
+	-- {
+	-- 	"mason-org/mason.nvim",
+	-- 	lazy = false,
+	-- 	dependencies = {
+	-- 		{
+	-- 			"mason-org/mason-lspconfig.nvim",
+	-- 		},
+	-- 		{
+	-- 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+	-- 			config = function()
+	-- 				require("mason-tool-installer").setup({
+	-- 					ensure_installed = {},
+	-- 					auto_update = true,
+	-- 					run_on_start = true,
+	-- 				})
+	-- 			end,
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"mhartington/formatter.nvim",
 		config = require("lsp.formatter").formatter,

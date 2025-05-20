@@ -108,7 +108,13 @@ return {
 				auto_show = true,
 				auto_show_delay_ms = 500,
 			},
+			ghost_text = {
+				enabled = false,
+			},
+			menu = { border = "rounded" },
+			documentation = { window = { border = "single" } },
 		},
+		signature = { window = { border = "single" } },
 		trigger = {
 			completion = {
 				keyword_range = "full", -- full|prefix
