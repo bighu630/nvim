@@ -118,12 +118,12 @@ return {
 		config = require("lsp.formatter").formatter,
 	},
 	require("lsp.blinkcmp"),
-	{
-		"windwp/nvim-autopairs",
-		lazy = true,
-		event = "BufReadPost",
-		config = require("lsp.autopairs").autopairs,
-	},
+	-- {
+	-- 	"windwp/nvim-autopairs",
+	-- 	lazy = true,
+	-- 	event = "BufReadPost",
+	-- 	config = require("lsp.autopairs").autopairs,
+	-- },
 	---------------------------------------lsp end--------------------------------------
 	---------------------------------------lspsaga--------------------------------------
 	-- lspsaga
