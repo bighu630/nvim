@@ -34,11 +34,9 @@ return {
 	},
 	{
 		"glepnir/galaxyline.nvim",
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
 		config = require("ui.galaxyline").galaxy,
 	},
+	{ "nvim-tree/nvim-web-devicons" },
 	-- {
 	-- 	"glepnir/dashboard-nvim",
 	-- 	event = "VimEnter",
@@ -118,12 +116,12 @@ return {
 		config = require("lsp.formatter").formatter,
 	},
 	require("lsp.blinkcmp"),
-	-- {
-	-- 	"windwp/nvim-autopairs",
-	-- 	lazy = true,
-	-- 	event = "BufReadPost",
-	-- 	config = require("lsp.autopairs").autopairs,
-	-- },
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = true,
+		opts = require("lsp.autopairs").autopairs,
+	},
 	---------------------------------------lsp end--------------------------------------
 	---------------------------------------lspsaga--------------------------------------
 	-- lspsaga
@@ -132,7 +130,6 @@ return {
 		envent = { "BufReadPost", "BufNewFile" },
 		config = require("lsp.lspsaga").lspsaga,
 		dependencies = {
-			{ "nvim-tree/nvim-web-devicons" },
 			{
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",

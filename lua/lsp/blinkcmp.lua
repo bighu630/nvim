@@ -1,30 +1,15 @@
-return {
-	"saghen/blink.cmp",
-	dependencies = {
-		-- add blink.compat to dependencies
-		{ "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
-		{
-			"Exafunction/codeium.nvim",
-			cmd = "Codeium",
-			build = ":Codeium Auth",
-			opts = { virtual_text = { enabled = false } },
-		},
-		{ "L3MON4D3/LuaSnip", version = "v2.*" },
-	},
-	event = "BufReadPre",
-	version = "v1.*", -- REQUIRED release tag to download pre-built binaries
-	-- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/blink-cmp.lua
-
-	---@module "blink.cmp"
-	---@type blink.cmp.Config
-	opts = {
+local function config()
+	return {
 		keymap = {
 			-- set to 'none' to disable the 'default' preset
 			preset = "default",
 
 			["<tab>"] = { "select_next", "snippet_forward", "fallback" },
 			["<s-tab>"] = { "select_prev", "snippet_backward", "fallback" },
-			["<CR>"] = { "accept", "fallback" },
+			["<CR>"] = {
+				"accept",
+				"fallback",
+			},
 			["<Up>"] = { "select_prev", "fallback" },
 			["<Down>"] = { "select_next", "fallback" },
 
@@ -104,15 +89,20 @@ return {
 			},
 		},
 		completion = {
+			accept = { auto_brackets = { enabled = false } },
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
+				window = { border = "single" },
 			},
 			ghost_text = {
 				enabled = false,
 			},
 			menu = {
 				border = "rounded",
+				draw = {
+					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
+				},
 			},
 			cmdline = { border = "rounded" },
 		},
@@ -132,5 +122,29 @@ return {
 		highlight = {
 			use_nvim_cmp_as_default = true,
 		},
+	}
+end
+
+return {
+	"saghen/blink.cmp",
+	dependencies = {
+		-- add blink.compat to dependencies
+		{ "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+		{
+			"Exafunction/codeium.nvim",
+			cmd = "Codeium",
+			event = "VeryLazy",
+			build = ":Codeium Auth",
+			opts = { virtual_text = { enabled = false } },
+		},
+		{ "L3MON4D3/LuaSnip", version = "v2.*" },
 	},
+	event = "BufReadPre",
+	version = "v1.*", -- REQUIRED release tag to download pre-built binaries
+	-- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/blink-cmp.lua
+
+	---@module "blink.cmp"
+	---@type blink.cmp.Config
+	---
+	opts = config(),
 }
