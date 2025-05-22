@@ -36,7 +36,7 @@ return {
 		"glepnir/galaxyline.nvim",
 		config = require("ui.galaxyline").galaxy,
 	},
-	{ "nvim-tree/nvim-web-devicons" },
+	require("ui.devicons"),
 	-- {
 	-- 	"glepnir/dashboard-nvim",
 	-- 	event = "VimEnter",
@@ -64,7 +64,7 @@ return {
 	{
 		"xiyaowong/transparent.nvim",
 		lazy = false,
-		config = require("ui.transparent"),
+		config = require("ui.transparent").transparent,
 	},
 	-- require("tools.markdown"), // avante 中已经支持
 	{
