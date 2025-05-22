@@ -24,13 +24,9 @@ return {
 			support_paste_from_clipboard = false,
 		},
 		gemini = {
-			-- @see https://ai.google.dev/gemini-api/docs/models/gemini
-			-- model = "gemini-1.5-pro-exp-0827",
-			-- model = "gemini-1.5-flash",
-			-- __inherited_from = "google",
 			model = "gemini-2.0-flash",
 			temperature = 0,
-			max_tokens = 4096,
+			max_tokens = 8096,
 		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`

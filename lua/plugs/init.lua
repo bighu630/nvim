@@ -33,7 +33,7 @@ return {
 		config = require("ui.noice").noice,
 	},
 	{
-		"glepnir/galaxyline.nvim",
+		"bighu630/galaxyline.nvim",
 		config = require("ui.galaxyline").galaxy,
 	},
 	require("ui.devicons"),
@@ -66,7 +66,6 @@ return {
 		lazy = false,
 		config = require("ui.transparent").transparent,
 	},
-	-- require("tools.markdown"), // avante 中已经支持
 	{
 		"RRethy/vim-illuminate",
 		lazy = true,
@@ -79,10 +78,6 @@ return {
 		event = { "BufReadPost", "BufAdd", "BufNewFile" },
 		config = require("ui.scrollview").scrollview,
 	},
-	-- {
-	-- 	"yaocccc/nvim-hlchunk",
-	-- 	event = "BufReadPre",
-	-- },
 	---------------------------------------主题end--------------------------------------
 	---------------------------------------lsp------------------------------------------
 	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
@@ -92,25 +87,6 @@ return {
 		event = "BufReadPre",
 		config = require("lsp.lspconf").lspconfig,
 	},
-	-- {
-	-- 	"mason-org/mason.nvim",
-	-- 	lazy = false,
-	-- 	dependencies = {
-	-- 		{
-	-- 			"mason-org/mason-lspconfig.nvim",
-	-- 		},
-	-- 		{
-	-- 			"WhoIsSethDaniel/mason-tool-installer.nvim",
-	-- 			config = function()
-	-- 				require("mason-tool-installer").setup({
-	-- 					ensure_installed = {},
-	-- 					auto_update = true,
-	-- 					run_on_start = true,
-	-- 				})
-	-- 			end,
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"mhartington/formatter.nvim",
 		config = require("lsp.formatter").formatter,
@@ -173,14 +149,14 @@ return {
 	-- 	ft = "java",
 	-- 	config = require("lang.jdt").lang_java,
 	-- },
-	-- {
-	-- 	"simrat39/rust-tools.nvim",
-	-- 	ft = "rust",
-	-- 	dependencies = {
-	-- 		"mfussenegger/nvim-dap",
-	-- 	},
-	-- 	config = require("lang.rust").lang_rust,
-	-- },
+	{
+		"simrat39/rust-tools.nvim",
+		ft = "rust",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+		},
+		config = require("lang.rust").lang_rust,
+	},
 	---------------------------------------lspsaga end----------------------------------
 
 	-------------------------------------tools -----------------------------------------
@@ -239,11 +215,6 @@ return {
 	-- 	"aserowy/tmux.nvim",
 	-- 	lazy = false,
 	-- 	config = require("tools.tmux").tmux,
-	-- },
-	-- {
-	-- 	"terrortylor/nvim-comment",
-	-- 	lazy = false,
-	-- 	config = require("tools.comment").comment,
 	-- },
 	{
 		"ggandor/leap.nvim",
