@@ -7,6 +7,10 @@ return {
 		{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
 		{ "leoluz/nvim-dap-go" },
 	},
+
+	cmd = {
+		"Neotest",
+	},
 	config = function()
 		local neotest_golang_opts = {
 			experimental = {

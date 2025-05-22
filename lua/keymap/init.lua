@@ -50,7 +50,7 @@ local tree_map = {
 	-- 打开文件树
 	["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	-- Plugin Undotree
-	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
+	["n|<Leader>uu"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 	["n|<space>F"] = map_cr("lua require('telescope.builtin').find_files()"):with_noremap():with_silent(),
 }
 

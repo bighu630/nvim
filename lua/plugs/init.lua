@@ -221,7 +221,8 @@ return {
 	},
 	{
 		"voldikss/vim-translator",
-		lazy = false,
+		lazy = true,
+		cmd = { "Translate", "TranslateW", "TranslateR", "TranslateV" },
 		config = require("tools.translator").translator,
 	},
 	-- {
@@ -231,13 +232,14 @@ return {
 	{
 		"folke/todo-comments.nvim",
 		lazy = false,
+		event = "BufReadPost",
 		config = require("tools.todo").todo,
 	},
-	{
-		"aserowy/tmux.nvim",
-		lazy = false,
-		config = require("tools.tmux").tmux,
-	},
+	-- {
+	-- 	"aserowy/tmux.nvim",
+	-- 	lazy = false,
+	-- 	config = require("tools.tmux").tmux,
+	-- },
 	-- {
 	-- 	"terrortylor/nvim-comment",
 	-- 	lazy = false,
@@ -314,6 +316,8 @@ return {
 	{
 		"michaelb/sniprun",
 		run = "sh ./install.sh",
+		lazy = true,
+		cmd = { "SnipRun", "SnipClose", "SnipInfo", "SnipReset" },
 	},
 	-- {
 	-- 	"rmagatti/auto-session",

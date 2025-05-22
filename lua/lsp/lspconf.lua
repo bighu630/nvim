@@ -18,8 +18,8 @@ function config.lspconfig()
 			},
 		},
 	})
-	vim.lsp.enable("pyright")
-	vim.lsp.config("pyright", {
+	vim.lsp.enable("pylsp")
+	vim.lsp.config("pylsp", {
 		capabilities = capabilities,
 	})
 	vim.lsp.enable("lua_ls")
