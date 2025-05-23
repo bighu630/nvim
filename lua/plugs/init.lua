@@ -178,7 +178,8 @@ return {
 	-- 		require("distant").setup()
 	-- 	end,
 	-- },
-	require("tools.avante"),
+	-- require("tools.avante"),
+	require("tools.markdown"),
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
