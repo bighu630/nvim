@@ -84,7 +84,7 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		lazy = true,
-		event = "BufReadPre",
+		event = "VeryLazy",
 		config = require("lsp.lspconf").lspconfig,
 	},
 	{

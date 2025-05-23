@@ -53,6 +53,7 @@ local config = {
 		notifier = {
 			enabled = true,
 			timeout = 3000,
+			margin = { top = 0, right = 1, bottom = 1 },
 		},
 		picker = { enabled = true },
 		quickfile = { enabled = true },

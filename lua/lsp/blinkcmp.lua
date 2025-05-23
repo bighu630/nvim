@@ -22,17 +22,6 @@ local function config()
 					cmp.show({ providers = { "snippets" } })
 				end,
 			},
-
-			-- control whether the next command will be run when using a function
-			["<C-n>"] = {
-				function(cmp)
-					if some_condition then
-						return
-					end -- runs the next command
-					return true -- doesn't run the next command
-				end,
-				"select_next",
-			},
 		},
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "codeium" },
@@ -51,7 +40,6 @@ local function config()
 						cache_digraphs_on_start = true,
 					},
 				},
-
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
@@ -84,7 +72,7 @@ local function config()
 				buffer = {
 					name = "Buffer",
 					module = "blink.cmp.sources.buffer",
-					fallback = { "lsp" },
+					-- fallback = "lsp",
 				},
 			},
 		},
