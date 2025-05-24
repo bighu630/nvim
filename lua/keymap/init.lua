@@ -135,15 +135,15 @@ local plug_map = {
 	["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
 
 	-- tmux 切换窗口,默认切换窗口方式没覆盖
-	-- ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
-	-- ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
-	-- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
-	-- ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
+	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
+	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
+	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
+	["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
 	-- tmux 快捷键
-	["n|<C-h>"] = map_cr("lua require('tmux').move_left()"):with_silent(),
-	["n|<C-l>"] = map_cr("lua require('tmux').move_right()"):with_silent(),
-	["n|<C-j>"] = map_cr("lua require('tmux').move_bottom()"):with_silent(),
-	["n|<C-k>"] = map_cr("lua require('tmux').move_top()"):with_silent(),
+	-- ["n|<C-h>"] = map_cr("lua require('tmux').move_left()"):with_silent(),
+	-- ["n|<C-l>"] = map_cr("lua require('tmux').move_right()"):with_silent(),
+	-- ["n|<C-j>"] = map_cr("lua require('tmux').move_bottom()"):with_silent(),
+	-- ["n|<C-k>"] = map_cr("lua require('tmux').move_top()"):with_silent(),
 }
 
 local defalte_map = {

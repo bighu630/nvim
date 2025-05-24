@@ -2,7 +2,6 @@ local config = {}
 
 function config.scrollview()
 	local colors = require("tokyonight.colors").setup()
-
 	require("scrollbar").setup({
 		handle = {
 			color = colors.bg_highlight,

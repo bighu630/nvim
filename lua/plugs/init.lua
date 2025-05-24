@@ -85,6 +85,9 @@ return {
 		"neovim/nvim-lspconfig",
 		lazy = true,
 		event = "VeryLazy",
+		dependencies = {
+			"saghen/blink.cmp",
+		},
 		config = require("lsp.lspconf").lspconfig,
 	},
 	{

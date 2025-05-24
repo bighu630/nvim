@@ -24,7 +24,7 @@ local function config()
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "codeium" },
+			default = { "dictionary", "lsp", "path", "snippets", "buffer", "codeium" },
 			providers = {
 				codeium = {
 					name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -43,6 +43,14 @@ local function config()
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
+				},
+				dictionary = {
+					module = "blink-cmp-dictionary",
+					name = "Dict",
+					-- Make sure this is at least 2.
+					-- 3 is recommended
+					min_keyword_length = 3,
+					opts = {},
 				},
 				path = {
 					name = "Path",
@@ -86,42 +94,13 @@ local function config()
 			ghost_text = {
 				enabled = false,
 			},
+			cmdline = { border = "rounded" },
 			menu = {
 				border = "rounded",
 				draw = {
 					columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind", gap = 1 } },
-					components = {
-						kind_icon = {
-							text = function(ctx)
-								local icon = ctx.kind_icon
-								if vim.tbl_contains({ "Path" }, ctx.source_name) then
-									local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
-									if dev_icon then
-										icon = dev_icon
-									end
-								end
-
-								return icon .. ctx.icon_gap
-							end,
-
-							-- Optionally, use the highlight groups from nvim-web-devicons
-							-- You can also add the same function for `kind.highlight` if you want to
-							-- keep the highlight groups in sync with the icons.
-							highlight = function(ctx)
-								local hl = ctx.kind_hl
-								if vim.tbl_contains({ "Path" }, ctx.source_name) then
-									local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
-									if dev_icon then
-										hl = dev_hl
-									end
-								end
-								return hl
-							end,
-						},
-					},
 				},
 			},
-			cmdline = { border = "rounded" },
 		},
 		signature = { window = { border = "single" } },
 		trigger = {
@@ -155,6 +134,11 @@ return {
 			opts = { virtual_text = { enabled = false } },
 		},
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
+		{
+			"Kaiser-Yang/blink-cmp-dictionary",
+			dependencies = { "nvim-lua/plenary.nvim" },
+		},
+		-- ... Other dependencies
 	},
 	event = "BufReadPre",
 	version = "v1.*", -- REQUIRED release tag to download pre-built binaries
