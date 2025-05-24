@@ -1,38 +1,6 @@
 local config = {}
 function config.gitsigns()
 	require("gitsigns").setup({
-		-- signs = {
-		-- 	add = {
-		-- 		hl = "GitSignsAdd",
-		-- 		text = "│",
-		-- 		numhl = "GitSignsAddNr",
-		-- 		-- linehl = "GitSignsAddLn",
-		-- 	},
-		-- 	change = {
-		-- 		hl = "GitSignsChange",
-		-- 		text = "│",
-		-- 		numhl = "GitSignsChangeNr",
-		-- 		linehl = "GitSignsChangeLn",
-		-- 	},
-		-- 	delete = {
-		-- 		hl = "GitSignsDelete",
-		-- 		text = "_",
-		-- 		numhl = "GitSignsDeleteNr",
-		-- 		linehl = "GitSignsDeleteLn",
-		-- 	},
-		-- 	topdelete = {
-		-- 		hl = "GitSignsDelete",
-		-- 		text = "‾",
-		-- 		numhl = "GitSignsDeleteNr",
-		-- 		linehl = "GitSignsDeleteLn",
-		-- 	},
-		-- 	changedelete = {
-		-- 		hl = "GitSignsChange",
-		-- 		text = "~",
-		-- 		numhl = "GitSignsChangeNr",
-		-- 		linehl = "GitSignsChangeLn",
-		-- 	},
-		-- },
 		signs = {
 			add = { text = "┃" },
 			change = { text = "┃" },
@@ -50,7 +18,7 @@ function config.gitsigns()
 		word_diff = false,
 		diff_opts = {
 			internal = true,
-			vertical = false,
+			vertical = true,
 			ignore_blank_lines = true,
 			ignore_whitespace_change = true,
 		},
