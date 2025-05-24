@@ -48,7 +48,12 @@ function config.gitsigns()
 		update_debounce = 100,
 		status_formatter = nil, -- Use default
 		word_diff = false,
-		diff_opts = { internal = true },
+		diff_opts = {
+			internal = true,
+			vertical = false,
+			ignore_blank_lines = true,
+			ignore_whitespace_change = true,
+		},
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
 

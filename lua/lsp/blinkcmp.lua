@@ -24,7 +24,7 @@ local function config()
 			},
 		},
 		sources = {
-			default = { "dictionary", "lsp", "path", "snippets", "buffer", "codeium" },
+			default = { "lsp", "path", "snippets", "buffer", "codeium" },
 			providers = {
 				codeium = {
 					name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -43,14 +43,6 @@ local function config()
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
-				},
-				dictionary = {
-					module = "blink-cmp-dictionary",
-					name = "Dict",
-					-- Make sure this is at least 2.
-					-- 3 is recommended
-					min_keyword_length = 3,
-					opts = {},
 				},
 				path = {
 					name = "Path",
@@ -85,7 +77,7 @@ local function config()
 			},
 		},
 		completion = {
-			accept = { auto_brackets = { enabled = false } },
+			accept = { auto_brackets = { enabled = true } },
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
@@ -94,7 +86,7 @@ local function config()
 			ghost_text = {
 				enabled = false,
 			},
-			cmdline = { border = "rounded" },
+			-- cmdline = { border = "rounded" },
 			menu = {
 				border = "rounded",
 				draw = {
@@ -103,21 +95,21 @@ local function config()
 			},
 		},
 		signature = { window = { border = "single" } },
-		trigger = {
-			completion = {
-				keyword_range = "full", -- full|prefix
-				list = {
-					selection = { preselect = false, auto_insert = true },
-				},
-				documentation = {
-					auto_show = true,
-					auto_show_delay_ms = 500,
-				},
-			},
-		},
-		highlight = {
-			use_nvim_cmp_as_default = true,
-		},
+		-- trigger = {
+		-- 	completion = {
+		-- 		keyword_range = "full", -- full|prefix
+		-- 		list = {
+		-- 			selection = { preselect = false, auto_insert = true },
+		-- 		},
+		-- 		documentation = {
+		-- 			auto_show = true,
+		-- 			auto_show_delay_ms = 500,
+		-- 		},
+		-- 	},
+		-- },
+		-- highlight = {
+		-- 	use_nvim_cmp_as_default = true,
+		-- },
 	}
 end
 
@@ -134,14 +126,10 @@ return {
 			opts = { virtual_text = { enabled = false } },
 		},
 		{ "L3MON4D3/LuaSnip", version = "v2.*" },
-		{
-			"Kaiser-Yang/blink-cmp-dictionary",
-			dependencies = { "nvim-lua/plenary.nvim" },
-		},
 		-- ... Other dependencies
 	},
 	event = "BufReadPre",
-	version = "v1.*", -- REQUIRED release tag to download pre-built binaries
+	version = "*", -- REQUIRED release tag to download pre-built binaries
 	-- https://github.com/chrisgrieser/.config/blob/main/nvim/lua/plugins/blink-cmp.lua
 
 	---@module "blink.cmp"
