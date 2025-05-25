@@ -37,12 +37,6 @@ return {
 		config = require("ui.galaxyline").galaxy,
 	},
 	require("ui.devicons"),
-	-- {
-	-- 	"glepnir/dashboard-nvim",
-	-- 	event = "VimEnter",
-	-- 	config = require("ui.dashboard").dashboard,
-	-- 	dependencies = { { "nvim-tree/nvim-web-devicons" } },
-	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		lazy = true,
@@ -181,7 +175,7 @@ return {
 	-- 		require("distant").setup()
 	-- 	end,
 	-- },
-	-- require("tools.avante"),
+	require("tools.avante"),
 	require("tools.markdown"),
 	{
 		"folke/which-key.nvim",
