@@ -13,6 +13,27 @@ return {
 				endpoint = "https://api.deepseek.com",
 				model = "deepseek-coder",
 			},
+			openrouter = {
+				__inherited_from = "openai",
+				disable_tools = true,
+				api_key_name = "OPENROUTER_API_KEY",
+				endpoint = "https://openrouter.ai/api/v1",
+				model = "deepseek/deepseek-chat-v3-0324:free",
+			},
+			openai = {
+				__inherited_from = "openai",
+				api_key_name = "OPENAI_API_KEY",
+				endpoint = "https://api.openai.com/v1",
+				model = "gpt-4", -- 或者 \"gpt-3.5-turbo\" 等
+				temperature = 0.7,
+				max_tokens = 2048,
+			},
+		},
+		selector = {
+			--- @alias avante.SelectorProvider "native" | "fzf_lua" | "mini_pick" | "snacks" | "telescope" | fun(selector: avante.ui.Selector): nil
+			provider = "snacks",
+			-- Options override for custom providers
+			provider_opts = {},
 		},
 
 		-- auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
@@ -24,7 +45,7 @@ return {
 			support_paste_from_clipboard = false,
 		},
 		gemini = {
-			model = "gemini-2.0-flash",
+			model = "gemini-2.5-flash-preview-05-20",
 			temperature = 0,
 			max_tokens = 8096,
 		},
