@@ -6,7 +6,7 @@ return {
 		-- add any opts here
 		-- for example
 		provider = "gemini",
-		vendors = {
+		providers = {
 			deepseek = {
 				__inherited_from = "openai",
 				api_key_name = "DEEPSEEK_API_KEY",
@@ -25,8 +25,17 @@ return {
 				api_key_name = "OPENAI_API_KEY",
 				endpoint = "https://api.openai.com/v1",
 				model = "gpt-4", -- 或者 \"gpt-3.5-turbo\" 等
-				temperature = 0.7,
+				extra_request_body = {
+					temperature = 0.7,
+				},
 				max_tokens = 2048,
+			},
+			gemini = {
+				model = "gemini-2.5-flash-preview-05-20",
+				extra_request_body = {
+					max_tokens = 8096,
+					temperature = 0,
+				},
 			},
 		},
 		selector = {
@@ -43,11 +52,6 @@ return {
 			auto_set_keymaps = true,
 			auto_apply_diff_after_generation = false,
 			support_paste_from_clipboard = false,
-		},
-		gemini = {
-			model = "gemini-2.5-flash-preview-05-20",
-			temperature = 0,
-			max_tokens = 8096,
 		},
 	},
 	-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
