@@ -44,6 +44,10 @@ return {
 			-- Options override for custom providers
 			provider_opts = {},
 		},
+		web_search_engine = {
+			provider = "google", -- tavily, serpapi, searchapi, google, kagi, brave, or searxng
+			proxy = nil, -- proxy support, e.g., http://127.0.0.1:7890
+		},
 
 		-- auto_suggestions_provider = "copilot", -- Since auto-suggestions are a high-frequency operation and therefore expensive, it is recommended to specify an inexpensive provider or even a free provider: copilot
 		behaviour = {

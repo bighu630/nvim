@@ -94,6 +94,9 @@ local function config()
 			},
 		},
 		signature = { window = { border = "single" } },
+		enabled = function()
+			return not vim.tbl_contains({ "NvimTree", "AvanteInput" }, vim.bo.filetype)
+		end,
 	}
 end
 

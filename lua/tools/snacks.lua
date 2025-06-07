@@ -39,7 +39,7 @@ local config = {
 				{ section = "recent_files", cwd = true, limit = 8, padding = 1, pane = 2 },
 			},
 		},
-		explorer = { enabled = false },
+		explorer = { enabled = true },
 		indent = {
 			priority = 1,
 			enabled = true, -- enable indent guides

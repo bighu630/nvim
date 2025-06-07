@@ -11,12 +11,12 @@ return {
 		-- "navarasu/onedark.nvim",
 		"folke/tokyonight.nvim",
 	},
-	{
-		"kyazdani42/nvim-tree.lua",
-		lazy = false,
-		cmd = { "NvimTreeToggle" },
-		config = require("ui.nvimtree").nvimtree,
-	},
+	-- {
+	-- 	"kyazdani42/nvim-tree.lua",
+	-- 	lazy = false,
+	-- 	cmd = { "NvimTreeToggle" },
+	-- 	config = require("ui.nvimtree").nvimtree,
+	-- },
 	-- accelerated-jk
 	{
 		"rainbowhxch/accelerated-jk.nvim",
