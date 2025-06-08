@@ -209,11 +209,11 @@ return {
 		event = "BufReadPost",
 		config = require("tools.todo").todo,
 	},
-	-- {
-	-- 	"aserowy/tmux.nvim",
-	-- 	lazy = false,
-	-- 	config = require("tools.tmux").tmux,
-	-- },
+	{
+		"aserowy/tmux.nvim",
+		lazy = false,
+		config = require("tools.tmux").tmux,
+	},
 	{
 		"ggandor/leap.nvim",
 		lzay = true,

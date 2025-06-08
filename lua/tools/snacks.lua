@@ -24,13 +24,20 @@ local config = {
 				end,
 			},
 			sections = {
-				{ section = "terminal", cmd = "fortune -s | cowsay", hl = "header", padding = 1, indent = 8 },
+				{
+					section = "terminal",
+					cmd = "fortune -s | cowsay",
+					hl = "header",
+					padding = 1,
+					height = 10,
+					indent = 8,
+				},
 				{ title = "Bookmarks", padding = 1 },
 				{ section = "keys" },
 				{ title = "\nProjects", padding = 1 },
 				{ section = "projects", padding = 1 },
 				-- pane 2
-				{ section = "header", height = 50, pane = 2 },
+				{ section = "header", height = 10, pane = 2 },
 				{ title = "MRU", padding = 1, pane = 2 },
 				{ section = "recent_files", limit = 8, padding = 1, pane = 2 },
 				-- { title = "Session", padding = 1, pane = 2 },
@@ -46,7 +53,7 @@ local config = {
 			char = "│",
 			only_scope = false, -- only show indent guides of the scope
 			only_current = false, -- only show indent guides in the current window
-			-- hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+			hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
 			-- can be a list of hl groups to cycle through
 		},
 		input = { enabled = true },

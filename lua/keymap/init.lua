@@ -94,7 +94,7 @@ local dap_map = {
 local plug_map = {
 	-- Lsp mapp work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	-- ["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	-- Plugin Telescope
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
@@ -135,15 +135,15 @@ local plug_map = {
 	["n|<C-P>"] = map_cu("set wrap"):with_noremap(),
 
 	-- tmux 切换窗口,默认切换窗口方式没覆盖
-	["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
-	["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
-	["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
-	["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
+	-- ["n|<C-h>"] = map_cmd("<C-w>h"):with_noremap(),
+	-- ["n|<C-l>"] = map_cmd("<C-w>l"):with_noremap(),
+	-- ["n|<C-j>"] = map_cmd("<C-w>j"):with_noremap(),
+	-- ["n|<C-k>"] = map_cmd("<C-w>k"):with_noremap(),
 	-- tmux 快捷键
-	-- ["n|<C-h>"] = map_cr("lua require('tmux').move_left()"):with_silent(),
-	-- ["n|<C-l>"] = map_cr("lua require('tmux').move_right()"):with_silent(),
-	-- ["n|<C-j>"] = map_cr("lua require('tmux').move_bottom()"):with_silent(),
-	-- ["n|<C-k>"] = map_cr("lua require('tmux').move_top()"):with_silent(),
+	["n|<C-h>"] = map_cr("lua require('tmux').move_left()"):with_silent(),
+	["n|<C-l>"] = map_cr("lua require('tmux').move_right()"):with_silent(),
+	["n|<C-j>"] = map_cr("lua require('tmux').move_bottom()"):with_silent(),
+	["n|<C-k>"] = map_cr("lua require('tmux').move_top()"):with_silent(),
 }
 
 local defalte_map = {
