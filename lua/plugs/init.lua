@@ -282,12 +282,12 @@ return {
 	-- 		require("codeium").setup({})
 	-- 	end,
 	-- },
-	{
-		"michaelb/sniprun",
-		run = "sh ./install.sh",
-		lazy = true,
-		cmd = { "SnipRun", "SnipClose", "SnipInfo", "SnipReset" },
-	},
+	-- {
+	-- 	"michaelb/sniprun",
+	-- 	run = "sh ./install.sh",
+	-- 	lazy = true,
+	-- 	cmd = { "SnipRun", "SnipClose", "SnipInfo", "SnipReset" },
+	-- },
 	-- {
 	-- 	"rmagatti/auto-session",
 	-- 	lazy = false,

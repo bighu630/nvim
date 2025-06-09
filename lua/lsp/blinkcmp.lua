@@ -63,7 +63,7 @@ local function config()
 					score_offset = -3,
 					opts = {
 						friendly_snippets = true,
-						search_paths = { vim.fn.stdpath("config") .. "/snippets" },
+						search_paths = { vim.fn.stdpath("config") .. "/my-snippets" },
 						global_snippets = { "all" },
 						extended_filetypes = {},
 						ignored_filetypes = {},
