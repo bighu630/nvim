@@ -2,6 +2,10 @@
 
 使用 lazy 管理插件的 nvim 编辑环境
 
+> main分支以停更，目前使用snack分支，snack分支替换了更为先进的snacks.nvim和blink.cmp
+> main分支使用的还是telescope.nvim和nvim.cmp
+> snacks分支精简掉大量非常用插件（有的可能我从来没用过），同时添加类似cursor的avante ai工具
+
 ## 使用效果
 
 |                                                                                                                                         |                                                                                                                               |
