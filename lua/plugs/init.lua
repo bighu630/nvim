@@ -241,68 +241,12 @@ return {
 		event = "BufReadPost",
 		config = require("tools.colorizer").colorizer,
 	},
-	-- {
-	-- 	"ahmedkhalf/project.nvim",
-	-- 	config = function()
-	-- 		require("project_nvim").setup({})
-	-- 	end,
-	-- },
-	-- {
-	-- 	-- amongst your other plugins
-	-- 	"akinsho/toggleterm.nvim",
-	-- 	version = "*",
-	-- 	config = true,
-	-- 	opts = {--[[ things you want to change go here]]
-	-- 	},
-	-- },
 	require("tools.neotest"),
-	-- {
-	-- 	"github/copilot.vim",
-	-- },
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	config = function()
-	-- 		require("copilot").setup({})
-	-- 	end,
-	-- },
 	{
 		"Wansmer/symbol-usage.nvim",
 		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
 		config = require("tools.symbol-usage").symbol_usage,
 	},
-	-- {
-	-- 	"Exafunction/codeium.nvim",
-	-- 	dependencies = {
-	-- 		"nvim-lua/plenary.nvim",
-	-- 		"hrsh7th/nvim-cmp",
-	-- 	},
-	-- 	config = function()
-	-- 		require("codeium").setup({})
-	-- 	end,
-	-- },
-	-- {
-	-- 	"michaelb/sniprun",
-	-- 	run = "sh ./install.sh",
-	-- 	lazy = true,
-	-- 	cmd = { "SnipRun", "SnipClose", "SnipInfo", "SnipReset" },
-	-- },
-	-- {
-	-- 	"rmagatti/auto-session",
-	-- 	lazy = false,
-	-- 	dependencies = {
-	-- 		"nvim-telescope/telescope.nvim", -- Only needed if you want to use session lens
-	-- 	},
-	--
-	-- 	---enables autocomplete for opts
-	-- 	---@module "auto-session"
-	-- 	---@type AutoSession.Config
-	-- 	opts = {
-	-- 		suppressed_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
-	-- 		-- log_level = 'debug',
-	-- 	},
-	-- },
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
 	{
