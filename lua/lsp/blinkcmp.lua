@@ -24,23 +24,9 @@ local function config()
 			},
 		},
 		sources = {
-			-- default = { "lsp", "path", "snippets", "buffer", "codeium" },
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "codeium" },
 			providers = {
-				codeium = {
-					name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
-					module = "blink.compat.source",
-
-					-- all blink.cmp source config options work as normal:
-					score_offset = -3,
-
-					opts = {
-						-- options passed to the completion source
-						-- equivalent to `option` field of nvim-cmp source config
-
-						cache_digraphs_on_start = true,
-					},
-				},
+				codeium = { name = "Codeium", module = "codeium.blink", async = true },
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
@@ -111,7 +97,25 @@ return {
 			cmd = "Codeium",
 			event = "VeryLazy",
 			build = ":Codeium Auth",
-			opts = { virtual_text = { enabled = true } },
+			opts = {
+				virtual_text = {
+					enabled = true,
+					key_bindings = {
+						-- Accept the current completion.
+						accept = "<C-CR>",
+						-- Accept the next word.
+						accept_word = false,
+						-- Accept the next line.
+						accept_line = false,
+						-- Clear the virtual text.
+						clear = false,
+						-- Cycle to the next completion.
+						next = "<M-]>",
+						-- Cycle to the previous completion.
+						prev = "<M-[>",
+					},
+				},
+			},
 		},
 		{
 			"L3MON4D3/LuaSnip",
