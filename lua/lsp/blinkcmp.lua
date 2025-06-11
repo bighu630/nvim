@@ -24,7 +24,8 @@ local function config()
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer", "codeium" },
+			-- default = { "lsp", "path", "snippets", "buffer", "codeium" },
+			default = { "lsp", "path", "snippets", "buffer" },
 			providers = {
 				codeium = {
 					name = "codeium", -- IMPORTANT: use the same name as you would for nvim-cmp
@@ -63,7 +64,7 @@ local function config()
 					score_offset = -3,
 					opts = {
 						friendly_snippets = true,
-						search_paths = { vim.fn.stdpath("config") .. "/my-snippets" },
+						-- search_paths = { vim.fn.stdpath("config") .. "/my-snippets" },
 						global_snippets = { "all" },
 						extended_filetypes = {},
 						ignored_filetypes = {},
@@ -110,9 +111,18 @@ return {
 			cmd = "Codeium",
 			event = "VeryLazy",
 			build = ":Codeium Auth",
-			opts = { virtual_text = { enabled = false } },
+			opts = { virtual_text = { enabled = true } },
 		},
-		{ "L3MON4D3/LuaSnip", version = "v2.*" },
+		{
+			"L3MON4D3/LuaSnip",
+			version = "v2.*",
+			dependencies = {
+				"rafamadriz/friendly-snippets", -- 提供大量预设代码片段
+			},
+			config = function()
+				require("luasnip.loaders.from_vscode").lazy_load()
+			end,
+		},
 		-- ... Other dependencies
 	},
 	event = "BufReadPre",

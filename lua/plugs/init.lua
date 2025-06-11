@@ -177,6 +177,7 @@ return {
 	-- },
 	require("tools.avante"),
 	require("tools.markdown"),
+	{ "akinsho/git-conflict.nvim", event = "VeryLazy", version = "*", config = true },
 	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
