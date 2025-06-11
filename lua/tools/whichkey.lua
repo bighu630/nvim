@@ -28,11 +28,12 @@ function config.whichkey()
 			group = "+", -- symbol prepended to a group
 		},
 		layout = {
-			height = { min = 4, max = 25 }, -- min and max height of the columns
-			width = { min = 20, max = 50 }, -- min and max width of the columns
+			keight = { min = 10, max = 25 }, -- min and max height of the columns
+			width = { min = 20, max = 20 }, -- min and max width of the columns
 			spacing = 3, -- spacing between columns
-			align = "left", -- align columns left, center or right
+			align = "center", -- align columns left, center or right
 		},
+        preset = "modern",
 		show_help = true, -- show help message on the command line when the popup is visible
 		triggers = {
 			{ "<auto>", mode = "nixsotc" },
@@ -612,13 +613,13 @@ function config.whichkey()
 			end,
 			desc = "Undo History",
 		},
-		{
-			"<leader>uC",
-			function()
-				Snacks.picker.colorschemes()
-			end,
-			desc = "Colorschemes",
-		},
+		-- {
+		-- 	"<leader>uC",
+		-- 	function()
+		-- 		Snacks.picker.colorschemes()
+		-- 	end,
+		-- 	desc = "Colorschemes",
+		-- },
 		-- LSP
 		-- {
 		-- 	"gd",

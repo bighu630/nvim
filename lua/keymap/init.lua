@@ -51,10 +51,10 @@ local tree_map = {
 	["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	-- Plugin Undotree
 	["n|<Leader>uu"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
-	["n|<space>F"] = map_cr("lua require('telescope.builtin').find_files()"):with_noremap():with_silent(),
 }
 
 local telescope_map = {
+	["n|<space>F"] = map_cr("lua require('telescope.builtin').find_files()"):with_noremap():with_silent(),
 	["n|<Space>p"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
 	["n|<Space>r"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Space>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
