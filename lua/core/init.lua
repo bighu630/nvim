@@ -107,3 +107,4 @@ end
 
 load_core()
 vim_config()
+require("tools.folding")

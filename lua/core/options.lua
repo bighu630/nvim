@@ -64,7 +64,6 @@ local function load_options()
 		shortmess = "aoOTIcF",
 		scrolloff = 5,
 		sidescrolloff = 5,
-		foldlevelstart = 99,
 		ruler = true,
 		cursorline = true,
 		cursorcolumn = true,
@@ -102,14 +101,9 @@ local function load_options()
 		number = true,
 		relativenumber = true,
 		-- foldenable = true,
-		foldmethod = "expr", -- fold with nvim_treesitter
-		foldexpr = "nvim_treesitter#foldexpr()",
-		foldenable = false, -- no fold to be applied when open a file
-		foldlevel = 99, -- if not set this, fold will be everywhere
 		signcolumn = "yes",
 		conceallevel = 0,
 		concealcursor = "niv",
-		foldmethod = "expr", -- fold with nvim_treesitter
 
 		-- add by myself
 	}
