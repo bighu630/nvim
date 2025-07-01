@@ -33,7 +33,7 @@ function config.whichkey()
 			spacing = 3, -- spacing between columns
 			align = "center", -- align columns left, center or right
 		},
-        preset = "modern",
+		preset = "modern",
 		show_help = true, -- show help message on the command line when the popup is visible
 		triggers = {
 			{ "<auto>", mode = "nixsotc" },
@@ -296,14 +296,22 @@ function config.whichkey()
 			remap = false,
 		},
 		{ "<Space>l", group = "LSP", nowait = true, remap = false },
-		{ "<Space>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
 		{
-			"<Space>lS",
-			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-			desc = "Workspace Symbols",
+			"<Space>lR",
+			function()
+				local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+				for _, client in ipairs(clients) do
+					if client.name then
+						vim.cmd("LspRestart " .. client.name)
+					end
+				end
+			end,
+			desc = "Restart LSP",
 			nowait = true,
 			remap = false,
 		},
+
+		{ "<Space>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
 		{ "<Space>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto_definition", nowait = true, remap = false },
 		{ "<Space>lf", "<cmd>Format<cr>", desc = "Format", nowait = true, remap = false },
 		{ "<Space>li", "<cmd>Lspsaga incoming_calls<cr>", desc = "Lspsaga incoming", nowait = true, remap = false },
@@ -358,13 +366,13 @@ function config.whichkey()
 		{ "<Space>o", "<cmd>Lspsaga outline<CR>", desc = "Outline", nowait = true, remap = false },
 		-- { "<Space>p", "<cmd>Telescope project<cr>", desc = "Projects", nowait = true, remap = false },
 		-- { "<Space>r", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
-		{
-			"ff",
-			function()
-				Snacks.explorer()
-			end,
-			desc = "File Explorer",
-		},
+		-- {
+		-- 	"ff",
+		-- 	function()
+		-- 		Snacks.explorer()
+		-- 	end,
+		-- 	desc = "File Explorer",
+		-- },
 		{
 			"<leader><space>",
 			function()

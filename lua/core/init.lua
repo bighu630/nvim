@@ -87,7 +87,7 @@ local function session()
 					return
 				end
 			end
-			session_manager.save_current_session()
+			-- session_manager.save_current_session()
 		end,
 	})
 end
