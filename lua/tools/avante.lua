@@ -18,7 +18,7 @@ return {
 				disable_tools = true,
 				api_key_name = "OPENROUTER_API_KEY",
 				endpoint = "https://openrouter.ai/api/v1",
-				model = "deepseek/deepseek-chat-v3-0324:free",
+				model = "deepseek/deepseek-r1-0528:free",
 			},
 			openai = {
 				__inherited_from = "openai",
