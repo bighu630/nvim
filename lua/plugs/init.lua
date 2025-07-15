@@ -55,10 +55,15 @@ return {
 		lazy = true,
 		cmd = "UndotreeToggle",
 	},
+	-- {
+	-- 	"xiyaowong/transparent.nvim",
+	-- 	lazy = false,
+	-- 	config = require("ui.transparent").transparent,
+	-- },
 	{
-		"xiyaowong/transparent.nvim",
-		lazy = false,
-		config = require("ui.transparent").transparent,
+		"tribela/transparent.nvim",
+		event = "VimEnter",
+		config = true,
 	},
 	{
 		"RRethy/vim-illuminate",

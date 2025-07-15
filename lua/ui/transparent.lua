@@ -26,6 +26,8 @@ function config.transparent()
 			"CursorLineNr",
 			"EndOfBuffer",
 			"BufferLine",
+			"NvimTreeNormal",
+            "NvimTree",
 			"Barbar",
 			"lualine",
 			"lualine_c_command",
@@ -36,7 +38,6 @@ function config.transparent()
 		extra_groups = {
 			"lualine",
 			"barbar",
-			"NvimTreeNormal",
 		}, -- table: additional groups that should be cleared
 		exclude_groups = {}, -- table: groups you don't want to clear
 	})
