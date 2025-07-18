@@ -25,19 +25,13 @@ function config.transparent()
 			"SignColumn",
 			"CursorLineNr",
 			"EndOfBuffer",
-			"BufferLine",
+			"VerSplit",
 			"NvimTreeNormal",
-            "NvimTree",
-			"Barbar",
-			"lualine",
-			"lualine_c_command",
-			"lualine_c_insert",
-			"lualine_c_normal",
-			"lualine_c_visual",
+			"NvimTree",
 		},
 		extra_groups = {
 			"lualine",
-			"barbar",
+			"NvimTree",
 		}, -- table: additional groups that should be cleared
 		exclude_groups = {}, -- table: groups you don't want to clear
 	})

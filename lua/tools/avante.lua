@@ -31,7 +31,7 @@ return {
 				max_tokens = 2048,
 			},
 			gemini = {
-				model = "gemini-2.5-flash-preview-05-20",
+				model = "gemini-2.5-flash",
 				extra_request_body = {
 					max_tokens = 8096,
 					temperature = 0,
