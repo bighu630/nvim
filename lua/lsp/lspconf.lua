@@ -92,6 +92,10 @@ function config.lspconfig()
 			Lua = {},
 		},
 	})
+	vim.lsp.enable("bashls")
+	vim.lsp.config("bashls", {
+		capabilities = capabilities,
+	})
 	-- require("lsp.lsp")
 end
 
