@@ -326,7 +326,7 @@ function M.galaxy()
 					if vim.bo.modified then
 						colour = colors.cyan
 					end
-					vim.cmd("hi GalaxyFileStatus guifg=" .. colour)
+					vim.api.nvim_set_hl(0, "GalaxyFileStatus", { bg = colors.bg, fg = colour })
 					local existing_text = providers_text(gls.left)
 					existing_text = existing_text .. providers_text(gls.right)
 					local current_window = vim.api.nvim_get_current_win()

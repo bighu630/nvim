@@ -60,11 +60,11 @@ return {
 		lazy = false,
 		config = require("ui.transparent").transparent,
 	},
-	{
-		"tribela/transparent.nvim",
-		event = "VimEnter",
-		config = true,
-	},
+	-- {
+	-- 	"tribela/transparent.nvim",
+	-- 	event = "VimEnter",
+	-- 	config = true,
+	-- },
 	{
 		"RRethy/vim-illuminate",
 		lazy = true,
