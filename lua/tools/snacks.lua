@@ -13,6 +13,7 @@ local config = {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
+		animate = { enabled = true },
 		bigfile = { enabled = true },
 		---@class snacks.dashboard.Config
 		dashboard = {
@@ -43,10 +44,10 @@ local config = {
 				{ section = "recent_files", cwd = true, limit = 8, padding = 1, pane = 2 },
 			},
 		},
-		explorer = { enabled = false },
+		explorer = { enabled = true },
 		indent = {
 			priority = 1,
-			enabled = true, -- enable indent guides
+			enabled = false, -- enable indent guides
 			char = "│",
 			only_scope = false, -- only show indent guides of the scope
 			only_current = false, -- only show indent guides in the current window

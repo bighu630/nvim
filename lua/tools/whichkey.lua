@@ -366,13 +366,13 @@ function config.whichkey()
 		{ "<Space>o", "<cmd>Lspsaga outline<CR>", desc = "Outline", nowait = true, remap = false },
 		-- { "<Space>p", "<cmd>Telescope project<cr>", desc = "Projects", nowait = true, remap = false },
 		-- { "<Space>r", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
-		-- {
-		-- 	"ff",
-		-- 	function()
-		-- 		Snacks.explorer()
-		-- 	end,
-		-- 	desc = "File Explorer",
-		-- },
+		{
+			"ff",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "File Explorer",
+		},
 		{
 			"<leader><space>",
 			function()
