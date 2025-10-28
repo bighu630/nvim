@@ -1,15 +1,12 @@
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
-		"nvim-neotest/nvim-nio",
-		"nvim-lua/plenary.nvim",
-		"nvim-treesitter/nvim-treesitter",
 		{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
 		{ "leoluz/nvim-dap-go" },
-	},
-
-	cmd = {
-		"Neotest",
+		"nvim-neotest/nvim-nio",
+		"nvim-lua/plenary.nvim",
+		"antoinemadec/FixCursorHold.nvim",
+		"nvim-treesitter/nvim-treesitter",
 	},
 	config = function()
 		local neotest_golang_opts = {
