@@ -1,31 +1,34 @@
 return {
-	"nvim-neotest/neotest",
-	dependencies = {
-		{ "fredrikaverpil/neotest-golang", version = "*" }, -- Installation
-		{ "leoluz/nvim-dap-go" },
-		"nvim-neotest/nvim-nio",
-		"nvim-lua/plenary.nvim",
-		"antoinemadec/FixCursorHold.nvim",
-		"nvim-treesitter/nvim-treesitter",
-	},
-	config = function()
-		local neotest_golang_opts = {
-			experimental = {
-				test_table = true,
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-neotest/nvim-nio",
+			"nvim-lua/plenary.nvim",
+			"antoinemadec/FixCursorHold.nvim",
+			{
+				"nvim-treesitter/nvim-treesitter", -- Optional, but recommended
+				branch = "main", -- NOTE; not the master branch!
+				build = function()
+					vim.cmd(":TSUpdate go")
+				end,
 			},
-			args = { "-v" },
-			strategy = "dap",
-		}
-		require("neotest").setup({
-			adapters = {
-				-- require("neotest-golang")(neotest_golang_opts), -- Registration
-				require("neotest-golang"),
+			{
+				"fredrikaverpil/neotest-golang",
+				version = "*", -- Optional, but recommended; track releases
+				build = function()
+					vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended
+				end,
 			},
-			strategies = {
-				basic = {
-					enabled = true, -- 使用 basic 策略
+		},
+		config = function()
+			local config = {
+				runner = "gotestsum", -- Optional, but recommended
+			}
+			require("neotest").setup({
+				adapters = {
+					require("neotest-golang")(config),
 				},
-			},
-		})
-	end,
+			})
+		end,
+	},
 }

@@ -99,9 +99,6 @@ local plug_map = {
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
-	-- Plugin leap
-	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
-	["n|<S-s>"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
 	-- Plugin EasyAlign
 	-- ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	-- ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
@@ -182,6 +179,11 @@ local defalte_map = {
 	["v|>"] = map_cmd(">gv"),
 }
 
+local load_vim_style_map = function()
+	vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+	vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
+end
+
 local load_keymap = function()
 	bind.nvim_load_mapping(plug_map)
 	bind.nvim_load_mapping(defalte_map)
@@ -195,3 +197,4 @@ local load_keymap = function()
 end
 
 load_keymap()
+load_vim_style_map()
