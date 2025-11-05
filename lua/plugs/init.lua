@@ -111,6 +111,7 @@ return {
 			{
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
+                branch = "master",
 				envent = "BufReadPost",
 				config = require("lsp.treesitter").treesitter,
 			},
@@ -118,8 +119,8 @@ return {
 	},
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		envent = "BufReadPost",
 		after = "nvim-treesitter",
+		requires = "nvim-treesitter/nvim-treesitter",
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
