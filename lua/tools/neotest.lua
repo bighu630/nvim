@@ -14,6 +14,9 @@ return {
 			},
 			{
 				"fredrikaverpil/neotest-golang",
+				dependencies = {
+					"leoluz/nvim-dap-go",
+				},
 				version = "*", -- Optional, but recommended; track releases
 				build = function()
 					vim.system({ "go", "install", "gotest.tools/gotestsum@latest" }):wait() -- Optional, but recommended

@@ -2,18 +2,17 @@ local config = {}
 function config.treesitter()
 	vim.api.nvim_set_option_value("foldmethod", "expr", {})
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
+	vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = { "go", "lua", "yaml", "json", "python" },
+		callback = function()
+			vim.treesitter.start()
+		end,
+	})
 
 	-- require("nvim-treesitter.configs").setup({
-    require("nvim-treesitter").install({ 'go', 'lua', 'yaml','json','python' })
+	require("nvim-treesitter").install({ "go", "lua", "yaml", "json", "python" })
 	require("nvim-treesitter").setup({
-		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
-		ignore_install = { "" }, -- List of parsers to ignore installing
-		highlight = {
-			enable = true, -- false will disable the whole extension
-			disable = { "" }, -- list of language that will be disabled
-			additional_vim_regex_highlighting = false,
-		},
-		indent = { enable = false, disable = { "yaml" } },
 		require("ts_context_commentstring").setup({
 			enable = true,
 			config = {
