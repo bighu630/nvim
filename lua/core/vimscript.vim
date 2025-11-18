@@ -67,10 +67,13 @@ augroup END
 
 " 设置颜色
 " colorscheme catppuccin-mocha
+hi Normal ctermfg=252 ctermbg=none
 colorscheme tokyonight-storm
 " import ~/.cache/wal/colors-wal.vim
-set colorcolumn=88
+"set colorcolumn=88
 
 inoremap jk <ESC>
+inoremap jj <ESC>
+inoremap kk <ESC>
 
 hi comment ctermfg=6

@@ -1,8 +1,6 @@
-local config = {}
-function config.markdown()
-	require("markdown-preview").setup({
-		autowrite = 1,
-	})
-end
-
-return config
+return {
+	"MeanderingProgrammer/render-markdown.nvim",
+	---@module 'render-markdown'
+	---@type render.md.UserConfig
+	opts = {},
+}

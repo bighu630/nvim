@@ -19,6 +19,9 @@ function M.galaxy()
 		"fugitiveblame",
 		"NvimTree",
 		"UltestSummary",
+		"Avante",
+		"AvanteSelectedFiles",
+		"AvanteInput",
 	}
 
 	local colors = {
@@ -71,7 +74,7 @@ function M.galaxy()
 	}
 
 	local mode_alias = {
-		n = "🙈",
+		n = " ",
 		i = " ",
 		c = " ",
 		V = " ",
@@ -111,26 +114,6 @@ function M.galaxy()
 			return true
 		end
 		return false
-	end
-
-	local function is_dap_repl(buf)
-		local bufname = vim.api.nvim_buf_get_name(0)
-		local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-		return string.match(bufname, "DAP REPL") or filetype == "dap-repl"
-	end
-	local function file_icon(buf)
-		if is_dap_repl(buf) then
-			return
-		end
-		local file = vim.api.nvim_buf_get_name(buf or 0)
-		local f_name, f_extension = vim.fn.fnamemodify(file, ":t"), vim.fn.expand(file, ":e")
-		return devicons.get_icon(f_name, f_extension)
-	end
-	local function file_icon_color(buf)
-		local icon, iconhl = file_icon(buf)
-		if icon ~= nil then
-			return vim.fn.synIDattr(vim.fn.hlID(iconhl), "fg")
-		end
 	end
 
 	local spinner_frames = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" }
@@ -200,9 +183,9 @@ function M.galaxy()
 		},
 		{
 			FileIcon = {
-				provider = file_icon,
+				provider = "FileIcon",
 				condition = buffer_not_empty,
-				highlight = { file_icon_color, colors.bg },
+				highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg },
 			},
 		},
 		{
@@ -343,7 +326,7 @@ function M.galaxy()
 					if vim.bo.modified then
 						colour = colors.cyan
 					end
-					vim.cmd("hi GalaxyFileStatus guifg=" .. colour)
+					vim.api.nvim_set_hl(0, "GalaxyFileStatus", { bg = colors.bg, fg = colour })
 					local existing_text = providers_text(gls.left)
 					existing_text = existing_text .. providers_text(gls.right)
 					local current_window = vim.api.nvim_get_current_win()
@@ -359,9 +342,9 @@ function M.galaxy()
 	gls.short_line_left = {
 		{
 			FileIcon = {
-				provider = file_icon,
+				provider = "FileIcon",
 				condition = buffer_not_empty,
-				highlight = { file_icon_color, colors.bg },
+				highlight = { require("galaxyline.provider_fileinfo").get_file_icon_color, colors.line_bg },
 			},
 		},
 		{

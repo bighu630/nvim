@@ -19,14 +19,14 @@ local lspsaga_map = {
 	["n|gs"] = map_cr("Lspsaga signature_help"):with_noremap():with_silent(),
 	["n|gr"] = map_cr("Lspsaga rename"):with_noremap():with_silent(),
 	["n|K"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
-	-- ["n|J"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
+	["n|J"] = map_cr("Lspsaga hover_doc"):with_noremap():with_silent(),
 	["n|<Space>ll"] = map_cr("Lspsaga code_action"):with_noremap():with_silent(),
 	["v|<leader>ca"] = map_cu("Lspsaga code_action"):with_noremap():with_silent(),
 	["n|gp"] = map_cr("Lspsaga peek_definition"):with_noremap():with_silent(),
 	["n|gd"] = map_cr("Lspsaga goto_definition"):with_noremap():with_silent(),
 	["n|gD"] = map_cr("lua vim.lsp.buf.definition()"):with_noremap():with_silent(),
 	["n|gh"] = map_cr("Lspsaga finder"):with_noremap():with_silent(),
-	["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
+	-- ["n|<C-\\>"] = map_cr("Lspsaga term_toggle"):with_noremap():with_silent(),
 }
 
 local git_map = {
@@ -50,11 +50,11 @@ local tree_map = {
 	-- 打开文件树
 	["n|ff"] = map_cr("NvimTreeToggle"):with_noremap():with_silent(),
 	-- Plugin Undotree
-	["n|<Leader>u"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
-	["n|<space>F"] = map_cr("lua require('telescope.builtin').find_files()"):with_noremap():with_silent(),
+	["n|<Leader>uu"] = map_cr("UndotreeToggle"):with_noremap():with_silent(),
 }
 
 local telescope_map = {
+	["n|<space>F"] = map_cr("lua require('telescope.builtin').find_files()"):with_noremap():with_silent(),
 	["n|<Space>p"] = map_cu("lua require('telescope').extensions.project.project{}"):with_noremap():with_silent(),
 	["n|<Space>r"] = map_cu("Telescope oldfiles"):with_noremap():with_silent(),
 	["n|<Space>ff"] = map_cu("Telescope find_files"):with_noremap():with_silent(),
@@ -94,14 +94,11 @@ local dap_map = {
 local plug_map = {
 	-- Lsp mapp work when insertenter and lsp start
 	["n|<leader>li"] = map_cr("LspInfo"):with_noremap():with_silent():with_nowait(),
-	["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
+	-- ["n|<leader>lr"] = map_cr("LspRestart"):with_noremap():with_silent():with_nowait(),
 	-- Plugin Telescope
 	-- Plugin accelerate-jk,加速jk的移动速度
 	["n|j"] = map_cmd("v:lua.enhance_jk_move('j')"):with_silent():with_expr(),
 	["n|k"] = map_cmd("v:lua.enhance_jk_move('k')"):with_silent():with_expr(),
-	-- Plugin leap
-	["n|s"] = map_cmd([[<Plug>(leap-forward-x)]]):with_silent(),
-	["n|<S-s>"] = map_cmd([[<Plug>(leap-backward-x)]]):with_silent(),
 	-- Plugin EasyAlign
 	-- ["n|ga"] = map_cmd("v:lua.enhance_align('nga')"):with_expr(),
 	-- ["x|ga"] = map_cmd("v:lua.enhance_align('xga')"):with_expr(),
@@ -182,6 +179,11 @@ local defalte_map = {
 	["v|>"] = map_cmd(">gv"),
 }
 
+local load_vim_style_map = function()
+	vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap)")
+	vim.keymap.set("n", "S", "<Plug>(leap-from-window)")
+end
+
 local load_keymap = function()
 	bind.nvim_load_mapping(plug_map)
 	bind.nvim_load_mapping(defalte_map)
@@ -190,8 +192,9 @@ local load_keymap = function()
 	bind.nvim_load_mapping(git_map)
 	bind.nvim_load_mapping(trouble_map)
 	bind.nvim_load_mapping(tree_map)
-	bind.nvim_load_mapping(telescope_map)
+	-- bind.nvim_load_mapping(telescope_map)
 	bind.nvim_load_mapping(dap_map)
 end
 
 load_keymap()
+load_vim_style_map()

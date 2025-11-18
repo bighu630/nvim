@@ -17,8 +17,8 @@ function config.symbol_usage()
 	local function text_format(symbol)
 		local res = {}
 
-		local round_start = { "", "SymbolUsageRounding" }
-		local round_end = { "", "SymbolUsageRounding" }
+		-- local round_start = { "", "SymbolUsageRounding" }
+		-- local round_end = { "", "SymbolUsageRounding" }
 
 		-- Indicator that shows if there are any other symbols in the same line
 		local stacked_functions_content = symbol.stacked_count > 0 and ("+%s"):format(symbol.stacked_count) or ""

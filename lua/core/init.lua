@@ -87,7 +87,7 @@ local function session()
 					return
 				end
 			end
-			session_manager.save_current_session()
+			-- session_manager.save_current_session()
 		end,
 	})
 end
@@ -107,3 +107,4 @@ end
 
 load_core()
 vim_config()
+require("tools.folding")

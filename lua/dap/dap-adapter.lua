@@ -17,7 +17,7 @@ dap.adapters.lldb = {
 
 dap.adapters.python = {
 	type = "executable",
-	command = "/usr/bin/python",
+	command = "python",
 	args = { "-m", "debugpy.adapter" },
 }
 
