@@ -111,7 +111,7 @@ return {
 			{
 				"nvim-treesitter/nvim-treesitter",
 				run = ":TSUpdate",
-                branch = "master",
+				branch = "main",
 				envent = "BufReadPost",
 				config = require("lsp.treesitter").treesitter,
 			},
@@ -120,6 +120,7 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		after = "nvim-treesitter",
+		branch = "main",
 		requires = "nvim-treesitter/nvim-treesitter",
 	},
 	{

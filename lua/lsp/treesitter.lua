@@ -3,19 +3,9 @@ function config.treesitter()
 	vim.api.nvim_set_option_value("foldmethod", "expr", {})
 	vim.api.nvim_set_option_value("foldexpr", "nvim_treesitter#foldexpr()", {})
 
-	require("nvim-treesitter.configs").setup({
-		ensure_installed = {
-			"cpp",
-			"c",
-			"python",
-			"go",
-			"json",
-			"yaml",
-			"html",
-			"lua",
-			"markdown",
-			"markdown_inline",
-		}, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+	-- require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter").install({ 'go', 'lua', 'yaml','json','python' })
+	require("nvim-treesitter").setup({
 		sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
 		ignore_install = { "" }, -- List of parsers to ignore installing
 		highlight = {
