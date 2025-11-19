@@ -127,19 +127,15 @@ local function load_options()
 end
 
 local function set_sidebar_icons()
-	local diagnostic_icons = {
-		Error = " ",
-		Warn = " ",
-		Info = " ",
-		Hint = " ",
-	}
-	for type, icon in pairs(diagnostic_icons) do
-		local hl = "DiagnosticSign" .. type
-		vim.fn.sign_define(hl, { text = icon, texthl = hl })
-	end
-
 	vim.diagnostic.config({
-		signs = true,
+		signs = {
+			text = {
+				[vim.diagnostic.severity.ERROR] = " ",
+				[vim.diagnostic.severity.WARN] = " ",
+				[vim.diagnostic.severity.INFO] = " ",
+				[vim.diagnostic.severity.HINT] = " ",
+			},
+		},
 		underline = true,
 		virtual_text = { spacing = 4, prefix = "●", source = "if_many" },
 	})

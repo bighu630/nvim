@@ -21,6 +21,8 @@ function config.autopairs()
 					},
 				},
 				-- Disable for tex
+				lua = false,
+				python = false,
 				tex = false,
 			},
 		})

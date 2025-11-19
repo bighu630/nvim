@@ -82,7 +82,7 @@ local function config()
 		},
 		signature = { window = { border = "single" } },
 		enabled = function()
-			return not vim.tbl_contains({ "NvimTree", "AvanteInput" }, vim.bo.filetype)
+			return not vim.tbl_contains({ "NvimTree", "AvanteInput" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
 		end,
 	}
 end
@@ -91,7 +91,15 @@ return {
 	"saghen/blink.cmp",
 	dependencies = {
 		-- add blink.compat to dependencies
-		{ "saghen/blink.compat", opts = { impersonate_nvim_cmp = true } },
+		{
+			"saghen/blink.compat",
+			-- use v2.* for blink.cmp v1.*
+			version = "2.*",
+			-- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+			lazy = true,
+			-- make sure to set opts so that lazy.nvim calls blink.compat's setup
+			opts = {},
+		},
 		{
 			"Exafunction/codeium.nvim",
 			cmd = "Codeium",

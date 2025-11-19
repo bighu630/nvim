@@ -113,6 +113,7 @@ function config.nvimdap()
 		dapui.open()
 	end
 	dap.listeners.after.event_terminated["dapui_config"] = function()
+		unmapKey()
 		dapui.close()
 	end
 	dap.listeners.after.event_exited["dapui_config"] = function()
