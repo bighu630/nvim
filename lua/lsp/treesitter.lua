@@ -11,7 +11,18 @@ function config.treesitter()
 	})
 
 	-- require("nvim-treesitter.configs").setup({
-	require("nvim-treesitter").install({ "go", "lua", "yaml", "json", "python" })
+	require("nvim-treesitter").install({
+		"go",
+		"lua",
+		"yaml",
+		"json",
+		"python",
+		"vim",
+		"regex",
+		"bash",
+		"markdown",
+		"markdown_inline",
+	})
 	require("nvim-treesitter").setup({
 		require("ts_context_commentstring").setup({
 			enable = true,
