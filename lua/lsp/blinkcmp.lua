@@ -108,6 +108,33 @@ return {
 			opts = {
 				virtual_text = {
 					enabled = true,
+					filetypes = {
+						"go",
+						"python",
+						"lua",
+						"yaml",
+						"toml",
+						"json",
+						"c",
+						"cpp",
+						"csharp",
+						"rust",
+						"java",
+						"javascript",
+						"typescript",
+						"sql",
+						"html",
+						"css",
+						"scss",
+						"less",
+						"bash",
+						"sh",
+					},
+					default_filetype_enabled = false,
+					idle_delay = 75,
+					virtual_text_priority = 65535,
+					map_keys = true,
+					accept_fallback = nil,
 					key_bindings = {
 						-- Accept the current completion.
 						accept = "<C-CR>",
