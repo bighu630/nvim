@@ -349,6 +349,8 @@ function config.whichkey()
 		-- neotest
 		{ "<space>t", group = "Neotest", nowait = true, remap = false },
 		{ "<space>ts", "<cmd>lua require('neotest').summary.toggle()<cr>" },
+		{ "<space>tr", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "debug nerest test" },
+
 		-- {
 		-- 	"<Space>ls",
 		-- 	"<cmd>Telescope lsp_document_symbols<cr>",
