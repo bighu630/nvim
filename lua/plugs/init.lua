@@ -255,6 +255,9 @@ return {
 		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
 		config = require("tools.symbol-usage").symbol_usage,
 	},
+	{
+		"lambdalisue/vim-suda",
+	},
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
 	{
