@@ -252,4 +252,35 @@ function config.nvimdap()
 	}
 end
 
-return config
+return {
+	"mfussenegger/nvim-dap",
+	lzay = true,
+	cmd = {
+		"DapSetLogLevel",
+		"DapShowLog",
+		"DapContinue",
+		"DapToggleBreakpoint",
+		"DapToggleRepl",
+		"DapStepOver",
+		"DapStepInto",
+		"DapStepOut",
+		"DapTerminate",
+	},
+	module = "dap",
+	dependencies = {
+		{
+			"nvim-neotest/nvim-nio",
+		},
+		{
+			"rcarriga/nvim-dap-ui",
+			lzay = true,
+			config = config.dapui,
+		},
+		{
+			"theHamsta/nvim-dap-virtual-text",
+			lazy = true,
+			config = config.daptext,
+		},
+	},
+	config = config.nvimdap,
+}

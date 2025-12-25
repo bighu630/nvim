@@ -24,9 +24,9 @@ local function config()
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "codeium" },
 			providers = {
-				-- codeium = { name = "Codeium", module = "codeium.blink", async = true },
+				codeium = { name = "Codeium", module = "codeium.blink", async = true },
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
