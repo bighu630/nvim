@@ -82,7 +82,8 @@ local function config()
 		},
 		signature = { window = { border = "single" } },
 		enabled = function()
-			return not vim.tbl_contains({ "NvimTree", "AvanteInput" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
+			return not vim.tbl_contains({ "NvimTree", "AvanteInput", "DressingInput" }, vim.bo.filetype)
+				and vim.bo.buftype ~= "prompt"
 		end,
 	}
 end
@@ -108,6 +109,9 @@ return {
 			opts = {
 				virtual_text = {
 					enabled = true,
+					filetype = {
+						DressingInput = false,
+					},
 					key_bindings = {
 						-- Accept the current completion.
 						accept = "<C-CR>",
