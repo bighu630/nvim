@@ -58,7 +58,7 @@ return {
 		config = require("tools.tmux").tmux,
 	},
 	{
-		"ggandor/leap.nvim",
+		url = "https://codeberg.org/andyg/leap.nvim",
 		lzay = true,
 		event = "BufReadPost",
 		config = require("tools.leap").leap,
