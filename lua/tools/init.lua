@@ -17,7 +17,8 @@ return {
 	-- 		require("distant").setup()
 	-- 	end,
 	-- },
-	require("tools.avante"),
+	-- require("tools.avante"),
+	require("tools.claude-code"),
 	require("tools.markdown"),
 	{ "akinsho/git-conflict.nvim", event = "VeryLazy", version = "*", config = true },
 	{
