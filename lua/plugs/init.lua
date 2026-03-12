@@ -11,12 +11,6 @@ return {
 		-- "navarasu/onedark.nvim",
 		"folke/tokyonight.nvim",
 	},
-	{
-		"kyazdani42/nvim-tree.lua",
-		lazy = false,
-		cmd = { "NvimTreeToggle" },
-		config = require("ui.nvimtree").nvimtree,
-	},
 	-- accelerated-jk
 	{
 		"rainbowhxch/accelerated-jk.nvim",
@@ -24,18 +18,12 @@ return {
 		config = require("ui.accelerated").accelerated,
 	},
 	require("tools.snacks"),
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"MunifTanjim/nui.nvim",
-		},
-		config = require("ui.noice").noice,
-	},
+	require("ui.noice"),
 	{
 		"bighu630/galaxyline.nvim",
 		config = require("ui.galaxyline").galaxy,
 	},
+	require("ui.nvimtree"),
 	require("ui.devicons"),
 	{
 		"lewis6991/gitsigns.nvim",
@@ -60,11 +48,6 @@ return {
 		lazy = false,
 		config = require("ui.transparent").transparent,
 	},
-	-- {
-	-- 	"tribela/transparent.nvim",
-	-- 	event = "VimEnter",
-	-- 	config = true,
-	-- },
 	{
 		"RRethy/vim-illuminate",
 		lazy = true,
@@ -164,6 +147,7 @@ return {
 	---------------------------------------lspsaga end----------------------------------
 
 	-------------------------------------tools -----------------------------------------
+<<<<<<< HEAD
 	-- {
 	-- 	"kawre/leetcode.nvim",
 	-- 	build = ":TSUpdate html",
@@ -255,39 +239,9 @@ return {
 		event = "BufReadPre", -- need run before LspAttach if you use nvim 0.9. On 0.10 use 'LspAttach'
 		config = require("tools.symbol-usage").symbol_usage,
 	},
+	require("tools"),
 	---------------------------------------------tools end -----------------------------
 	----------------------------------dap ----------------------------------------------
-	{
-		"mfussenegger/nvim-dap",
-		lzay = true,
-		cmd = {
-			"DapSetLogLevel",
-			"DapShowLog",
-			"DapContinue",
-			"DapToggleBreakpoint",
-			"DapToggleRepl",
-			"DapStepOver",
-			"DapStepInto",
-			"DapStepOut",
-			"DapTerminate",
-		},
-		module = "dap",
-		dependencies = {
-			{
-				"nvim-neotest/nvim-nio",
-			},
-			{
-				"rcarriga/nvim-dap-ui",
-				lzay = true,
-				config = require("dap.nvimdap").dapui,
-			},
-			{
-				"theHamsta/nvim-dap-virtual-text",
-				lazy = true,
-				config = require("dap.nvimdap").daptext,
-			},
-		},
-		config = require("dap.nvimdap").nvimdap,
-	},
+	require("dap.nvimdap"),
 	----------------------------------dap end-------------------------------------------
 }

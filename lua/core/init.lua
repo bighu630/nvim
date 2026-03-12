@@ -108,3 +108,4 @@ end
 load_core()
 vim_config()
 require("tools.folding")
+require("core.cmd_rej") -- cmd 注册

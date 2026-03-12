@@ -1,0 +1,5 @@
+-- vim.api.nvim_create_user_command("Wsudo", function()
+-- 	vim.cmd("w !sudo tee % > /dev/null")
+-- 	vim.cmd("e!") -- 重新加载文件
+-- 	vim.notify("文件已使用sudo保存", vim.log.levels.INFO)
+-- end, { desc = "使用sudo保存文件" })

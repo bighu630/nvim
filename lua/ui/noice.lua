@@ -21,4 +21,11 @@ function config.noice()
 	})
 end
 
-return config
+return {
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+	},
+	config = config.noice,
+}

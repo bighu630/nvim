@@ -263,4 +263,10 @@ function config.nvimtree()
 	})
 end
 
-return config
+return {
+	"kyazdani42/nvim-tree.lua",
+	lazy = false,
+	dependencies = { "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "folke/noice.nvim" },
+	cmd = { "NvimTreeToggle" },
+	config = config.nvimtree,
+}

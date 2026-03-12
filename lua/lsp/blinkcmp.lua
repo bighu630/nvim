@@ -24,9 +24,9 @@ local function config()
 			},
 		},
 		sources = {
-			default = { "lsp", "path", "snippets", "buffer" },
+			default = { "lsp", "path", "snippets", "buffer", "codeium" },
 			providers = {
-				-- codeium = { name = "Codeium", module = "codeium.blink", async = true },
+				codeium = { name = "Codeium", module = "codeium.blink", async = true },
 				lsp = {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
@@ -82,7 +82,8 @@ local function config()
 		},
 		signature = { window = { border = "single" } },
 		enabled = function()
-			return not vim.tbl_contains({ "NvimTree", "AvanteInput" }, vim.bo.filetype) and vim.bo.buftype ~= "prompt"
+			return not vim.tbl_contains({ "NvimTree", "AvanteInput", "DressingInput" }, vim.bo.filetype)
+				and vim.bo.buftype ~= "prompt"
 		end,
 	}
 end
@@ -108,33 +109,9 @@ return {
 			opts = {
 				virtual_text = {
 					enabled = true,
-					filetypes = {
-						"go",
-						"python",
-						"lua",
-						"yaml",
-						"toml",
-						"json",
-						"c",
-						"cpp",
-						"csharp",
-						"rust",
-						"java",
-						"javascript",
-						"typescript",
-						"sql",
-						"html",
-						"css",
-						"scss",
-						"less",
-						"bash",
-						"sh",
+					filetype = {
+						DressingInput = false,
 					},
-					default_filetype_enabled = false,
-					idle_delay = 75,
-					virtual_text_priority = 65535,
-					map_keys = true,
-					accept_fallback = nil,
 					key_bindings = {
 						-- Accept the current completion.
 						accept = "<C-CR>",

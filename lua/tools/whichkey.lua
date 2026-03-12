@@ -4,76 +4,44 @@ function config.whichkey()
 	local which_key = require("which-key")
 	local setup = {
 		plugins = {
-			marks = false, -- shows a list of your marks on ' and `
-			registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+			marks = false,
+			registers = true,
 			spelling = {
-				enabled = false, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-				suggestions = 20, -- how many suggestions should be shown in the list?
+				enabled = false,
+				suggestions = 20,
 			},
-			-- the presets plugin, adds help for a bunch of default keybindings in Neovim
-			-- No actual key bindings are created
 			presets = {
-				operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-				motions = false, -- adds help for motions
-				text_objects = false, -- help for text objects triggered after entering an operator
-				windows = true, -- default bindings on <c-w>
-				nav = true, -- misc bindings to work with windows
-				z = false, -- bindings for folds, spelling and others prefixed with z
-				g = false, -- bindings for prefixed with g
+				operators = false,
+				motions = false,
+				text_objects = false,
+				windows = true,
+				nav = true,
+				z = false,
+				g = false,
 			},
 		},
 		icons = {
-			breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-			separator = "➜", -- symbol used between a key and it's label
-			group = "+", -- symbol prepended to a group
+			breadcrumb = "»",
+			separator = "➜",
+			group = "+",
 		},
 		layout = {
-			keight = { min = 10, max = 25 }, -- min and max height of the columns
-			width = { min = 20, max = 20 }, -- min and max width of the columns
-			spacing = 3, -- spacing between columns
-			align = "center", -- align columns left, center or right
+			height = { min = 10, max = 25 },
+			width = { min = 20, max = 20 },
+			spacing = 3,
+			align = "center",
 		},
 		preset = "modern",
-		show_help = true, -- show help message on the command line when the popup is visible
+		show_help = true,
 		triggers = {
 			{ "<auto>", mode = "nixsotc" },
 			{ "a", mode = { "n", "v" } },
 		},
 	}
 
-	local opts = {
-		mode = "n", -- NORMAL mode
-		prefix = "<Space>",
-		buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-		silent = true, -- use `silent` when creating keymaps
-		noremap = true, -- use `noremap` when creating keymaps
-		nowait = true, -- use `nowait` when creating keymaps
-	}
-
 	which_key.add({
-		-- { "<Space>s", group = "Session", nowait = true, remap = false },
-		-- {
-		-- 	"<Space>sl",
-		-- 	"<cmd>SessionSearch<CR>",
-		-- 	desc = "Load Session",
-		-- 	nowait = true,
-		-- 	remap = false,
-		-- },
-		-- {
-		-- 	"<Space>sd",
-		-- 	"<cmd>SessionDelete<CR>",
-		-- 	desc = "Delete Session",
-		-- 	nowait = true,
-		-- 	remap = false,
-		-- },
-		-- {
-		-- 	"<Space>ss",
-		-- 	"<cmd>SessionSeva<CR>",
-		-- 	desc = "Save Current Session",
-		-- 	nowait = true,
-		-- 	remap = false,
-		-- },
-		{ "<Space>s", group = "Session", nowait = true, remap = false }, -- 分组
+		-- Session
+		{ "<Space>s", group = "Session", nowait = true, remap = false },
 		{
 			"<Space>ss",
 			function()
@@ -110,6 +78,8 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
+
+		-- Replace
 		{ "<Space>R", group = "Replace", nowait = true, remap = false },
 		{
 			"<Space>Rf",
@@ -132,6 +102,8 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
+
+		-- Trouble
 		{ "<Space>T", group = "Trouble", nowait = true, remap = false },
 		{
 			"<Space>Td",
@@ -151,47 +123,20 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		{ "<Space>a", group = "Avante", nowait = true, remap = false },
-		{
-			"<Space>aa",
-			function()
-				Snacks.dashboard.open()
-			end,
-			desc = "Welcome",
-			nowait = true,
-			remap = false,
-		},
-		{ "<Space>ac", "<cmd>AvanteChat<cr>", desc = "Show Sidebar / Start Chat", nowait = true, remap = false },
-		{ "<Space>at", "<cmd>AvanteToggle<cr>", desc = "Toggle Sidebar", nowait = true, remap = false },
-		{ "<Space>ar", "<cmd>AvanteRefresh<cr>", desc = "Refresh Sidebar", nowait = true, remap = false },
-		{ "<Space>af", "<cmd>AvanteFocus<cr>", desc = "Switch Sidebar Focus", nowait = true, remap = false },
-		{ "<Space>a?", "<cmd>AvanteModels<cr>", desc = "Select Model", nowait = true, remap = false },
-		{ "<Space>ae", "<cmd>AvanteEdit<cr>", desc = "Edit Selected Blocks", nowait = true, remap = false },
-		{ "<Space>aS", "<cmd>AvanteStop<cr>", desc = "Stop Current AI Request", nowait = true, remap = false },
-		{ "<Space>ah", "<cmd>AvanteHistory<cr>", desc = "Select Chat History", nowait = true, remap = false },
-		{ "<Space>an", "<cmd>AvanteChatNew<cr>", desc = "New Chat Session", nowait = true, remap = false },
-		{ "<Space>aC", "<cmd>AvanteClear<cr>", desc = "Clear Current Chat", nowait = true, remap = false },
-		{ "<Space>ap", "<cmd>AvanteSwitchProvider<cr>", desc = "Switch AI Provider", nowait = true, remap = false },
-		{ "<Space>am", "<cmd>AvanteShowRepoMap<cr>", desc = "Show Repo Map", nowait = true, remap = false },
-		{
-			"<Space>as",
-			"<cmd>AvanteSwitchSelectorProvider<cr>",
-			desc = "Switch Selector Provider",
-			nowait = true,
-			remap = false,
-		},
-		-- { "<Space>c", group = "CMake", nowait = true, remap = false },
-		-- { "<Space>cT", "<cmd>CMake select_build_type<CR>", desc = "SelectBuildType", nowait = true, remap = false },
-		-- { "<Space>ca", "<cmd>CMake build_all<CR>", desc = "BuildAll", nowait = true, remap = false },
-		-- { "<Space>cb", "<cmd>CMake build<CR>", desc = "BuildTarget", nowait = true, remap = false },
-		-- { "<Space>cc", "<cmd>CMake cancel<CR>", desc = "Cancel", nowait = true, remap = false },
-		-- { "<Space>cd", "<cmd>CMake build_and_debug<CR>", desc = "DebugTarget", nowait = true, remap = false },
-		-- { "<Space>cg", "<cmd>CMake configure<CR>", desc = "Configure", nowait = true, remap = false },
-		-- { "<Space>cr", "<cmd>CMake build_and_run<CR>", desc = "Run", nowait = true, remap = false },
-		-- { "<Space>cs", "<cmd>CMake set_target_args<CR>", desc = "SetArg", nowait = true, remap = false },
-		-- { "<Space>ct", "<cmd>CMake select_target<CR>", desc = "SelectTarget", nowait = true, remap = false },
 
-		-- debug
+		-- AI/Claude
+		{ "<leader>a", group = "AI/Claude", nowait = true, remap = false },
+		{ "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude", nowait = true, remap = false },
+		{ "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude", nowait = true, remap = false },
+		{ "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude", nowait = true, remap = false },
+		{ "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude", nowait = true, remap = false },
+		{ "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model", nowait = true, remap = false },
+		{ "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer", nowait = true, remap = false },
+		{ "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude", nowait = true, remap = false },
+		{ "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff", nowait = true, remap = false },
+		{ "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff", nowait = true, remap = false },
+
+		-- Debug
 		{ "<Space>d", group = "Debug", nowait = true, remap = false },
 		{
 			"<Space>dE",
@@ -224,7 +169,8 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		-- { "<Space>f", "<cmd>Telescope frecency<cr>", desc = "Find Text", nowait = true, remap = false },
+
+		-- Git
 		{ "<Space>g", group = "Git", nowait = true, remap = false },
 		{
 			"<Space>gN",
@@ -295,6 +241,8 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
+
+		-- LSP
 		{ "<Space>l", group = "LSP", nowait = true, remap = false },
 		{
 			"<Space>lR",
@@ -310,7 +258,6 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-
 		{ "<Space>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
 		{ "<Space>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto_definition", nowait = true, remap = false },
 		{ "<Space>lf", "<cmd>Format<cr>", desc = "Format", nowait = true, remap = false },
@@ -345,34 +292,15 @@ function config.whichkey()
 			remap = false,
 		},
 		{ "<Space>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename", nowait = true, remap = false },
+		{ "<Space>o", "<cmd>Lspsaga outline<CR>", desc = "Outline", nowait = true, remap = false },
 
-		-- neotest
+		-- Neotest
 		{ "<space>t", group = "Neotest", nowait = true, remap = false },
 		{ "<space>ts", "<cmd>lua require('neotest').summary.toggle()<cr>" },
-		-- {
-		-- 	"<Space>ls",
-		-- 	"<cmd>Telescope lsp_document_symbols<cr>",
-		-- 	desc = "Document Symbols",
-		-- 	nowait = true,
-		-- 	remap = false,
-		-- },
-		-- {
-		-- 	"<Space>lw",
-		-- 	"<cmd>Telescope lsp_workspace_diagnostics<cr>",
-		-- 	desc = "Workspace Diagnostics",
-		-- 	nowait = true,
-		-- 	remap = false,
-		-- },
-		{ "<Space>o", "<cmd>Lspsaga outline<CR>", desc = "Outline", nowait = true, remap = false },
-		-- { "<Space>p", "<cmd>Telescope project<cr>", desc = "Projects", nowait = true, remap = false },
-		-- { "<Space>r", "<cmd>Telescope oldfiles<cr>", desc = "Open Recent File", nowait = true, remap = false },
-		-- {
-		-- 	"ff",
-		-- 	function()
-		-- 		Snacks.explorer()
-		-- 	end,
-		-- 	desc = "File Explorer",
-		-- },
+		{ "<space>tr", "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", desc = "debug nerest test" },
+
+		-- Picker (Snacks)
+		{ "<leader>f", group = "Picker" },
 		{
 			"<leader><space>",
 			function()
@@ -401,14 +329,6 @@ function config.whichkey()
 			end,
 			desc = "Command History",
 		},
-		{
-			"<leader>n",
-			function()
-				Snacks.picker.notifications()
-			end,
-			desc = "Notification History",
-		},
-		{ "<leader>f", group = "Picker" },
 		{
 			"<leader>fb",
 			function()
@@ -451,36 +371,8 @@ function config.whichkey()
 			end,
 			desc = "Recent",
 		},
-		{
-			"<leader>sb",
-			function()
-				Snacks.picker.lines()
-			end,
-			desc = "Buffer Lines",
-		},
-		{
-			"<leader>sB",
-			function()
-				Snacks.picker.grep_buffers()
-			end,
-			desc = "Grep Open Buffers",
-		},
-		{
-			"<space>w",
-			function()
-				Snacks.picker.grep()
-			end,
-			desc = "Grep",
-		},
-		{
-			"<leader>sw",
-			function()
-				Snacks.picker.grep_word()
-			end,
-			desc = "Visual selection or word",
-			mode = { "n", "x" },
-		},
-		-- search
+
+		-- Search (Snacks)
 		{
 			'<leader>s"',
 			function()
@@ -508,6 +400,13 @@ function config.whichkey()
 				Snacks.picker.lines()
 			end,
 			desc = "Buffer Lines",
+		},
+		{
+			"<leader>sB",
+			function()
+				Snacks.picker.grep_buffers()
+			end,
+			desc = "Grep Open Buffers",
 		},
 		{
 			"<leader>sc",
@@ -566,13 +465,6 @@ function config.whichkey()
 			desc = "Jumps",
 		},
 		{
-			"<space>hk",
-			function()
-				Snacks.picker.keymaps()
-			end,
-			desc = "Keymaps",
-		},
-		{
 			"<leader>sl",
 			function()
 				Snacks.picker.loclist()
@@ -621,65 +513,30 @@ function config.whichkey()
 			end,
 			desc = "Undo History",
 		},
-		-- {
-		-- 	"<leader>uC",
-		-- 	function()
-		-- 		Snacks.picker.colorschemes()
-		-- 	end,
-		-- 	desc = "Colorschemes",
-		-- },
-		-- LSP
-		-- {
-		-- 	"gd",
-		-- 	function()
-		-- 		Snacks.picker.lsp_definitions()
-		-- 	end,
-		-- 	desc = "Goto Definition",
-		-- },
-		-- {
-		-- 	"gD",
-		-- 	function()
-		-- 		Snacks.picker.lsp_declarations()
-		-- 	end,
-		-- 	desc = "Goto Declaration",
-		-- },
-		-- {
-		-- 	"gr",
-		-- 	function()
-		-- 		Snacks.picker.lsp_references()
-		-- 	end,
-		-- 	nowait = true,
-		-- 	desc = "References",
-		-- },
-		-- {
-		-- 	"gI",
-		-- 	function()
-		-- 		Snacks.picker.lsp_implementations()
-		-- 	end,
-		-- 	desc = "Goto Implementation",
-		-- },
-		-- {
-		-- 	"gy",
-		-- 	function()
-		-- 		Snacks.picker.lsp_type_definitions()
-		-- 	end,
-		-- 	desc = "Goto Type Definition",
-		-- },
-		-- {
-		-- 	"<leader>ss",
-		-- 	function()
-		-- 		Snacks.picker.lsp_symbols()
-		-- 	end,
-		-- 	desc = "LSP Symbols",
-		-- },
-		-- {
-		-- 	"<leader>sS",
-		-- 	function()
-		-- 		Snacks.picker.lsp_workspace_symbols()
-		-- 	end,
-		-- 	desc = "LSP Workspace Symbols",
-		-- },
-		-- Other
+		{
+			"<leader>sw",
+			function()
+				Snacks.picker.grep_word()
+			end,
+			desc = "Visual selection or word",
+			mode = { "n", "x" },
+		},
+		{
+			"<space>w",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Grep",
+		},
+		{
+			"<space>hk",
+			function()
+				Snacks.picker.keymaps()
+			end,
+			desc = "Keymaps",
+		},
+
+		-- Snacks utilities
 		{
 			"<leader>z",
 			function()
