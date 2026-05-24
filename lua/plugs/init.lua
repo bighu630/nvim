@@ -136,13 +136,22 @@ return {
 	-- 	ft = "java",
 	-- 	config = require("lang.jdt").lang_java,
 	-- },
+	-- {
+	-- 	"simrat39/rust-tools.nvim",
+	-- 	ft = "rust",
+	-- 	dependencies = {
+	-- 		"mfussenegger/nvim-dap",
+	-- 	},
+	-- 	config = require("lang.rust").lang_rust,
+	-- },
 	{
-		"simrat39/rust-tools.nvim",
-		ft = "rust",
-		dependencies = {
-			"mfussenegger/nvim-dap",
-		},
-		config = require("lang.rust").lang_rust,
+		"mrcjkb/rustaceanvim",
+		-- To avoid being surprised by breaking changes,
+		-- I recommend you set a version range
+		version = "^9",
+		-- This plugin implements proper lazy-loading (see :h lua-plugin-lazy).
+		-- No need for lazy.nvim to lazy-load it.
+		lazy = false,
 	},
 	---------------------------------------lspsaga end----------------------------------
 

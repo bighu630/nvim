@@ -26,7 +26,7 @@ function config.lspconfig()
 	vim.lsp.config("clangd", {
 		capabilities = capabilities,
 	})
-	vim.lsp.enable("rust_analyzer")
+	-- vim.lsp.enable("rust_analyzer")
 	vim.lsp.config("rust_analyzer", {
 		capabilities = capabilities,
 		cmd = { "rust-analyzer" },

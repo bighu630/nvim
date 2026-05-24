@@ -80,7 +80,7 @@ return {
 		cmd = "UndotreeToggle",
 	},
 	{
-		"norcalli/nvim-colorizer.lua",
+		"catgoose/nvim-colorizer.lua",
 		lazy = true,
 		event = "BufReadPost",
 		config = require("tools.colorizer").colorizer,
