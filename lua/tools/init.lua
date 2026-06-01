@@ -18,7 +18,7 @@ return {
 	-- 	end,
 	-- },
 	-- require("tools.avante"),
-	require("tools.claude-code"),
+	require("tools.ai_agent").pi(),
 	require("tools.markdown"),
 	{ "akinsho/git-conflict.nvim", event = "VeryLazy", version = "*", config = true },
 	{
