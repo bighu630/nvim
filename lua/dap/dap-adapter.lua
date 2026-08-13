@@ -34,6 +34,6 @@ dap.adapters.pwa_node = {
 	executable = {
 		command = "node",
 		-- 💀 Make sure to update this path to point to your installation
-		args = { vim.env.HOME .. "/.vscode/extensions/js-debug/src/dapDebugServer.js", "${port}" },
+		args = { vim.env.HOME .. "/usr/lib/js-debug/dapDebugServer.js", "${port}" },
 	},
 }

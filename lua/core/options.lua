@@ -124,6 +124,10 @@ local function load_options()
 	for name, value in pairs(global_local) do
 		vim.o[name] = value
 	end
+
+	vim.schedule(function()
+		vim.opt.clipboard = "unnamedplus"
+	end)
 end
 
 local function set_sidebar_icons()
