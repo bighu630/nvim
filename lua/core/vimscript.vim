@@ -68,7 +68,14 @@ augroup END
 " 设置颜色
 " colorscheme catppuccin-mocha
 hi Normal ctermfg=252 ctermbg=none
-colorscheme tokyonight-storm
+
+" 根据 noctalia 当前模式切换 tokyonight 主题（dark->storm, light->day）
+let s:nt_mode = trim(system("noctalia msg theme-mode-get 2>/dev/null"))
+if s:nt_mode ==# "dark"
+    colorscheme tokyonight-storm
+else
+    colorscheme tokyonight-day
+endif
 " import ~/.cache/wal/colors-wal.vim
 "set colorcolumn=88
 
