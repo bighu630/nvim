@@ -48,21 +48,21 @@ augroup FormatAutogroup
     autocmd BufWritePost * FormatWrite
 augroup END
 
-" git highlight
-function! ConflictsHighlight() abort
-    syn region conflictStart start=/^<<<<<<< .*$/ end=/^\ze\(=======$\||||||||\)/
-    syn region conflictMiddle start=/^||||||| .*$/ end=/^\ze=======$/
-    syn region conflictEnd start=/^\(=======$\||||||| |\)/ end=/^>>>>>>> .*$/
-
-    highlight conflictStart ctermbg=red ctermfg=black
-    highlight conflictMiddle ctermbg=blue ctermfg=black
-    highlight conflictEnd ctermbg=green cterm=bold ctermfg=black
-endfunction
-
-augroup MyColors
-    autocmd!
-    autocmd BufEnter * call ConflictsHighlight()
-augroup END
+"" git highlight
+"function! ConflictsHighlight() abort
+"    syn region conflictStart start=/^<<<<<<< .*$/ end=/^\ze\(=======$\||||||||\)/
+"    syn region conflictMiddle start=/^||||||| .*$/ end=/^\ze=======$/
+"    syn region conflictEnd start=/^\(=======$\||||||| |\)/ end=/^>>>>>>> .*$/
+"
+"    highlight conflictStart ctermbg=red ctermfg=black
+"    highlight conflictMiddle ctermbg=blue ctermfg=black
+"    highlight conflictEnd ctermbg=green cterm=bold ctermfg=black
+"endfunction
+"
+"augroup MyColors
+"    autocmd!
+"    autocmd BufEnter * call ConflictsHighlight()
+"augroup END
 
 
 " 设置颜色
@@ -70,12 +70,13 @@ augroup END
 hi Normal ctermfg=252 ctermbg=none
 
 " 根据 noctalia 当前模式切换 tokyonight 主题（dark->storm, light->day）
-let s:nt_mode = trim(system("noctalia msg theme-mode-get 2>/dev/null"))
-if s:nt_mode ==# "dark"
-    colorscheme tokyonight-storm
-else
-    colorscheme tokyonight-day
-endif
+"let s:nt_mode = trim(system("noctalia msg theme-mode-get 2>/dev/null"))
+"if s:nt_mode ==# "dark"
+"    colorscheme tokyonight-storm
+"else
+"    colorscheme tokyonight-day
+"endif
+colorscheme tokyonight-storm
 " import ~/.cache/wal/colors-wal.vim
 "set colorcolumn=88
 
