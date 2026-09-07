@@ -1,15 +1,14 @@
 return {
-	-- {
-	-- 	"kawre/leetcode.nvim",
-	-- 	build = ":TSUpdate html",
-	-- 	dependencies = {
-	-- 		"nvim-telescope/telescope.nvim",
-	-- 		"nvim-lua/plenary.nvim", -- required by telescope
-	-- 		"MunifTanjim/nui.nvim",
-	-- 	},
-	-- 	cmd = "Leet",
-	-- 	opts = require("tools.leetcode"),
-	-- },
+	{
+		"kawre/leetcode.nvim",
+		build = ":TSUpdate html",
+		dependencies = {
+			"nvim-lua/plenary.nvim", -- required by telescope
+			"MunifTanjim/nui.nvim",
+		},
+		cmd = "Leet",
+		opts = require("tools.leetcode"),
+	},
 	-- {
 	-- 	"chipsenkbeil/distant.nvim",
 	-- 	branch = "v0.3",

@@ -22,6 +22,9 @@ function M.galaxy()
 		"Avante",
 		"AvanteSelectedFiles",
 		"AvanteInput",
+		"snacks_input",
+		"snacks_notif",
+		"snacks_output",
 	}
 
 	local colors = {
