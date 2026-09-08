@@ -25,7 +25,7 @@ local function load_options()
 		directory = global.cache_dir .. "swap/",
 		backupdir = global.cache_dir .. "backup/",
 		viewdir = global.cache_dir .. "view/",
-		spellfile = global.cache_dir .. "spell/en.uft-8.add",
+		spellfile = global.cache_dir .. "spell/en.utf-8.add",
 		spelllang = "en,cjk",
 		spelloptions = "camel",
 		spell = true,

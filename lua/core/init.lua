@@ -14,15 +14,16 @@ local createdir = function()
 		global.cache_dir .. "swap",
 		global.cache_dir .. "tags",
 		global.cache_dir .. "undo",
+		global.cache_dir .. "view",
+		global.cache_dir .. "spell",
 	}
-	-- There only check once that If cache_dir exists
-	-- Then I don't want to check subs dir exists
+	-- cache_dir 不存在时先建出来，子目录每次都逐个检查（之前只在 cache_dir 不存在时建，导致 spell/view 缺失）
 	if vim.fn.isdirectory(global.cache_dir) == 0 then
 		os.execute("mkdir -p " .. global.cache_dir)
-		for _, v in pairs(data_dir) do
-			if vim.fn.isdirectory(v) == 0 then
-				os.execute("mkdir -p " .. v)
-			end
+	end
+	for _, v in pairs(data_dir) do
+		if vim.fn.isdirectory(v) == 0 then
+			os.execute("mkdir -p " .. v)
 		end
 	end
 end
