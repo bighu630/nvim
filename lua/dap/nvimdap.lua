@@ -254,7 +254,7 @@ end
 
 return {
 	"mfussenegger/nvim-dap",
-	lzay = true,
+	lazy = true,
 	cmd = {
 		"DapSetLogLevel",
 		"DapShowLog",
@@ -273,7 +273,7 @@ return {
 		},
 		{
 			"rcarriga/nvim-dap-ui",
-			lzay = true,
+			lazy = true,
 			config = config.dapui,
 		},
 		{

@@ -1,112 +1,33 @@
-local config = {}
-function config.lspconfig()
-	local capabilities = require("blink.cmp").get_lsp_capabilities()
-	vim.lsp.enable("gopls")
-	vim.lsp.config("gopls", {
-		flags = { debounce_text_changes = 500 },
-		capabilities = capabilities,
-		cmd = { "gopls", "-remote=auto" },
-		settings = {
-			gopls = {
-				usePlaceholders = true,
-				analyses = {
-					nilness = true,
-					shadow = true,
-					unusedparams = true,
-					unusewrites = true,
-				},
-			},
-		},
-	})
-	vim.lsp.enable("pylsp")
-	vim.lsp.config("pylsp", {
-		capabilities = capabilities,
-	})
-	vim.lsp.enable("clangd")
-	vim.lsp.config("clangd", {
-		capabilities = capabilities,
-	})
-	-- vim.lsp.enable("rust_analyzer")
-	vim.lsp.config("rust_analyzer", {
-		capabilities = capabilities,
-		cmd = { "rust-analyzer" },
-		capabilities = capabilities,
-		settings = {
-			["rust-analyzer"] = {
-				cargo = {
-					allFeatures = true,
-				},
-				checkOnSave = {
-					command = "clippy",
-				},
-			},
-		},
-	})
-	vim.lsp.enable("tsserver")
+-- LSP 配置（Neovim 0.11+ 原生 vim.lsp.config / vim.lsp.enable API）
+-- 安装与自动启用由 lsp/mason.lua（mason-lspconfig）负责，这里只做各 server 的个性化配置。
+-- 顺序必须是：先全部 vim.lsp.config()，最后统一 vim.lsp.enable()。
+local M = {}
 
-	vim.lsp.config("tsserver", {
-		cmd = { "typescript-language-server", "--stdio" },
-		filetypes = { "typescript", "javascript" },
-		root_dir = vim.fs.root(0, { "package.json", ".git" }),
-		-- on_attach = on_attach,
+-- 由本文件（而非 mason 自动启用）显式启用的 server 列表
+M.servers = { "gopls", "pylsp", "clangd", "ts_ls", "lua_ls", "bashls", "html", "solidity_ls_nomicfoundation" }
+-- 说明：rust_analyzer 由 rustaceanvim 接管；vtsls 与 ts_ls 重复，默认不用（见 lsp/mason.lua）。
+
+function M.lspconfig()
+	local ok, blink = pcall(require, "blink.cmp")
+	local capabilities = ok and blink.get_lsp_capabilities() or vim.lsp.protocol.make_client_capabilities()
+
+	-- 全局默认：所有 server 继承补全能力
+	vim.lsp.config("*", {
 		capabilities = capabilities,
 	})
 
-	vim.lsp.enable("lua_ls")
-	vim.lsp.config("lua_ls", {
-		capabilities = capabilities,
-		on_init = function(client)
-			if client.workspace_folders then
-				local path = client.workspace_folders[1].name
-				if
-					path ~= vim.fn.stdpath("config")
-					and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-				then
-					return
-				end
-			end
+	-- 所有个性化配置就绪后，再统一启用
+	vim.lsp.enable(M.servers)
 
-			client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-				runtime = {
-					-- Tell the language server which version of Lua you're using (most
-					-- likely LuaJIT in the case of Neovim)
-					version = "LuaJIT",
-					-- Tell the language server how to find Lua modules same way as Neovim
-					-- (see `:h lua-module-load`)
-					path = {
-						"lua/?.lua",
-						"lua/?/init.lua",
-					},
-				},
-				-- Make the server aware of Neovim runtime files
-				workspace = {
-					checkThirdParty = false,
-					library = {
-						vim.env.VIMRUNTIME,
-						-- Depending on the usage, you might want to add additional paths
-						-- here.
-						-- '${3rd}/luv/library'
-						-- '${3rd}/busted/library'
-					},
-					-- Or pull in all of 'runtimepath'.
-					-- NOTE: this is a lot slower and will cause issues when working on
-					-- your own configuration.
-					-- See https://github.com/neovim/nvim-lspconfig/issues/3189
-					-- library = {
-					--   vim.api.nvim_get_runtime_file('', true),
-					-- }
-				},
-			})
-		end,
-		settings = {
-			Lua = {},
-		},
+	-- 诊断显示
+	vim.diagnostic.config({
+		virtual_text = true,
+		signs = true,
+		underline = true,
+		update_in_insert = false,
+		severity_sort = true,
+		float = { border = "rounded" },
 	})
-	vim.lsp.enable("bashls")
-	vim.lsp.config("bashls", {
-		capabilities = capabilities,
-	})
-	-- require("lsp.lsp")
 end
 
-return config
+return M

@@ -609,7 +609,7 @@ function config.whichkey()
 		{
 			"<Space>lR",
 			function()
-				local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+				local clients = vim.lsp.get_clients({ bufnr = vim.api.nvim_get_current_buf() })
 				for _, client in ipairs(clients) do
 					if client.name then
 						vim.cmd("LspRestart " .. client.name)
@@ -620,20 +620,20 @@ function config.whichkey()
 			nowait = true,
 			remap = false,
 		},
-		{ "<Space>lI", "<cmd>LspInstallInfo<cr>", desc = "Installer Info", nowait = true, remap = false },
+		{ "<Space>lI", "<cmd>Mason<cr>", desc = "Installer Info", nowait = true, remap = false },
 		{ "<Space>ld", "<cmd>Lspsaga goto_definition<cr>", desc = "Goto_definition", nowait = true, remap = false },
 		{ "<Space>lf", "<cmd>Format<cr>", desc = "Format", nowait = true, remap = false },
 		{ "<Space>li", "<cmd>Lspsaga incoming_calls<cr>", desc = "Lspsaga incoming", nowait = true, remap = false },
 		{
 			"<Space>lj",
-			"<cmd>lua vim.lsp.diagnostic.goto_next()<CR>",
+			"<cmd>lua vim.diagnostic.jump({ count = 1, float = true })<CR>",
 			desc = "Next Diagnostic",
 			nowait = true,
 			remap = false,
 		},
 		{
 			"<Space>lk",
-			"<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>",
+			"<cmd>lua vim.diagnostic.jump({ count = -1, float = true })<cr>",
 			desc = "Prev Diagnostic",
 			nowait = true,
 			remap = false,
@@ -648,7 +648,7 @@ function config.whichkey()
 		{ "<Space>lo", "<cmd>Lspsaga outgoing_calls<cr>", desc = "Lspsaga Outgoing", nowait = true, remap = false },
 		{
 			"<Space>lq",
-			"<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>",
+			"<cmd>lua vim.diagnostic.setloclist()<cr>",
 			desc = "Quickfix",
 			nowait = true,
 			remap = false,

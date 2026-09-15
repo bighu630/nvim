@@ -62,13 +62,32 @@ return {
 	},
 	---------------------------------------主题end--------------------------------------
 	---------------------------------------lsp------------------------------------------
-	-- nvim-lspconfig , efmls-configs , mason , cmp , lsp_signature
+	-- nvim-lspconfig , mason 全家桶 , cmp , lsp_signature
+	-- mason 常驻（lazy=false）：负责 LSP/DAP/formatter 的自动安装与 PATH，
+	-- 必须先于 lspconfig 就绪；具体列表见 lua/lsp/mason.lua
+	{
+		"mason-org/mason.nvim",
+		lazy = false,
+		priority = 100,
+		build = ":MasonUpdate",
+		cmd = { "Mason", "MasonInstall", "MasonUninstall", "MasonUninstallAll", "MasonUpdate", "MasonLog" },
+		dependencies = {
+			{ "mason-org/mason-lspconfig.nvim" },
+			{ "WhoIsSethDaniel/mason-tool-installer.nvim" },
+			{ "jay-babu/mason-nvim-dap.nvim" },
+		},
+		config = function()
+			require("lsp.mason").setup()
+		end,
+	},
 	{
 		"neovim/nvim-lspconfig",
 		lazy = true,
 		event = { "VeryLazy", "BufReadPre" },
 		dependencies = {
 			"saghen/blink.cmp",
+			"mason-org/mason.nvim",
+			"mason-org/mason-lspconfig.nvim",
 		},
 		config = require("lsp.lspconf").lspconfig,
 	},

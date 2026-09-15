@@ -24,6 +24,7 @@ function config.autopairs()
 				lua = false,
 				python = false,
 				tex = false,
+				solidity = false,
 			},
 		})
 	)
