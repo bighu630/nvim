@@ -35,8 +35,6 @@ function config.transparent()
 			"SagaWinbarSep",
 			"WinBar",
 			"WinBarNC",
-			"GalaxyFileStatus",
-			"GalaxyWinBar",
 			"WinBarSeparator",
 		},
 		extra_groups = {

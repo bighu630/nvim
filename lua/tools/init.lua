@@ -48,12 +48,13 @@ return {
 		cmd = { "Trouble", "TroubleToggle", "TroubleRefresh" },
 		config = require("tools.trouble").trouble,
 	},
-	{
-		"voldikss/vim-translator",
-		lazy = true,
-		cmd = { "Translate", "TranslateW", "TranslateR", "TranslateV" },
-		config = require("tools.translator").translator,
-	},
+	require("tools.translator"),
+	-- {
+	-- 	"voldikss/vim-translator",
+	-- 	lazy = true,
+	-- 	cmd = { "Translate", "TranslateW", "TranslateR", "TranslateV" },
+	-- 	config = require("tools.translator").translator,
+	-- },
 	-- {
 	-- 	"tpope/vim-surround",
 	-- 	lazy = false,

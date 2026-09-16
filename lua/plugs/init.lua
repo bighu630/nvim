@@ -20,8 +20,10 @@ return {
 	require("tools.snacks"),
 	require("ui.noice"),
 	{
-		"bighu630/galaxyline.nvim",
-		config = require("ui.galaxyline").galaxy,
+		"nvim-lualine/lualine.nvim",
+		lazy = false,
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = require("ui.lualine").lualine,
 	},
 	require("ui.nvimtree"),
 	require("ui.devicons"),

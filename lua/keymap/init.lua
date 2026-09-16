@@ -122,8 +122,8 @@ local plug_map = {
 	["n|<->"] = map_cr("lua vim.diagnostic.goto_next({})"),
 	["n|<=>"] = map_cr("lua vim.diagnostic.goto_prev({})"),
 	-- Translateor
-	["n|<S-l>"] = map_cr("TranslateW"):with_silent():with_noremap(),
-	["v|<S-l>"] = map_cr("TranslateW"):with_silent():with_noremap(),
+	-- ["n|<S-l>"] = map_cr("TranslateNormal"):with_silent():with_noremap(),
+	-- ["v|<S-l>"] = map_cr("TranslateVisual"):with_silent():with_noremap(),
 	-- ["n|<S-s>"] = map_cr("w"):with_noremap():with_silent(),
 	["i|<C-l>"] = map_cmd("<right>"):with_noremap():with_silent(),
 	["i|<C-h>"] = map_cmd("<left>"):with_noremap():with_silent(),
