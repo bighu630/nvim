@@ -86,7 +86,8 @@ function M.lualine()
 	end
 
 	local function checkwidth()
-		return vim.o.columns / 2 > 60
+		-- 按当前窗口宽度判断（分屏时 vim.o.columns 是整个屏幕宽度，会误判）
+		return vim.api.nvim_win_get_width(0) / 2 > 60
 	end
 
 	local function stl_escape(str)
@@ -104,7 +105,11 @@ function M.lualine()
 		if not ok then
 			return ""
 		end
-		return devicons.get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"), { default = true }) or ""
+		local icon = devicons.get_icon(vim.fn.expand("%:t"), vim.fn.expand("%:e"), { default = true })
+		if icon and #icon > 0 then
+			return icon .. " "
+		end
+		return ""
 	end
 
 	local function file_icon_highlight()
@@ -374,9 +379,9 @@ function M.lualine()
 		options = {
 			icons_enabled = true,
 			theme = theme,
-			component_separators = { left = " ", right = "" },
+			component_separators = { left = "", right = "" },
 			section_separators = { left = "", right = "" },
-			disabled_filetypes = { statusline = {}, winbar = {} },
+			disabled_filetypes = { statusline = { "kd" }, winbar = {} },
 			always_divide_middle = true,
 			globalstatus = false,
 		},
