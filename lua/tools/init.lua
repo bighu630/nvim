@@ -14,7 +14,16 @@ return {
 		priority = 1001, -- this plugin needs to run before anything else
 		opts = {
 			rocks = { "magick" },
+            hererocks = true,
 		},
+		config = function(_, opts)
+			-- 新版 LuaRocks 把 dkjson 装到了 luarocks/vendor/ 下（不再有顶层 dkjson.lua），
+			-- 而 luarocks.core.persist 需要 require("dkjson")，
+			-- 不补路径会报 "Unable to load the luarocks package loader"。
+			local rocks = require("luarocks-nvim.paths").rocks
+			package.path = package.path .. ";" .. rocks .. "/share/lua/5.1/luarocks/vendor/?.lua"
+			require("luarocks-nvim").setup(opts)
+		end,
 	},
 	{
 		"3rd/image.nvim",
