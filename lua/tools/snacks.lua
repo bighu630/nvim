@@ -59,7 +59,7 @@ local config = {
 		notifier = {
 			enabled = true,
 			timeout = 3000,
-			margin = { top = 0, right = 1, bottom = 1 },
+			margin = { top = 0, right = 1, bottom = 0 },
 			level = vim.log.levels.INFO,
 		},
 		picker = { enabled = true },

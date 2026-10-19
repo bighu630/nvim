@@ -145,12 +145,17 @@ return {
 	-- },
 	---------------------------------------lspsaga end----------------------------------
 	---------------------------------------langguage -----------------------------------
-	{
-		"fatih/vim-go",
-		lazy = true,
-		ft = "go",
-		config = require("lang.go").vim_go,
-	},
+	-- 试验：暂时停用 vim-go（保存卡顿的主要来源：它会再起一个自己的 gopls，
+	-- 且 go_imports_autosave 默认 1 → 保存时 OrganizeImports 要加载整个包）。
+	-- 替代能力：gopls(mason+原生 LSP) 补全/诊断/引用，treesitter-textobjects 的 af/if/]]/[[，
+	-- neotest-golang + nvim-dap-go 跑测试/调试，gofmt 保存格式化见 after/ftplugin/go.lua。
+	-- 想恢复：取消下面注释即可（配置仍在 lua/lang/go.lua）。
+	-- {
+	-- 	"fatih/vim-go",
+	-- 	lazy = true,
+	-- 	ft = "go",
+	-- 	config = require("lang.go").vim_go,
+	-- },
 	-- {
 	-- 	"mfussenegger/nvim-jdtls",
 	-- 	lazy = true,
